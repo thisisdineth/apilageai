@@ -136,15 +136,7 @@ body {
     backdrop-filter: blur(10px);
 }
 
-.chat-header {
-    background: #ffffff;
-   
-    padding: 15px;
-    text-align: center;
-    color: white;
-    font-weight: bold;
-    font-size: 1.2em;
-}
+
 
 
 .chat-body {
@@ -280,6 +272,14 @@ body {
     margin-right: 180px;
     margin-bottom: 20px;
     border-bottom-right-radius: 25px;
+}
+
+span {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 10px;
+    font-size: smaller;
 }
 
 
