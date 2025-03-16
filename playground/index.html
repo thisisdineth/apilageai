@@ -12,21 +12,6 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
      <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"></script>
      <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"></script>
-     <script>
-      const firebaseConfig = {
-        apiKey: "AIzaSyBQk61blRTT8rCpoAXK_M6pzxDWU5YoISU",
-        authDomain: "mcictsai.firebaseapp.com",
-        databaseURL: "https://mcictsai-default-rtdb.firebaseio.com",
-        projectId: "mcictsai",
-        storageBucket: "mcictsai.firebasestorage.app",
-        messagingSenderId: "976668755678",
-        appId: "1:976668755678:web:5d47304a3df2f289be644f",
-        measurementId: "G-QYJX2KVW94"
-      };
-      
-        const app = firebase.initializeApp(firebaseConfig);
-        const db = firebase.database();
-      </script>
   <!-- Prism.js for code syntax highlighting -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
@@ -86,11 +71,22 @@
         <button id="send-button"><i class="fas fa-paper-plane"></i></button>
         <button id="send-button"><i class="fas fa-camera"></i></button>
     </div>
-</div>
+
+    <div class="chat-footer">
+      <div class="radio-group">
+        <label>
+          <input type="radio" name="options" value="option1"> Maths
+        </label>
+        <label>
+          <input type="radio" name="options" value="option2"> Physics
+        </label>
+        <label>
+          <input type="radio" name="options" value="option3"> Not specified
+        </label>
+      </div>
     </div>
     
     <script src="chat.js"></script>
-    <script type="module" src="../public/wp-admin/app.js"></script>
 </body>
 
 </html>

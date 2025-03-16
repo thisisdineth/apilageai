@@ -21,28 +21,19 @@ body {
     flex-direction: row;
 }
 
-.copy-button {
-    background: transparent;
-    border: none;
-    color: #000000;
-    cursor: pointer;
-    font-size: 20px;
-    padding: 5px;
-    position: absolute;  /* Position the button inside the message div */
-    bottom: 2px;         /* Reduced distance from the bottom */
-    right: 7px;          /* Reduced distance from the right */
-    z-index: 10;         /* Ensure it's above other content */
-    
-}
-
-.copy-button i {
-    transition: transform 0.2s ease-in-out;
-}
-
-.copy-button:hover i {
-    transform: scale(1.2); /* Make the icon grow slightly on hover */
-}
-
+.radio-group {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .radio-group label {
+    display: flex;
+    align-items: center;
+  }
+  
+  .radio-group input[type="radio"] {
+    margin-right: 5px;
+  }
 
 .sidebar {
     width: 200px;
