@@ -1,306 +1,641 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Applace AI</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SriAI - Sri Lanka's AI Platform</title>
+    <meta name="description" content="A cutting-edge AI solution designed specifically for Sri Lankan users, understanding local context, languages, and cultural nuances." />
+    <meta name="author" content="SriAI" />
+    <meta property="og:image" content="/og-image.png" />
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+  </head>
 
-    <link rel="stylesheet" href="style.css">
-
-    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
-    <!-- Add Font Awesome CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    <style>
-
-    </style>
-</head>
-
-<body>
-    <!-- Loading Screen -->
-    <div id="loading-screen">
-        <div class="spinner"></div>
-    </div>
-
-    <!-- Scroll to Top Button -->
-    <button id="scrollTopBtn"><i class="fas fa-chevron-up"></i></button>
-    <nav class="navbar navbar-expand-lg">
+  <body>
+    <!-- Navbar -->
+    <header class="fixed-top">
+      <nav class="navbar navbar-expand-lg navbar-light py-3">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="images/logo.png" alt="Logo" height="50">
-            </a>
-
-            <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon text-white"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#pricing">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                </ul>
-
-                <div class="d-flex align-items-center">
-                    <a href="#" class="btn text-white me-3">සිංහල</a>
-                    <a href="#" class="btn try-btn">Try Today</a>
-                </div>
-            </div>
+          <a class="navbar-brand d-flex align-items-center" href="#">
+            <div class="brand-icon me-2">AI</div>
+            <span class="fw-bold fs-4">SriAI</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#features">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#blog">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#pricing">Pricing</a>
+              </li>
+              <li class="nav-item ms-lg-3">
+                <a class="btn btn-primary" href="#contact">Get Started</a>
+              </li>
+            </ul>
+          </div>
         </div>
-    </nav>
+      </nav>
+    </header>
 
     <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="gradient-box gradient-box-1"></div>
-        <div class="gradient-box gradient-box-2"></div>
-
-        <div class="container">
-            <div class="hero-content mt-5">
-                <h1 class="hero-title">APPILAGE AI</h1>
-                <p class="hero-subtitle">
-                    Revolutionize your workflow with our cutting-edge AI solutions. Experience seamless integration and unparalleled performance.
-                </p>
-
-                <!-- Input Field with Arrow -->
-                <div class="hero-input mb-4" style="max-width: 500px; margin: 0 auto; position: relative;">
-                    <input type="email"
-                        class="form-control"
-                        placeholder="Apilagen අහන්න..."
-                        style="background: rgba(255, 255, 255, 0.1);
-                              border: 1px solid rgba(255, 255, 255, 0.3);
-                              color: white;
-                              padding: 1.25rem 50px 1.25rem 2rem;
-                              border-radius: 50px;
-                              transition: all 0.3s ease;">
-                    <i class="fas fa-arrow-right"
-                        style="position: absolute;
-                          right: 20px;
-                          top: 50%;
-                          transform: translateY(-50%);
-                          color: rgba(255, 255, 255, 0.7);
-                          cursor: pointer;
-                          transition: all 0.3s ease;"></i>
-                </div>
-
-                <a href="#" class="btn try-btn btn-lg">Get Start It's Free</a>
+    <section id="hero" class="min-vh-100 d-flex align-items-center position-relative overflow-hidden">
+      <div class="position-absolute top-0 end-0 translate-middle-x gradient-circle-1"></div>
+      <div class="position-absolute top-50 start-0 translate-middle gradient-circle-2"></div>
+      
+      <div class="container py-5">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <div class="mb-4 badge text-bg-light rounded-pill px-3 py-2">
+              <i class="fas fa-sparkles me-1"></i>
+              Introducing Sri Lanka's First Advanced AI Model
             </div>
+            <h1 class="display-4 fw-bold mb-4">Discover the Future of <span class="text-primary">AI</span> for Sri Lanka</h1>
+            <p class="lead text-muted mb-4">
+              A cutting-edge AI solution designed specifically for Sri Lankan users, 
+              understanding local context, languages, and cultural nuances.
+            </p>
+            
+            <div class="search-container glass-effect mb-5">
+              <form class="d-flex">
+                <i class="fas fa-search text-primary me-2"></i>
+                <input type="text" class="form-control border-0 bg-transparent" placeholder="Ask me anything...">
+                <button class="btn btn-sm btn-link">
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+              </form>
+            </div>
+            
+            <div class="d-flex align-items-center gap-3 text-muted mt-4">
+              <div class="avatar-group">
+                <div class="avatar">A</div>
+                <div class="avatar">B</div>
+                <div class="avatar">C</div>
+                <div class="avatar">D</div>
+              </div>
+              <p class="small mb-0">Trusted by 1000+ organizations across Sri Lanka</p>
+            </div>
+          </div>
+          
+          <div class="col-lg-6">
+            <div class="ai-visualization">
+              <div class="main-circle">
+                <div class="gradient-overlay"></div>
+                <div class="pulse-circle"></div>
+                <div class="rotating-circle"></div>
+                <div class="center-pulse"></div>
+                <div class="core-circle"></div>
+              </div>
+              
+              <div class="floating-element top-right">
+                <i class="fas fa-robot text-primary"></i>
+                <div>Ask Me Anything</div>
+              </div>
+              
+              <div class="floating-element right-mid">
+                <div>සිංහල</div>
+              </div>
+              
+              <div class="floating-element bottom-left">
+                <div>தமிழ்</div>
+              </div>
+              
+              <div class="floating-element left-mid">
+                <div>ML</div>
+              </div>
+              
+              <div class="floating-element top-left">
+                <div>NLP</div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Partner Brands Section -->
+    <section id="partners" class="py-5 bg-light-pink">
+      <div class="container py-4">
+        <div class="text-center mb-5">
+          <div class="badge text-bg-light rounded-pill px-3 py-2 mb-3">
+            <i class="fas fa-handshake text-primary me-1"></i>
+            Our Partners
+          </div>
+          <h2 class="h2 fw-bold">Trusted by Leading Organizations</h2>
+          <p class="text-muted mx-auto" style="max-width: 600px;">
+            Join the growing network of organizations leveraging SriAI's cutting-edge technology
+          </p>
+        </div>
+        
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4 align-items-center justify-content-center">
+          <div class="col">
+            <div class="partner-logo">
+              <img src="https://placehold.co/200x80/FFDEE2/d61414?text=Partner+1" alt="Partner logo" class="img-fluid">
+            </div>
+          </div>
+          <div class="col">
+            <div class="partner-logo">
+              <img src="https://placehold.co/200x80/FDE1D3/d61414?text=Partner+2" alt="Partner logo" class="img-fluid">
+            </div>
+          </div>
+          <div class="col">
+            <div class="partner-logo">
+              <img src="https://placehold.co/200x80/FFDEE2/d61414?text=Partner+3" alt="Partner logo" class="img-fluid">
+            </div>
+          </div>
+          <div class="col">
+            <div class="partner-logo">
+              <img src="https://placehold.co/200x80/FDE1D3/d61414?text=Partner+4" alt="Partner logo" class="img-fluid">
+            </div>
+          </div>
+          <div class="col">
+            <div class="partner-logo">
+              <img src="https://placehold.co/200x80/FFDEE2/d61414?text=Partner+5" alt="Partner logo" class="img-fluid">
+            </div>
+          </div>
+          <div class="col">
+            <div class="partner-logo">
+              <img src="https://placehold.co/200x80/FDE1D3/d61414?text=Partner+6" alt="Partner logo" class="img-fluid">
+            </div>
+          </div>
+          <div class="col">
+            <div class="partner-logo">
+              <img src="https://placehold.co/200x80/FFDEE2/d61414?text=Partner+7" alt="Partner logo" class="img-fluid">
+            </div>
+          </div>
+          <div class="col">
+            <div class="partner-logo">
+              <img src="https://placehold.co/200x80/FDE1D3/d61414?text=Partner+8" alt="Partner logo" class="img-fluid">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+      <div class="container py-5">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6 position-relative">
+            <div class="about-visual glass-effect p-3 rounded-4 position-relative">
+              <div class="rounded-4 aspect-ratio-1 position-relative overflow-hidden">
+                <div class="gradient-overlay"></div>
+                <div class="text-center p-5 position-relative">
+                  <div class="mb-4 d-inline-block">
+                    <div class="nested-circles">
+                      <div class="sriAI-text">SriAI</div>
+                    </div>
+                  </div>
+                  <p>"Created with dedication to empower Sri Lankans with cutting-edge artificial intelligence technology"</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="stat-card top-right">
+              <div class="d-flex align-items-center gap-3">
+                <div class="stat-icon">5+</div>
+                <div class="stat-info">
+                  <div class="stat-title">Years of</div>
+                  <div class="stat-subtitle">Research</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="stat-card bottom-left">
+              <div class="d-flex align-items-center gap-3">
+                <div class="stat-icon">99%</div>
+                <div class="stat-info">
+                  <div class="stat-title">Accuracy in</div>
+                  <div class="stat-subtitle">Local Context</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-6">
+            <div class="badge rounded-pill text-bg-light px-3 py-2 mb-3">About Our AI</div>
+            <h2 class="display-5 fw-bold mb-4">Built in Sri Lanka, for Sri Lanka</h2>
+            <p class="lead text-muted mb-4">
+              Our AI model has been specifically engineered to address the unique needs and challenges of 
+              Sri Lankan users. With a deep understanding of local languages, cultural nuances, and 
+              technology infrastructure, we've created an AI solution that truly works for our community.
+            </p>
+            
+            <div class="benefits-list">
+              <div class="benefit-item">
+                <i class="fas fa-check text-primary"></i>
+                <p>Developed by Sri Lankan researchers for local contexts</p>
+              </div>
+              <div class="benefit-item">
+                <i class="fas fa-check text-primary"></i>
+                <p>Trained on millions of multilingual Sri Lankan data points</p>
+              </div>
+              <div class="benefit-item">
+                <i class="fas fa-check text-primary"></i>
+                <p>Continuously improved through user feedback</p>
+              </div>
+              <div class="benefit-item">
+                <i class="fas fa-check text-primary"></i>
+                <p>Optimized for local hardware and infrastructure constraints</p>
+              </div>
+              <div class="benefit-item">
+                <i class="fas fa-check text-primary"></i>
+                <p>Supports all official languages of Sri Lanka</p>
+              </div>
+              <div class="benefit-item">
+                <i class="fas fa-check text-primary"></i>
+                <p>Committed to responsible AI development and usage</p>
+              </div>
+            </div>
+            
+            <div class="mt-4">
+              <a href="#features" class="btn btn-primary px-4 py-2">
+                Discover How It Works
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Features Section -->
-    <section id="about" class="features-section py-5" style="background: #0A0A2E; display: flex;
-    align-items: center;
-    justify-content: center; color: white;">
-        <div class="container py-5">
-            <div class="row text-center mb-5">
-                <div class="col-12">
-                    <h2 class="display-4 fw-bold mb-4">AI-Powered Features</h2>
-                    <p class="text-white">Transform your workflow with our intelligent solutions</p>
-                </div>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="feature-card p-4 rounded-4" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
-                        <i class="fas fa-brain fa-3x mb-4" style="background: linear-gradient(45deg, #8B10CB, #FF206E); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
-                        <h3 class="mb-3">Smart Automation</h3>
-                        <p class="text-white">AI-driven processes that learn and adapt to your business needs</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="feature-card p-4 rounded-4" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
-                        <i class="fas fa-chart-line fa-3x mb-4" style="background: linear-gradient(45deg, #8B10CB, #FF206E); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
-                        <h3 class="mb-3">Real-Time Analytics</h3>
-                        <p class="text-white">Instant insights powered by machine learning algorithms</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="feature-card p-4 rounded-4" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
-                        <i class="fas fa-shield-alt fa-3x mb-4" style="background: linear-gradient(45deg, #8B10CB, #FF206E); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
-                        <h3 class="mb-3">Advanced Security</h3>
-                        <p class="text-white">Enterprise-grade protection for your sensitive data</p>
-                    </div>
-                </div>
-            </div>
+    <section id="features" class="py-5 bg-light">
+      <div class="container py-5">
+        <div class="text-center mb-5">
+          <div class="badge text-bg-light rounded-pill px-3 py-2 mb-3">Advanced Capabilities</div>
+          <h2 class="display-5 fw-bold">Powerful Features Designed for Sri Lanka</h2>
+          <p class="lead text-muted mx-auto" style="max-width: 700px;">
+            Our AI model comes with a set of features specifically optimized for Sri Lankan users,
+            businesses, and institutions.
+          </p>
         </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="feature-card glass-effect p-4 rounded-4 h-100">
+              <div class="feature-icon mb-3">
+                <i class="fas fa-globe"></i>
+              </div>
+              <h3 class="h5 fw-bold">Multilingual Support</h3>
+              <p class="text-muted">Fluent in Sinhala, Tamil, and English, tailored for Sri Lankan communication needs.</p>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-4">
+            <div class="feature-card glass-effect p-4 rounded-4 h-100">
+              <div class="feature-icon mb-3">
+                <i class="fas fa-comment"></i>
+              </div>
+              <h3 class="h5 fw-bold">Contextual Understanding</h3>
+              <p class="text-muted">Understands local nuances, slang, and cultural references unique to Sri Lanka.</p>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-4">
+            <div class="feature-card glass-effect p-4 rounded-4 h-100">
+              <div class="feature-icon mb-3">
+                <i class="fas fa-layer-group"></i>
+              </div>
+              <h3 class="h5 fw-bold">Versatile Applications</h3>
+              <p class="text-muted">From business solutions to educational tools, adaptable across various sectors.</p>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-4">
+            <div class="feature-card glass-effect p-4 rounded-4 h-100">
+              <div class="feature-icon mb-3">
+                <i class="fas fa-shield"></i>
+              </div>
+              <h3 class="h5 fw-bold">Privacy Focused</h3>
+              <p class="text-muted">Built with strong privacy protocols to protect sensitive user information.</p>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-4">
+            <div class="feature-card glass-effect p-4 rounded-4 h-100">
+              <div class="feature-icon mb-3">
+                <i class="fas fa-bolt"></i>
+              </div>
+              <h3 class="h5 fw-bold">High Performance</h3>
+              <p class="text-muted">Optimized for speed and efficiency, even with complex language processing tasks.</p>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-4">
+            <div class="feature-card glass-effect p-4 rounded-4 h-100">
+              <div class="feature-icon mb-3">
+                <i class="fas fa-users"></i>
+              </div>
+              <h3 class="h5 fw-bold">Community Driven</h3>
+              <p class="text-muted">Continuously improved with feedback from the Sri Lankan tech community.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-5">
+      <div class="container py-5">
+        <div class="text-center mb-5">
+          <div class="badge text-bg-light rounded-pill px-3 py-2 mb-3">Our Blog</div>
+          <h2 class="display-5 fw-bold">Latest Insights & Updates</h2>
+          <p class="lead text-muted mx-auto" style="max-width: 700px;">
+            Stay informed about the latest developments in AI technology for Sri Lanka
+            and discover how our solutions are making an impact.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="card blog-card h-100">
+              <div class="blog-image-container">
+                <div class="blog-image-overlay"></div>
+                <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" class="card-img-top" alt="Blog image">
+                <span class="blog-category">Development</span>
+              </div>
+              <div class="card-body">
+                <div class="blog-meta d-flex text-muted mb-3">
+                  <span class="me-3"><i class="far fa-calendar me-1"></i> May 12, 2023</span>
+                  <span><i class="far fa-clock me-1"></i> 5 min read</span>
+                </div>
+                <h3 class="card-title h5">Bringing Advanced AI to Sri Lanka: Our Journey</h3>
+                <p class="card-text text-muted">Learn about the development process and challenges we overcame to create an AI model specifically for Sri Lankan contexts.</p>
+                <a href="#" class="text-primary fw-medium">Read More <i class="fas fa-arrow-right ms-1"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-4">
+            <div class="card blog-card h-100">
+              <div class="blog-image-container">
+                <div class="blog-image-overlay"></div>
+                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" class="card-img-top" alt="Blog image">
+                <span class="blog-category">Business</span>
+              </div>
+              <div class="card-body">
+                <div class="blog-meta d-flex text-muted mb-3">
+                  <span class="me-3"><i class="far fa-calendar me-1"></i> June 3, 2023</span>
+                  <span><i class="far fa-clock me-1"></i> 8 min read</span>
+                </div>
+                <h3 class="card-title h5">How SriAI is Transforming Local Businesses</h3>
+                <p class="card-text text-muted">Discover how companies across Sri Lanka are leveraging our AI model to streamline operations and improve customer experiences.</p>
+                <a href="#" class="text-primary fw-medium">Read More <i class="fas fa-arrow-right ms-1"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-4">
+            <div class="card blog-card h-100">
+              <div class="blog-image-container">
+                <div class="blog-image-overlay"></div>
+                <img src="https://images.unsplash.com/photo-1642427749670-f20e2e76ed8c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" class="card-img-top" alt="Blog image">
+                <span class="blog-category">Research</span>
+              </div>
+              <div class="card-body">
+                <div class="blog-meta d-flex text-muted mb-3">
+                  <span class="me-3"><i class="far fa-calendar me-1"></i> July 21, 2023</span>
+                  <span><i class="far fa-clock me-1"></i> 6 min read</span>
+                </div>
+                <h3 class="card-title h5">The Future of Multilingual AI for Sri Lanka</h3>
+                <p class="card-text text-muted">Explore our vision for the next generation of AI technologies that will better serve Sri Lanka's diverse linguistic landscape.</p>
+                <a href="#" class="text-primary fw-medium">Read More <i class="fas fa-arrow-right ms-1"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center mt-5">
+          <a href="#" class="btn btn-outline-primary">View All Articles</a>
+        </div>
+      </div>
     </section>
 
     <!-- Pricing Section -->
-    <section id="pricing" class="pricing-section py-5" style="background: #1A1A4A;display: flex;
-    align-items: center;
-    justify-content: center;  color: white;">
-        <div class="container py-5">
-            <div class="row text-center mb-5">
-                <div class="col-12">
-                    <h2 class="display-4 fw-bold mb-4">Flexible Pricing</h2>
-                    <p class="text-white">Choose the plan that fits your needs</p>
-                </div>
+    <section id="pricing" class="py-5 bg-light">
+      <div class="container py-5">
+        <div class="text-center mb-5">
+          <div class="badge text-bg-light rounded-pill px-3 py-2 mb-3">Pricing Plans</div>
+          <h2 class="display-5 fw-bold">Choose the Right Plan for Your Needs</h2>
+          <p class="lead text-muted mx-auto" style="max-width: 700px;">
+            Flexible pricing options designed to scale with your requirements, from individual
+            projects to enterprise-level deployments.
+          </p>
+          
+          <div class="mt-4 d-flex justify-content-center">
+            <div class="btn-group" role="group" aria-label="Pricing period">
+              <button type="button" class="btn btn-outline-secondary" id="monthly-btn">Monthly</button>
+              <button type="button" class="btn btn-outline-secondary active" id="annual-btn">Annual</button>
             </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-4">
-                    <div class="pricing-card p-4 rounded-4" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
-                        <h3 class="mb-3">Starter</h3>
-                        <div class="price display-3 fw-bold mb-3">
-                            $29<span class="fs-6 text-white">/mo</span>
-                        </div>
-                        <ul class="list-unstyled mb-4">
-                            <li class="mb-3"><i class="fas fa-check-circle me-2 text-success"></i>Basic Features</li>
-                            <li class="mb-3"><i class="fas fa-check-circle me-2 text-success"></i>5 Projects</li>
-                            <li class="mb-3"><i class="fas fa-check-circle me-2 text-success"></i>2 Team Members</li>
-                        </ul>
-                        <button class="btn try-btn w-100">Get Started</button>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="pricing-card p-4 rounded-4 position-relative" style="background: linear-gradient(45deg, #8B10CB, #FF206E); border: 1px solid rgba(255,255,255,0.1);">
-                        <span class="badge bg-white text-dark position-absolute top-0 end-0 m-3">Popular</span>
-                        <h3 class="mb-3">Professional</h3>
-                        <div class="price display-3 fw-bold mb-3">
-                            $99<span class="fs-6 text-light">/mo</span>
-                        </div>
-                        <ul class="list-unstyled mb-4">
-                            <li class="mb-3"><i class="fas fa-check-circle me-2 text-white"></i>All Features</li>
-                            <li class="mb-3"><i class="fas fa-check-circle me-2 text-white"></i>Unlimited Projects</li>
-                            <li class="mb-3"><i class="fas fa-check-circle me-2 text-white"></i>10 Team Members</li>
-                        </ul>
-                        <button class="btn btn-light w-100">Try Today</button>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="pricing-card p-4 rounded-4" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
-                        <h3 class="mb-3">Advanced</h3>
-                        <div class="price display-3 fw-bold mb-3">
-                            $40<span class="fs-6 text-white">/mo</span>
-                        </div>
-                        <ul class="list-unstyled mb-4">
-                            <li class="mb-3"><i class="fas fa-check-circle me-2 text-success"></i>Basic Features</li>
-                            <li class="mb-3"><i class="fas fa-check-circle me-2 text-success"></i>5 Projects</li>
-                            <li class="mb-3"><i class="fas fa-check-circle me-2 text-success"></i>2 Team Members</li>
-                        </ul>
-                        <button class="btn try-btn w-100">Get Started</button>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="card pricing-card h-100">
+              <div class="card-body p-4">
+                <h3 class="card-title">Starter</h3>
+                <p class="text-muted small">Perfect for individuals and small projects</p>
+                
+                <div class="pricing-value my-4">
+                  <div class="pricing-currency">
+                    <span class="fs-2 fw-bold">Rs. 24,990</span>
+                    <span class="text-muted">/year</span>
+                  </div>
+                  <p class="text-primary small">Save Rs. 4,998</p>
+                </div>
+                
+                <div class="d-grid mb-4">
+                  <a href="#contact" class="btn btn-outline-primary">Get Started</a>
+                </div>
+                
+                <p class="fw-medium small">What's included:</p>
+                <ul class="list-unstyled pricing-features">
+                  <li><i class="fas fa-check text-primary me-2"></i> Basic Sinhala & Tamil support</li>
+                  <li><i class="fas fa-check text-primary me-2"></i> Up to 100 queries per day</li>
+                  <li><i class="fas fa-check text-primary me-2"></i> Standard response time</li>
+                  <li><i class="fas fa-check text-primary me-2"></i> Email support</li>
+                  <li><i class="fas fa-check text-primary me-2"></i> Single user access</li>
+                </ul>
+                
+                <p class="fw-medium small mt-3">Not included:</p>
+                <ul class="list-unstyled pricing-features">
+                  <li><i class="fas fa-times text-muted me-2"></i> <span class="text-muted">Advanced language capabilities</span></li>
+                  <li><i class="fas fa-times text-muted me-2"></i> <span class="text-muted">Custom model training</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-4">
+            <div class="card pricing-card pricing-popular h-100">
+              <div class="popular-badge">POPULAR</div>
+              <div class="card-body p-4">
+                <h3 class="card-title">Professional</h3>
+                <p class="text-muted small">Ideal for businesses and organizations</p>
+                
+                <div class="pricing-value my-4">
+                  <div class="pricing-currency">
+                    <span class="fs-2 fw-bold">Rs. 69,990</span>
+                    <span class="text-muted">/year</span>
+                  </div>
+                  <p class="text-primary small">Save Rs. 13,998</p>
+                </div>
+                
+                <div class="d-grid mb-4">
+                  <a href="#contact" class="btn btn-primary">Get Started</a>
+                </div>
+                
+                <p class="fw-medium small">What's included:</p>
+                <ul class="list-unstyled pricing-features">
+                  <li><i class="fas fa-check text-primary me-2"></i> Advanced Sinhala & Tamil support</li>
+                  <li><i class="fas fa-check text-primary me-2"></i> Up to 1,000 queries per day</li>
+                  <li><i class="fas fa-check text-primary me-2"></i> Fast response time</li>
+                  <li><i class="fas fa-check text-primary me-2"></i> Priority email & chat support</li>
+                  <li><i class="fas fa-check text-primary me-2"></i> Up to 5 user access</li>
+                  <li><i class="fas fa-check text-primary me-2"></i> Basic custom training options</li>
+                </ul>
+                
+                <p class="fw-medium small mt-3">Not included:</p>
+                <ul class="list-unstyled pricing-features">
+                  <li><i class="fas fa-times text-muted me-2"></i> <span class="text-muted">Enterprise-level scaling</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-4">
+            <div class="card pricing-card h-100">
+              <div class="card-body p-4">
+                <h3 class="card-title">Enterprise</h3>
+                <p class="text-muted small">For large-scale deployment and customization</p>
+                
+                <div class="pricing-value my-4">
+                  <div class="pricing-currency">
+                    <span class="fs-2 fw-bold">Rs. 149,990</span>
+                    <span class="text-muted">/year</span>
+                  </div>
+                  <p class="text-primary small">Save Rs. 29,998</p>
+                </div>
+                
+                <div class="d-grid mb-4">
+                  <a href="#contact" class="btn btn-outline-primary">Get Started</a>
+                </div>
+                
+                <p class="fw-medium small">What's included:</p>
+                <ul class="list-unstyled pricing-features">
+                  <li><i class="fas fa-check text-primary me-2"></i> Full multilingual capabilities</li>
+                  <li><i class="fas fa-check text-primary me-2"></i> Unlimited queries</li>
+                  <li><i class="fas fa-check text-primary me-2"></i> Fastest response time</li>
+                  <li><i class="fas fa-check text-primary me-2"></i> 24/7 dedicated support</li>
+                  <li><i class="fas fa-check text-primary me-2"></i> Unlimited user access</li>
+                  <li><i class="fas fa-check text-primary me-2"></i> Advanced custom training</li>
+                  <li><i class="fas fa-check text-primary me-2"></i> Private model deployment</li>
+                  <li><i class="fas fa-check text-primary me-2"></i> SLA guarantees</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center mt-5 text-muted">
+          <p>Need a custom solution? <a href="#contact" class="text-primary fw-medium">Contact us</a> for specialized enterprise offerings.</p>
+        </div>
+      </div>
     </section>
 
-    <!-- Contact Page -->
-    <section id="contact" class="contact-section py-5" style="background: #0A0A2E; color: white; ">
-        <div class="container py-5">
-            <div class="row text-center mb-5">
-                <div class="col-12">
-                    <h2 class="display-4 fw-bold mb-4">Contact Us</h2>
-                    <p class="text-white">Let's build something amazing together</p>
-                </div>
+    <!-- Footer -->
+    <footer class="bg-white border-top py-5">
+      <div class="container py-4">
+        <div class="row g-4">
+          <div class="col-lg-3 col-md-6">
+            <div class="d-flex align-items-center mb-3">
+              <div class="brand-icon me-2">AI</div>
+              <span class="fw-bold fs-4">SriAI</span>
             </div>
-
-            <div class="row g-5">
-                <!-- Contact Form -->
-                <div class="col-lg-6">
-                    <div class="contact-card p-5 rounded-4" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
-                        <form>
-                            <div class="mb-4">
-                                <label for="name" class="form-label">Your Name</label>
-                                <input type="text" class="form-control bg-transparent text-white border-2 border-secondary py-3"
-                                    placeholder="Your Name" style="border-color: rgba(255,255,255,0.3);">
-                            </div>
-                            <div class="mb-4">
-                                <label for="email" class="form-label">Your Email</label>
-                                <input type="email" class="form-control bg-transparent text-white border-2 border-secondary py-3"
-                                    placeholder="Your Email" style="border-color: rgba(255, 255, 255, 0.3);">
-                            </div>
-                            <div class="mb-4">
-                                <label for="message" class="form-label">Your Message</label>
-                                <textarea class="form-control bg-transparent text-white border-2 border-secondary py-3"
-                                    rows="5" placeholder="Your Message" style="border-color: rgba(255,255,255,0.3);"></textarea>
-                            </div>
-                            <button class="btn try-btn w-100 py-3">Send Message</button>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- Contact Info -->
-                <div class="col-lg-6">
-                    <div class="info-card p-5 rounded-4" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
-                        <div class="mb-5">
-                            <h1 class="mb-4">Get in Touch</h1>
-                            <p>We are designing a more advanced AI model that assists all Sri Lankan citizens with various aspects of their lives, including studying, daily routines, language practice, school exams, and more! This AI model is specially trained to incorporate Sri Lankan culture.</p>
-                            <div class="d-flex align-items-center mt-3 mb-3">
-                                
-                                <i class="fas fa-map-marker-alt me-3" style="font-size: 1.5rem; background: linear-gradient(45deg, #8B10CB, #FF206E); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
-                                <p class="mb-0">123 AI Street, Tech Valley, Sri Lanka</p>
-                            </div>
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fas fa-phone me-3" style="font-size: 1.5rem; background: linear-gradient(45deg, #8B10CB, #FF206E); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
-                                <p class="mb-0">+94 112 345 678</p>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-envelope me-3" style="font-size: 1.5rem; background: linear-gradient(45deg, #8B10CB, #FF206E); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
-                                <p class="mb-0">hello@appilage.ai</p>
-                            </div>
-                        </div>
-
-                        <div class="social-links">
-                            <h4 class="mb-4">Follow Us</h4>
-                            <div class="d-flex gap-3">
-                                <a href="#" class="social-icon">
-                                    <i class="fab fa-twitter fa-2x"></i>
-                                </a>
-                                <a href="#" class="social-icon">
-                                    <i class="fab fa-linkedin fa-2x"></i>
-                                </a>
-                                <a href="#" class="social-icon">
-                                    <i class="fab fa-github fa-2x"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <p class="text-muted mb-4">
+              Pioneering artificial intelligence solutions designed specifically for Sri Lankan contexts and languages.
+            </p>
+            <div class="d-flex gap-3">
+              <a href="#" class="text-muted"><i class="fab fa-facebook"></i></a>
+              <a href="#" class="text-muted"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="text-muted"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="text-muted"><i class="fab fa-linkedin"></i></a>
             </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-6">
+            <h5 class="fw-bold mb-3">Company</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2"><a href="#about" class="text-muted text-decoration-none">About Us</a></li>
+              <li class="mb-2"><a href="#features" class="text-muted text-decoration-none">Features</a></li>
+              <li class="mb-2"><a href="#pricing" class="text-muted text-decoration-none">Pricing</a></li>
+              <li class="mb-2"><a href="#blog" class="text-muted text-decoration-none">Blog</a></li>
+              <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Careers</a></li>
+            </ul>
+          </div>
+          
+          <div class="col-lg-3 col-md-6">
+            <h5 class="fw-bold mb-3">Resources</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Documentation</a></li>
+              <li class="mb-2"><a href="#" class="text-muted text-decoration-none">API Reference</a></li>
+              <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Tutorials</a></li>
+              <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Case Studies</a></li>
+              <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Support</a></li>
+            </ul>
+          </div>
+          
+          <div class="col-lg-3 col-md-6">
+            <h5 class="fw-bold mb-3">Contact</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2 d-flex">
+                <i class="far fa-envelope text-muted mt-1 me-2"></i>
+                <span class="text-muted">info@sriai.lk</span>
+              </li>
+              <li class="mb-2 d-flex">
+                <i class="fas fa-phone text-muted mt-1 me-2"></i>
+                <span class="text-muted">+94 11 234 5678</span>
+              </li>
+              <li class="mb-2 text-muted">
+                123 Innovation Drive, Colombo 04, Sri Lanka
+              </li>
+            </ul>
+          </div>
         </div>
-        <hr>
-        <p  class="text-center">&copy; 2023 Appilage AI All rights reserved.</p>
-    </section>
+        
+        <div class="border-top mt-5 pt-4 d-flex flex-column flex-md-row justify-content-between align-items-center">
+          <p class="text-muted small mb-3 mb-md-0">
+            © 2023 SriAI. All rights reserved.
+          </p>
+          <div class="d-flex gap-4">
+            <a href="#" class="text-muted small">Privacy Policy</a>
+            <a href="#" class="text-muted small">Terms of Service</a>
+            <a href="#" class="text-muted small">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
 
-    <script>
-        // Smoothly fade out loading screen
-        window.addEventListener("load", function () {
-            setTimeout(() => {
-                document.getElementById("loading-screen").style.opacity = "0";
-                setTimeout(() => {
-                    document.getElementById("loading-screen").style.display = "none";
-                }, 1000);
-            }, 1000);
-        });
-
-        // Scroll to top functionality
-        const scrollTopBtn = document.getElementById("scrollTopBtn");
-        window.onscroll = function () {
-            if (document.documentElement.scrollTop > 300) {
-                scrollTopBtn.style.display = "block";
-            } else {
-                scrollTopBtn.style.display = "none";
-            }
-        };
-        scrollTopBtn.addEventListener("click", function () {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-    </script>
-
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+  </body>
 </html>
