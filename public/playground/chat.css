@@ -268,9 +268,20 @@ body {
     color: black;
     margin-left: 180px;
     margin-right: 180px;
-    border-radius: 25px;
-    margin-bottom: 50px;
+    border-top-left-radius: 25px;
+    margin-bottom: 0px;
 }
+.chat-more {
+    display: flex;
+    padding: 10px;
+    background: #e2dfdf;
+    color: rgb(152, 12, 12);
+    margin-left: 180px;
+    margin-right: 180px;
+    margin-bottom: 20px;
+    border-bottom-right-radius: 25px;
+}
+
 
 #user-input {
     flex: 1;
