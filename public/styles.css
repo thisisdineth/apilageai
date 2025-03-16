@@ -221,7 +221,7 @@ body {
 
 .floating-element {
   position: absolute;
-  width: 80px;
+  width: 200px;
   height: 80px;
   background-color: white;
   border-radius: 1rem;
@@ -546,7 +546,7 @@ body {
   }
   
   .floating-element {
-    width: 50px;
+    width: 200px;
     height: 50px;
     font-size: 0.7rem;
   }
