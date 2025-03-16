@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applace AI</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    <!-- Add Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn"><i class="fas fa-chevron-up"></i></button>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="images/logo.png" alt="Logo" height="50">
+            </a>
+
+            <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon text-white"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pricing">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center">
+                    <a href="#" class="btn text-white me-3">සිංහල</a>
+                    <a href="#" class="btn try-btn">Try Today</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="gradient-box gradient-box-1"></div>
+        <div class="gradient-box gradient-box-2"></div>
+
+        <div class="container">
+            <div class="hero-content mt-5">
+                <h1 class="hero-title">APPILAGE AI</h1>
+                <p class="hero-subtitle">
+                    Revolutionize your workflow with our cutting-edge AI solutions. Experience seamless integration and unparalleled performance.
+                </p>
+
+                <!-- Input Field with Arrow -->
+                <div class="hero-input mb-4" style="max-width: 500px; margin: 0 auto; position: relative;">
+                    <input type="email"
+                        class="form-control"
+                        placeholder="Enter your email to get started"
+                        style="background: rgba(255, 255, 255, 0.1);
+                              border: 1px solid rgba(255, 255, 255, 0.3);
+                              color: white;
+                              padding: 1.25rem 50px 1.25rem 2rem;
+                              border-radius: 50px;
+                              transition: all 0.3s ease;">
+                    <i class="fas fa-arrow-right"
+                        style="position: absolute;
+                          right: 20px;
+                          top: 50%;
+                          transform: translateY(-50%);
+                          color: rgba(255, 255, 255, 0.7);
+                          cursor: pointer;
+                          transition: all 0.3s ease;"></i>
+                </div>
+
+                <a href="#" class="btn try-btn btn-lg">Get Start It's Free</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="about" class="features-section py-5" style="background: #0A0A2E; display: flex;
+    align-items: center;
+    justify-content: center; height: 100vh; color: white;">
+        <div class="container py-5">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="display-4 fw-bold mb-4">AI-Powered Features</h2>
+                    <p class="text-white">Transform your workflow with our intelligent solutions</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card p-4 rounded-4" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+                        <i class="fas fa-brain fa-3x mb-4" style="background: linear-gradient(45deg, #8B10CB, #FF206E); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                        <h3 class="mb-3">Smart Automation</h3>
+                        <p class="text-white">AI-driven processes that learn and adapt to your business needs</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card p-4 rounded-4" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+                        <i class="fas fa-chart-line fa-3x mb-4" style="background: linear-gradient(45deg, #8B10CB, #FF206E); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                        <h3 class="mb-3">Real-Time Analytics</h3>
+                        <p class="text-white">Instant insights powered by machine learning algorithms</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card p-4 rounded-4" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+                        <i class="fas fa-shield-alt fa-3x mb-4" style="background: linear-gradient(45deg, #8B10CB, #FF206E); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                        <h3 class="mb-3">Advanced Security</h3>
+                        <p class="text-white">Enterprise-grade protection for your sensitive data</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing-section py-5" style="background: #1A1A4A;display: flex;
+    align-items: center;
+    justify-content: center; height: 100vh; color: white;">
+        <div class="container py-5">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="display-4 fw-bold mb-4">Flexible Pricing</h2>
+                    <p class="text-white">Choose the plan that fits your needs</p>
+                </div>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4">
+                    <div class="pricing-card p-4 rounded-4" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+                        <h3 class="mb-3">Starter</h3>
+                        <div class="price display-3 fw-bold mb-3">
+                            $29<span class="fs-6 text-white">/mo</span>
+                        </div>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-3"><i class="fas fa-check-circle me-2 text-success"></i>Basic Features</li>
+                            <li class="mb-3"><i class="fas fa-check-circle me-2 text-success"></i>5 Projects</li>
+                            <li class="mb-3"><i class="fas fa-check-circle me-2 text-success"></i>2 Team Members</li>
+                        </ul>
+                        <button class="btn try-btn w-100">Get Started</button>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="pricing-card p-4 rounded-4 position-relative" style="background: linear-gradient(45deg, #8B10CB, #FF206E); border: 1px solid rgba(255,255,255,0.1);">
+                        <span class="badge bg-white text-dark position-absolute top-0 end-0 m-3">Popular</span>
+                        <h3 class="mb-3">Professional</h3>
+                        <div class="price display-3 fw-bold mb-3">
+                            $99<span class="fs-6 text-light">/mo</span>
+                        </div>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-3"><i class="fas fa-check-circle me-2 text-white"></i>All Features</li>
+                            <li class="mb-3"><i class="fas fa-check-circle me-2 text-white"></i>Unlimited Projects</li>
+                            <li class="mb-3"><i class="fas fa-check-circle me-2 text-white"></i>10 Team Members</li>
+                        </ul>
+                        <button class="btn btn-light w-100">Try Today</button>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="pricing-card p-4 rounded-4" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+                        <h3 class="mb-3">Advanced</h3>
+                        <div class="price display-3 fw-bold mb-3">
+                            $40<span class="fs-6 text-white">/mo</span>
+                        </div>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-3"><i class="fas fa-check-circle me-2 text-success"></i>Basic Features</li>
+                            <li class="mb-3"><i class="fas fa-check-circle me-2 text-success"></i>5 Projects</li>
+                            <li class="mb-3"><i class="fas fa-check-circle me-2 text-success"></i>2 Team Members</li>
+                        </ul>
+                        <button class="btn try-btn w-100">Get Started</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact" class="contact-section py-5" style="background: #0A0A2E; color: white; min-height: 100vh;">
+        <div class="container py-5">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="display-4 fw-bold mb-4">Contact Us</h2>
+                    <p class="text-white">Let's build something amazing together</p>
+                </div>
+            </div>
+
+            <div class="row g-5">
+                <!-- Contact Form -->
+                <div class="col-lg-6">
+                    <div class="contact-card p-5 rounded-4" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+                        <form>
+                            <div class="mb-4">
+                                <input type="text" class="form-control bg-transparent text-white border-2 border-secondary py-3"
+                                    placeholder="Your Name" style="border-color: rgba(255,255,255,0.3);">
+                            </div>
+                            <div class="mb-4">
+                                <input type="email" class="form-control bg-transparent text-white border-2 border-secondary py-3"
+                                    placeholder="Your Email" style="border-color: rgba(255,255,255,0.3);">
+                            </div>
+                            <div class="mb-4">
+                                <textarea class="form-control bg-transparent text-white border-2 border-secondary py-3"
+                                    rows="5" placeholder="Your Message" style="border-color: rgba(255,255,255,0.3);"></textarea>
+                            </div>
+                            <button class="btn try-btn w-100 py-3">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-lg-6">
+                    <div class="info-card p-5 rounded-4" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+                        <div class="mb-5">
+                            <h3 class="mb-4">Get in Touch</h3>
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-map-marker-alt me-3" style="font-size: 1.5rem; background: linear-gradient(45deg, #8B10CB, #FF206E); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                                <p class="mb-0">123 AI Street, Tech Valley, Sri Lanka</p>
+                            </div>
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-phone me-3" style="font-size: 1.5rem; background: linear-gradient(45deg, #8B10CB, #FF206E); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                                <p class="mb-0">+94 112 345 678</p>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-envelope me-3" style="font-size: 1.5rem; background: linear-gradient(45deg, #8B10CB, #FF206E); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                                <p class="mb-0">hello@appilage.ai</p>
+                            </div>
+                        </div>
+
+                        <div class="social-links">
+                            <h4 class="mb-4">Follow Us</h4>
+                            <div class="d-flex gap-3">
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-twitter fa-2x"></i>
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-linkedin fa-2x"></i>
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-github fa-2x"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smoothly fade out loading screen
+        window.addEventListener("load", function () {
+            setTimeout(() => {
+                document.getElementById("loading-screen").style.opacity = "0";
+                setTimeout(() => {
+                    document.getElementById("loading-screen").style.display = "none";
+                }, 1000);
+            }, 1000);
+        });
+
+        // Scroll to top functionality
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+        window.onscroll = function () {
+            if (document.documentElement.scrollTop > 300) {
+                scrollTopBtn.style.display = "block";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        };
+        scrollTopBtn.addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    </script>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
