@@ -65,6 +65,32 @@ body {
   color: var(--primary) !important;
 }
 
+
+/* Style for the arrow icon */
+.btn .fa-arrow-right {
+  color: #ff0033;       /* Set icon color (blue) */
+  font-size: 1.2rem;    /* Adjust icon size */
+  transition: transform 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover effect for the button */
+.btn:hover .fa-arrow-right {
+  color: #fe278b;        /* Darker shade on hover */
+  transform: translateX(3px); /* Slight right movement on hover */
+}
+
+/* Align the form elements properly */
+form.d-flex {
+  align-items: center;
+  width: 100%;          /* Ensure the form takes full width */
+}
+
+/* Ensure the button is pushed to the extreme right */
+form .btn {
+  flex-shrink: 0;
+  margin-left: 10px;    /* Add custom space if needed */
+}
+
 .badge {
   border-radius: 50rem;
   font-size: 0.75rem;
@@ -77,6 +103,33 @@ body {
   background: radial-gradient(circle, rgba(214, 20, 20, 0.05) 0%, rgba(214, 20, 20, 0) 70%);
   filter: blur(50px);
   z-index: -1;
+}
+
+/* Remove focus and hover effects from the input */
+.form-control:focus,
+.form-control:hover {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+    background-color: transparent !important;
+    color: inherit; /* Keeps the text color consistent */
+}
+
+/* Optional: Disable focus styles for consistency */
+.form-control {
+    border: none !important;
+}
+
+.core-image {
+  position: absolute;
+  width: 100px; /* Adjust size as needed */
+  height: 100px; /* Adjust size as needed */
+  border-radius: 10%;
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers the image */
+  z-index: 5; /* Ensures it sits above other layers if needed */
 }
 
 .gradient-overlay {
@@ -127,7 +180,7 @@ body {
 
 .search-container:hover {
   border-color: var(--primary-soft);
-  box-shadow: 0 5px 15px rgba(214, 20, 20, 0.1);
+
 }
 
 .search-container input {
