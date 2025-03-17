@@ -132,6 +132,8 @@ form .btn {
   z-index: 5; /* Ensures it sits above other layers if needed */
 }
 
+
+
 .gradient-overlay {
   position: absolute;
   inset: 0;
