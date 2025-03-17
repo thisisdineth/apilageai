@@ -17,8 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.greeting-text').textContent = `${greeting}, USERNAME`;
   }
   
-  setGreeting();
-  
+
   // Handle sidebar section toggles
   const sectionToggles = document.querySelectorAll('.sidebar-header-toggle');
   
