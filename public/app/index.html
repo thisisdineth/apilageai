@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Chat Bot Playground</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Google Fonts - Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="d-flex justify-content-between align-items-center mb-4 p-4">
+          <h2 class="fs-6 fw-medium text-dark mb-0">Hi, Dineth</h2>
+          <div class="d-flex gap-3">
+            <button class="sidebar-icon-btn">
+              <i data-lucide="message-square" size="18"></i>
+            </button>
+            <button class="sidebar-icon-btn">
+              <i data-lucide="edit" size="18"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="sidebar-items px-4">
+          <div class="sidebar-item mb-1">
+            <i data-lucide="file-code" size="16"></i>
+            <span>Praxis</span>
+            <i data-lucide="panel-left" size="14" class="ms-auto"></i>
+          </div>
+          
+          <div class="sidebar-item mb-1">
+            <i data-lucide="edit" size="16"></i>
+            <span>Open Canvas</span>
+          </div>
+          
+          <div class="sidebar-item mb-4">
+            <i data-lucide="search" size="16"></i>
+            <span>Search</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="sidebar-sections flex-grow-1 overflow-auto">
+        <div class="sidebar-section">
+          <div class="sidebar-header-toggle px-4 py-1 cursor-pointer" data-toggle="journals">
+            <span class="small fw-medium">JOURNALS</span>
+            <i data-lucide="chevron-down" size="16" class="transition-transform"></i>
+          </div>
+          <div class="sidebar-content" id="journals-content">
+            <div class="sidebar-item">
+              <i data-lucide="edit" size="16"></i>
+              <span>Untitled</span>
+            </div>
+            <div class="sidebar-item">
+              <i data-lucide="edit" size="16"></i>
+              <span>Untitled</span>
+            </div>
+            <div class="sidebar-item">
+              <i data-lucide="edit" size="16"></i>
+              <span>Untitled</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-header-toggle px-4 py-1 cursor-pointer" data-toggle="spaces">
+            <span class="small fw-medium">SPACES</span>
+            <i data-lucide="chevron-down" size="16" class="transition-transform"></i>
+          </div>
+          <div class="sidebar-content" id="spaces-content">
+            <div class="sidebar-item active">
+              <i data-lucide="message-square" size="16"></i>
+              <span>hu</span>
+            </div>
+            <div class="sidebar-item">
+              <i data-lucide="message-square" size="16"></i>
+              <span>test</span>
+            </div>
+            <div class="sidebar-item">
+              <i data-lucide="message-square" size="16"></i>
+              <span>hey</span>
+            </div>
+            <div class="sidebar-item">
+              <i data-lucide="message-square" size="16"></i>
+              <span>hellow d</span>
+            </div>
+            <div class="sidebar-item">
+              <i data-lucide="message-square" size="16"></i>
+              <span>test</span>
+            </div>
+            <div class="sidebar-item active">
+              <i data-lucide="message-square" size="16"></i>
+              <span>chellow</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-footer mt-auto p-4">
+        <div class="sidebar-item">
+          <i data-lucide="crown" size="16"></i>
+          <span>Get Premium</span>
+        </div>
+        <div class="sidebar-item">
+          <i data-lucide="settings" size="16"></i>
+          <span>Settings</span>
+        </div>
+        <div class="sidebar-item">
+          <i data-lucide="bug" size="16"></i>
+          <span>Report Bug</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="content-area p-4">
+        <div class="position-absolute top-4 end-4">
+          <div class="avatar-circle">
+            <span>D</span>
+          </div>
+        </div>
+        
+        <div class="d-flex flex-column align-items-center justify-content-center pt-5 pb-4 fade-in slide-up">
+          <div class="paperplane-icon mb-4">
+            <svg viewBox="0 0 117 94" fill="none" xmlns="http://www.w3.org/2000/svg" width="64" height="64">
+              <path d="M92.3026 10.8564L6.38851 40.9974C5.92493 41.1705 5.51463 41.4562 5.19561 41.8284C4.87659 42.2006 4.65851 42.648 4.56005 43.1269C4.46159 43.6059 4.48573 44.0999 4.62998 44.5662C4.77423 45.0325 5.0338 45.4567 5.38294 45.7982L20.386 60.7924L81.0767 18.0823L37.3667 65.7747L70.3791 87.7814C70.7532 88.0378 71.1823 88.2117 71.6311 88.2913C72.0799 88.3708 72.5384 88.354 72.9792 88.2423C73.4201 88.1305 73.831 87.9264 74.1844 87.6433C74.5378 87.3603 74.8254 87.0052 75.0272 86.6021L104.059 20.5991C104.278 20.1583 104.385 19.6754 104.371 19.1896C104.356 18.7039 104.22 18.2284 103.975 17.8013C103.73 17.3743 103.384 17.0088 102.97 16.7341C102.557 16.4595 102.088 16.2831 101.603 16.2199L96.0625 15.5034C95.2943 15.4044 94.5168 15.5012 93.8043 15.7834C93.0918 16.0657 92.4714 16.5232 91.9992 17.11L92.3026 10.8564Z" 
+                stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
+            </svg>
+          </div>
+          <h1 class="greeting-text fw-medium text-dark">Good morning, Dineth</h1>
+        </div>
+        
+        <div class="chat-cards-container">
+          <div class="row row-cols-1 row-cols-md-3 g-4 max-w-3xl mx-auto mt-4">
+            <div class="col">
+              <div class="chat-card">
+                <div class="icon-container bg-blue-50 text-blue-500">
+                  <i data-lucide="calculator" size="24"></i>
+                </div>
+                <p class="card-title">Teach me about the Quadratic Formula</p>
+              </div>
+            </div>
+            
+            <div class="col">
+              <div class="chat-card">
+                <div class="icon-container bg-red-50 text-red-500">
+                  <i data-lucide="square" size="24"></i>
+                </div>
+                <p class="card-title">Graph the Derivative of f(x) = x^2</p>
+              </div>
+            </div>
+            
+            <div class="col">
+              <div class="chat-card">
+                <div class="icon-container bg-green-50 text-green-500">
+                  <i data-lucide="leaf" size="24"></i>
+                </div>
+                <p class="card-title">Explain the structure of a plant cell</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div style="height: 128px;"></div> <!-- Spacer -->
+      </div>
+      
+      <!-- Chat Input -->
+      <div class="chat-input-container">
+        <div class="max-w-3xl mx-auto px-4">
+          <form id="chat-form" class="position-relative">
+            <input
+              type="text"
+              id="message-input"
+              placeholder="Teach me with an @Video..."
+              class="chat-input"
+              autocomplete="off"
+            />
+            <div class="chat-input-buttons">
+              <button type="button" class="btn-icon text-muted">
+                <i data-lucide="plus" size="20"></i>
+              </button>
+              <button type="button" class="btn-model">
+                DeepTutor
+              </button>
+              <button 
+                type="submit" 
+                id="send-button" 
+                class="btn-icon text-muted"
+                disabled
+              >
+                <i data-lucide="send-horizontal" size="20"></i>
+              </button>
+            </div>
+          </form>
+          <p class="small text-muted mt-3 text-end">
+            Feynman may make mistakes. Check important info and please report any bugs.
+          </p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Bootstrap JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
