@@ -584,8 +584,8 @@ form .btn {
 /* Media Queries */
 @media (max-width: 992px) {
   .floating-element {
-    width: 200px;
-    height: 60px;
+    width: 250px;
+    height: 90px;
     font-size: 0.75rem;
   }
   
