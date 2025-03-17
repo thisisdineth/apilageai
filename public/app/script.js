@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
       greeting = 'Good evening';
     }
     
-    document.querySelector('.greeting-text').textContent = `${greeting}, Dineth`;
+    document.querySelector('.greeting-text').textContent = `${greeting}, USERNAME`;
   }
   
   setGreeting();

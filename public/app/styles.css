@@ -1,10 +1,10 @@
 
 :root {
-  --sidebar-bg: #f9f9f9;
-  --sidebar-hover: #f1f1f1;
-  --sidebar-active: #e8f5f2;
-  --sidebar-icon: #7d7d7d;
-  --sidebar-text: #5d5d5d;
+  --sidebar-bg: #f31c1c;
+  --sidebar-hover: #000000;
+  --sidebar-active: #fa8db3;
+  --sidebar-icon: #000000;
+  --sidebar-text: #eae3e3;
   --border-color: #e5e7eb;
   --blue-50: #eff6ff;
   --blue-500: #3b82f6;
@@ -74,7 +74,7 @@ body {
 
 .sidebar-item.active {
   background-color: var(--sidebar-active);
-  color: #10b981;
+  color: #f9fffd;
 }
 
 .sidebar-section {
@@ -89,6 +89,14 @@ body {
   margin-bottom: 4px;
   color: var(--sidebar-text);
   cursor: pointer;
+}
+
+.sidebar-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 16px;
+  background-color: #fd3030;
 }
 
 .transition-transform {
@@ -227,6 +235,15 @@ body {
   outline: none;
   transition: all 0.2s;
 }
+
+
+  .textdown {
+    font-size: 12px;
+    color: rgb(232, 6, 6);
+    margin-top: 10px;
+    text-align: center;
+  }
+
 
 .chat-input:focus {
   box-shadow: 0 0 0 2px rgba(209, 213, 219, 0.5);
