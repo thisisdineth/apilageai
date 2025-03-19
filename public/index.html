@@ -20,7 +20,7 @@
 <body>
       <!-- Preloader -->
       <div id="preloader">
-        <span id="loading-text">අපිලගේ AI.</span>
+        <span id="loading-text">අපිලගේ AI</span>
     </div>
 
     <!-- Page Content (Hidden initially) -->
@@ -666,18 +666,44 @@
   <!-- Custom JS -->
   <script src="script.js"></script>
   <script>
-    // Simulate loading time
-    window.addEventListener("load", function() {
-        let preloader = document.getElementById("preloader");
-        let content = document.getElementById("content");
+window.addEventListener("load", function () {
+    let preloader = document.getElementById("preloader");
+    let content = document.getElementById("content");
 
-        // Hide preloader and show content
-        preloader.style.display = "none";
-        content.style.display = "block";
+    // Minimum 2 seconds delay
+    let minTime = 2000; 
+    let startTime = Date.now();
 
-        // Enable scrolling after loading
-        document.body.style.overflow = "auto";
-    });
+    function hidePreloader() {
+        let elapsedTime = Date.now() - startTime;
+        let remainingTime = minTime - elapsedTime;
+
+        if (remainingTime > 0) {
+            setTimeout(() => {
+                preloader.style.display = "none";
+                content.style.display = "block";
+                document.body.style.overflow = "auto"; 
+            }, remainingTime);
+        } else {
+            preloader.style.display = "none";
+            content.style.display = "block";
+            document.body.style.overflow = "auto";
+        }
+    }
+
+    // Check if the page loads before 5s
+    if (document.readyState === "complete") {
+        hidePreloader();
+    } else {
+        setTimeout(() => {
+            if (document.readyState === "complete") {
+                hidePreloader();
+            } else {
+                window.addEventListener("load", hidePreloader);
+            }
+        }, minTime);
+    }
+});
 </script>
 </body>
 
