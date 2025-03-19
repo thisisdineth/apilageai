@@ -316,14 +316,17 @@ form .btn {
 .left-mid {
   top: 50%;
   left: 0;
+  margin-bottom: 10px;
   transform: translateY(-50%);
   animation: float 4s ease-in-out infinite;
   animation-delay: 1.5s;
 }
 
 .top-left {
-  top: 30%;
+  top: 10%;
   left: 30px;
+  padding: 10px;
+  margin: 15px;
   animation: float 4s ease-in-out infinite;
   animation-delay: 2s;
 }
