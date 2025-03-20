@@ -515,8 +515,9 @@ ul {
 
 .profile-upload-icon {
   position: absolute;
-  right: 0;
-  bottom: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background: var(--primary);
   color: white;
   width: 32px;
@@ -526,11 +527,13 @@ ul {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  z-index: 9999;
   transition: background-color 0.2s;
 }
 
 .profile-upload-icon:hover {
   background: var(--primary-hover);
+  z-index: 9999;
 }
 
 .hidden {
