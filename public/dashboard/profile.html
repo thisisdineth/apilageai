@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile - Apilage AI</title>
+    <meta name="description" content="Apilage AI Dashboard - Profile" />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- Top Navbar -->
+      <header class="top-navbar">
+        <div class="container">
+          <div class="navbar-content">
+            <div class="navbar-left">
+              <button id="sidebar-toggle" class="menu-button">
+                <i class="fas fa-bars"></i>
+              </button>
+              <a href="index.html" class="logo">Apilage AI</a>
+            </div>
+            
+            <div class="navbar-right">
+              <a href="index.html" class="menu-item">
+                <i class="fas fa-home"></i>
+                <span class="menu-text">Home</span>
+              </a>
+              <a href="chat.html" class="menu-item">
+                <i class="fas fa-comment"></i>
+                <span class="menu-text">Go to Chat</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <div class="main-layout">
+        <!-- Sidebar (initially hidden on mobile) -->
+        <div id="sidebar" class="sidebar">
+          <div class="sidebar-header">
+            <h3>Apilage AI</h3>
+            <button id="sidebar-close" class="close-button">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="sidebar-content">
+            <ul class="sidebar-menu">
+              <li><a href="profile.html" class="sidebar-item active"><i class="fas fa-user"></i> Profile</a></li>
+              <li><a href="profile.html?tab=balance" class="sidebar-item"><i class="fas fa-wallet"></i> My Balance</a></li>
+              <li><a href="profile.html?tab=credits" class="sidebar-item"><i class="fas fa-credit-card"></i> Buy Credits</a></li>
+              <li><a href="profile.html?tab=usage" class="sidebar-item"><i class="fas fa-chart-bar"></i> Usage</a></li>
+              <li><a href="#" class="sidebar-item"><i class="fas fa-sign-out-alt"></i> Sign Out</a></li>
+              <li><a href="#" class="sidebar-item danger"><i class="fas fa-trash"></i> Delete Profile</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Page Content - Profile Page -->
+        <main class="page-content">
+          <!-- Profile Header -->
+          <div class="profile-header">
+            <div class="cover-photo">
+              <div class="cover-gradient"></div>
+              <img src="https://images.unsplash.com/photo-1655635643568-f30d5abc618a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Cover Photo">
+              <button class="edit-cover-button">
+                <i class="fas fa-edit"></i> Edit Cover
+              </button>
+            </div>
+            <div class="profile-picture-container">
+              <div class="profile-picture-wrapper">
+                <img src="https://ui-avatars.com/api/?name=Apilage+User&background=f83a3a&color=fff&size=128" alt="Profile Picture" class="profile-picture">
+                <button class="edit-profile-picture">
+                  <i class="fas fa-camera"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Profile Tabs -->
+          <div class="profile-tabs-container">
+            <div class="tabs">
+              <button class="tab-button active" data-tab="edit">
+                <i class="fas fa-user"></i> Edit Profile
+              </button>
+              <button class="tab-button" data-tab="balance">
+                <i class="fas fa-wallet"></i> My Balance
+              </button>
+              <button class="tab-button" data-tab="credits">
+                <i class="fas fa-credit-card"></i> Buy Credits
+              </button>
+              <button class="tab-button" data-tab="usage">
+                <i class="fas fa-chart-bar"></i> Usage
+              </button>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="tab-content">
+              <!-- Edit Profile Tab -->
+              <div id="edit-tab" class="tab-pane active">
+                <div class="card">
+                  <div class="card-header">
+                    <h2 class="card-title">Personal Information</h2>
+                    <p class="card-description">Update your account details and profile information</p>
+                  </div>
+                  <div class="card-content">
+                    <form class="profile-form">
+                      <div class="form-grid">
+                        <div class="form-group">
+                          <label for="name">Full Name</label>
+                          <input type="text" id="name" placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                          <label for="email">Email</label>
+                          <input type="email" id="email" placeholder="john@example.com">
+                        </div>
+                        <div class="form-group">
+                          <label for="bio">Bio</label>
+                          <textarea id="bio" rows="3" placeholder="Tell us about yourself"></textarea>
+                        </div>
+                        <div class="form-group">
+                          <label for="preferences">AI Preferences</label>
+                          <select id="preferences">
+                            <option value="creative">Creative</option>
+                            <option value="balanced">Balanced</option>
+                            <option value="precise">Precise</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-actions">
+                        <button type="button" class="button outline-button">Cancel</button>
+                        <button type="submit" class="button primary-button">Save Changes</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <!-- My Balance Tab -->
+              <div id="balance-tab" class="tab-pane">
+                <div class="card">
+                  <div class="card-header">
+                    <h2 class="card-title">Credit Balance</h2>
+                    <p class="card-description">View your current balance and transaction history</p>
+                  </div>
+                  <div class="card-content">
+                    <div class="balance-box">
+                      <p class="balance-label">Available Credits</p>
+                      <h2 class="balance-value">1,250</h2>
+                      <p class="balance-updated">Last updated: Today at 12:30 PM</p>
+                    </div>
+                    
+                    <div class="transactions">
+                      <h3 class="section-title">Recent Transactions</h3>
+                      <div class="transaction-list">
+                        <!-- Transaction items will be dynamically generated by JavaScript -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer">
+                    <button class="button outline-button full-width">View All Transactions</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Buy Credits Tab -->
+              <div id="credits-tab" class="tab-pane">
+                <div class="credit-plans">
+                  <!-- Credit plan cards will be dynamically generated by JavaScript -->
+                </div>
+                
+                <div class="card mt-6">
+                  <div class="card-header">
+                    <h2 class="card-title">Enterprise Plans</h2>
+                    <p class="card-description">Custom plans for teams and businesses</p>
+                  </div>
+                  <div class="card-content">
+                    <p class="text-sm">
+                      Need more credits or special features for your team? Our enterprise plans offer
+                      flexible pricing, premium support, and custom integrations.
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <button class="button outline-button full-width">Contact Sales</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Usage Tab -->
+              <div id="usage-tab" class="tab-pane">
+                <div class="card">
+                  <div class="card-header">
+                    <h2 class="card-title">Usage Statistics</h2>
+                    <p class="card-description">Monitor your Apilage AI usage</p>
+                  </div>
+                  <div class="card-content">
+                    <div class="stats-grid">
+                      <!-- Stat boxes will be dynamically generated by JavaScript -->
+                    </div>
+                    
+                    <div class="usage-chart">
+                      <h3 class="section-title">Usage Over Time</h3>
+                      <div class="chart-placeholder">
+                        <p>Chart showing usage trends would be displayed here</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer">
+                    <button class="button outline-button">Download Report</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+
+      <!-- Overlay for sidebar on mobile -->
+      <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-content">
+            <div class="footer-copyright">
+              © <span id="current-year"></span> Apilage AI. All rights reserved.
+            </div>
+            
+            <nav class="footer-links">
+              <a href="privacy.html">Privacy Policy</a>
+              <a href="docs.html">Documentation</a>
+              <a href="cookies.html">Cookies</a>
+            </nav>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
