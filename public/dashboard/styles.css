@@ -134,6 +134,7 @@ img {
 .navbar-left, .navbar-right {
   display: flex;
   align-items: center;
+  margin-top: 15px;
   gap: 1rem;
 }
 
