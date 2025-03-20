@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         <div class="card-content text-center">
           <p class="text-sm text-gray-500">
-            ${plan.amount} messages with Apilage AI
+            ${plan.amount} messages with අපිලගේ AI
           </p>
           <p class="text-sm text-gray-500 mt-1">
             Valid for 1 year
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Toast notification on homepage
   if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
     setTimeout(() => {
-      showToast('Welcome to Apilage AI', 'Your AI-powered chat application dashboard.');
+      showToast('Welcome to අපිලගේ AI', 'Your AI-powered chat application dashboard.');
     }, 1000);
   }
   

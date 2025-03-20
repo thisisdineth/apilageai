@@ -355,7 +355,8 @@ body.overflow-hidden {
 
 .footer-copyright {
   font-size: 0.875rem;
-  color: #6b7280;
+  color: #fa1500;
+margin-left: 500px;
 }
 
 .footer-links {
