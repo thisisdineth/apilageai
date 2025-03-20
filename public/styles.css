@@ -29,30 +29,49 @@ body {
   border-radius: var(--radius);
 }
 
+/* Bouncing text animation */
 #preloader {
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100vh;
-  background-color: red;
+  height: 100%;
+  background: red;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  flex-direction: column; /* Stack items vertically */
+  z-index: 9999;
 }
 
-/* Bouncing text animation */
+#loading-image {
+  width: 200px; 
+  height: 200px;
+  animation: bounce 1.5s infinite ease-in-out;
+  background: white; 
+  background: 15px;
+  padding: 1px; 
+  border-radius: 50%;
+  border: 0.1px solid #ffffff; 
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); 
+}
+/* Loading text */
 #loading-text {
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 20px;
   color: white;
+  font-weight: bold;
+  margin-top: 10px; 
+  font-family: Arial, sans-serif;
+  text-align: center;
   animation: bounce 1.5s infinite ease-in-out;
 }
 
+/* Bouncing animation */
 @keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-15px);
+  }
 }
 
 .brand-icon {
