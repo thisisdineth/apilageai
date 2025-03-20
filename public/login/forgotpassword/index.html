@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forgot Password</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+      <div class="mobile-menu hidden" id="mobileMenu">
+      <a href="../standalone-index/index.html" class="mobile-nav-link">Home</a>
+      <a href="#" class="mobile-nav-link">Features</a>
+      <a href="#" class="mobile-nav-link">Pricing</a>
+      <a href="#" class="mobile-nav-link">About</a>
+      <a href="../standalone-login/index.html" class="mobile-nav-link">Sign In</a>
+    </div>
+  </header>
+
+  <div class="auth-layout">
+    <div class="background-accent top-right"></div>
+    <div class="background-accent bottom-left"></div>
+    <div class="bg-pattern"></div>
+    
+    <div class="auth-container">
+      <div class="header animate-slide-down">
+        <h1>Reset your password</h1>
+        <p id="headerText">We'll send you instructions to reset your password</p>
+      </div>
+
+      <div class="auth-card animate-fade-in">
+        <div id="requestForm" class="form-container">
+          <form id="forgotPasswordForm" class="form">
+            <div class="form-group">
+              <input
+                type="email"
+                id="email"
+                placeholder="Email Address"
+                class="auth-input animate-slide-up"
+                style="animation-delay: 0.1s"
+              />
+              <p class="error-message" id="emailError"></p>
+            </div>
+
+            <button 
+              type="submit" 
+              class="auth-submit-button animate-slide-up"
+              style="animation-delay: 0.15s"
+            >
+              Send Reset Instructions <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </form>
+        </div>
+
+        <div id="successMessage" class="success-container hidden animate-fade-in">
+          <div class="success-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h3>Check your inbox</h3>
+          <p>
+            We've sent an email to <strong id="sentEmailAddress">your email</strong> with instructions to reset your password.
+          </p>
+          <p class="resend-text">
+            Didn't receive the email? Check your spam folder or 
+            <button type="button" id="tryAgainBtn" class="text-button">
+              try again
+            </button>
+          </p>
+        </div>
+
+        <div class="back-link animate-fade-in" style="animation-delay: 0.2s">
+          <a href="../signin/" id="backToLoginLink">
+            <i class="fa-solid fa-arrow-left"></i> Back to sign in
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <script src="script.js"></script>
+</body>
+</html>

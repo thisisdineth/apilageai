@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up Page</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="auth-layout">
+    <div class="background-accent top-right"></div>
+    <div class="background-accent bottom-left"></div>
+    <div class="bg-pattern"></div>
+    
+    <div class="auth-container">
+      <div class="header animate-slide-down">
+        <h1>Create your account</h1>
+        <p>Sign up to get started</p>
+      </div>
+
+      <div class="auth-card animate-fade-in">
+        <form id="signupForm" class="form">
+          <div class="profile-upload">
+            <div class="profile-image-container">
+              <img id="profilePreview" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23cccccc' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E" alt="Profile Picture" class="profile-image">
+              <label for="profilePicture" class="profile-upload-icon">
+                <i class="fas fa-camera"></i>
+              </label>
+              <input type="file" id="profilePicture" accept="image/*" class="hidden">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <input
+              type="text"
+              id="name"
+              placeholder="Full Name"
+              class="auth-input animate-slide-up"
+              style="animation-delay: 0.1s"
+            />
+            <p class="error-message" id="nameError"></p>
+          </div>
+
+          <div class="form-group">
+            <input
+              type="email"
+              id="email"
+              placeholder="Email Address"
+              class="auth-input animate-slide-up"
+              style="animation-delay: 0.15s"
+            />
+            <p class="error-message" id="emailError"></p>
+          </div>
+
+          <div class="form-group">
+            <input
+              type="tel"
+              id="phone"
+              placeholder="Phone Number"
+              class="auth-input animate-slide-up"
+              style="animation-delay: 0.2s"
+            />
+            <p class="error-message" id="phoneError"></p>
+          </div>
+
+          <div class="form-group">
+            <div class="password-input-container">
+              <input
+                type="password"
+                id="password"
+                placeholder="Password"
+                class="auth-input animate-slide-up"
+                style="animation-delay: 0.25s"
+              />
+              <button
+                type="button"
+                class="toggle-password"
+                id="togglePassword"
+              >
+                <i class="fa-regular fa-eye"></i>
+              </button>
+            </div>
+            <div class="password-strength" id="passwordStrength">
+              <div class="strength-bar">
+                <div class="strength-progress" id="strengthProgress"></div>
+              </div>
+              <p class="strength-text" id="strengthText">Password strength</p>
+            </div>
+            <p class="error-message" id="passwordError"></p>
+          </div>
+
+          <div class="form-group">
+            <div class="password-input-container">
+              <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm Password"
+                class="auth-input animate-slide-up"
+                style="animation-delay: 0.3s"
+              />
+              <button
+                type="button"
+                class="toggle-password"
+                id="toggleConfirmPassword"
+              >
+                <i class="fa-regular fa-eye"></i>
+              </button>
+            </div>
+            <p class="error-message" id="confirmPasswordError"></p>
+          </div>
+
+          <button 
+            type="submit" 
+            class="auth-submit-button animate-slide-up"
+            style="animation-delay: 0.35s"
+          >
+            Create Account <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </form>
+
+        <div class="social-login">
+          <div class="auth-divider animate-fade-in" style="animation-delay: 0.4s">
+            or continue with
+          </div>
+          
+          <div class="social-buttons">
+            <button 
+              type="button" 
+              class="social-button animate-slide-up" 
+              style="animation-delay: 0.45s"
+              id="googleSignup"
+            >
+              <i class="fab fa-google"></i>
+              <span>Google</span>
+            </button>
+            
+            <button 
+              type="button" 
+              class="social-button animate-slide-up"
+              style="animation-delay: 0.5s"
+              id="facebookSignup"
+            >
+              <i class="fab fa-facebook"></i>
+              <span>Facebook</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="signup-link animate-fade-in" style="animation-delay: 0.55s">
+          Already have an account?
+          <a href="../signin/" id="loginLink">Sign in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="toast" class="toast hidden">
+    <div class="toast-content">
+      <div class="toast-title">Message Title</div>
+      <div class="toast-description">Message description goes here</div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
