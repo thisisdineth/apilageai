@@ -47,21 +47,11 @@ body {
   height: 200px;
   animation: bounce 1.5s infinite ease-in-out;
   background: white; 
-  background: 15px;
+  background: 100px;
   padding: 1px; 
   border-radius: 50%;
   border: 0.1px solid #ffffff; 
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); 
-}
-/* Loading text */
-#loading-text {
-  font-size: 20px;
-  color: white;
-  font-weight: bold;
-  margin-top: 10px; 
-  font-family: Arial, sans-serif;
-  text-align: center;
-  animation: bounce 1.5s infinite ease-in-out;
 }
 
 /* Bouncing animation */
