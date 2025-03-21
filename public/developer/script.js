@@ -2,7 +2,7 @@
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
   // Show a welcome toast (simplified version)
-  showToast("Welcome to APILAGE", "Experience the next generation of AI technology");
+  showToast("Welcome to Developer page", "You can get an idea about how this AI models are run. and also you can donate us to devlop AI models more better");
   
   // Add animation to the logo elements
   setTimeout(animateLogos, 500);
