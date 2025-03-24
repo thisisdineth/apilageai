@@ -344,6 +344,8 @@ body.overflow-hidden {
   background-color: white;
   border-top: 1px solid #e5e7eb;
   padding: 1.5rem 0;
+  position: relative;
+  z-index: 9999; /* Ensures it appears above other content */
 }
 
 .footer-content {
@@ -770,6 +772,11 @@ textarea {
   .stats-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+.footer-copyright {
+display: none;
+
 }
 
 .stat-box {
