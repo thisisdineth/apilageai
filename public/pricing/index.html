@@ -16,8 +16,10 @@
     <header class="header">
       <div class="header-container">
         <div class="logo">
-          <div class="logo-icon">P</div>
-          <span class="logo-text">PayPlan</span>
+          <div class="logo-icon">
+            <img src="../img/aipro.png" alt="Logo">
+        </div>
+          <span class="logo-text">APILAGE AI</span>
         </div>
         <div id="step-indicator" class="step-indicator">
           <!-- Steps will be dynamically generated -->
@@ -53,7 +55,7 @@
     <div class="page-container">
       <div class="page-header">
         <h1>Choose Your Plan</h1>
-        <p>Select the perfect plan that suits your needs. All plans include our core features and flexible payment options.</p>
+        <p>Select the perfect plan that suits your needs. Select plan and scroll down to click continue</p>
       </div>
       
       <div class="plans-container">
@@ -70,7 +72,7 @@
     <div class="page-container">
       <div class="page-header">
         <h1>Your Details</h1>
-        <p>Please provide your information to continue with your purchase.</p>
+        <p>Please provide your information to continue with your purchase. (Your Data is secured)</p>
       </div>
       
       <div class="form-container">
@@ -78,19 +80,19 @@
           <div class="form-grid">
             <div class="form-group">
               <label for="fullName" class="input-label">Full Name</label>
-              <input type="text" id="fullName" name="fullName" class="input-field" placeholder="John Doe" required>
+              <input type="text" id="fullName" name="fullName" class="input-field" placeholder="A B Perera" required>
               <p class="error-message" id="fullName-error"></p>
             </div>
             
             <div class="form-group">
               <label for="email" class="input-label">Email</label>
-              <input type="email" id="email" name="email" class="input-field" placeholder="john.doe@example.com" required>
+              <input type="email" id="email" name="email" class="input-field" placeholder="perera@gmail.com" required>
               <p class="error-message" id="email-error"></p>
             </div>
             
             <div class="form-group">
               <label for="phone" class="input-label">Phone Number</label>
-              <input type="tel" id="phone" name="phone" class="input-field" placeholder="(123) 456-7890" required>
+              <input type="tel" id="phone" name="phone" class="input-field" placeholder="077 123 4567" required>
               <p class="error-message" id="phone-error"></p>
             </div>
             
@@ -102,18 +104,18 @@
             
             <div class="form-group">
               <label for="city" class="input-label">City</label>
-              <input type="text" id="city" name="city" class="input-field" placeholder="New York" required>
+              <input type="text" id="city" name="city" class="input-field" placeholder="Colombo" required>
               <p class="error-message" id="city-error"></p>
             </div>
             
             <div class="form-group">
-              <label for="state" class="input-label">State</label>
-              <input type="text" id="state" name="state" class="input-field" placeholder="NY" required>
+              <label for="state" class="input-label">provinse</label>
+              <input type="text" id="state" name="state" class="input-field" placeholder="Western" required>
               <p class="error-message" id="state-error"></p>
             </div>
             
             <div class="form-group">
-              <label for="zipCode" class="input-label">ZIP Code</label>
+              <label for="zipCode" class="input-label">Postel Code (search on intrenet if you dont know)</label>
               <input type="text" id="zipCode" name="zipCode" class="input-field" placeholder="10001" required>
               <p class="error-message" id="zipCode-error"></p>
             </div>
@@ -121,13 +123,7 @@
             <div class="form-group">
               <label for="country" class="input-label">Country</label>
               <select id="country" name="country" class="input-field">
-                <option value="United States">United States</option>
-                <option value="Canada">Canada</option>
-                <option value="United Kingdom">United Kingdom</option>
-                <option value="Australia">Australia</option>
-                <option value="Germany">Germany</option>
-                <option value="France">France</option>
-                <option value="Japan">Japan</option>
+                <option value="Sri Lanka">Sri Lanka</option>
                 <option value="Other">Other</option>
               </select>
             </div>
@@ -153,7 +149,7 @@
         <div class="payment-methods">
           <h2 class="section-title">Select Payment Method</h2>
           
-          <div class="payment-method" data-type="paypal">
+         <!-- <div class="payment-method" data-type="paypal">
             <div class="payment-method-content">
               <div class="payment-method-logo">
                 <img src="https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/C2/logos-buttons/optimize/44_Grey_PayPal_Pill_Button.png" alt="PayPal">
@@ -166,22 +162,24 @@
                 <div class="selector-circle"></div>
               </div>
             </div>
-          </div>
+          </div>-->
           
           <div class="payment-method" data-type="payhere">
             <div class="payment-method-content">
               <div class="payment-method-logo">
-                <img src="https://www.payhere.lk/downloads/images/payhere_logo_dark.png" alt="PayHere">
+                <img src="../img/payhere.png" alt="PayHere">
               </div>
               <div class="payment-method-info">
                 <h3 class="payment-method-name">PayHere</h3>
-                <p class="payment-method-description">Fast and secure payment processing.</p>
+                <p class="payment-method-description">Sri lankan trusted payment method 🇱🇰</p>
               </div>
               <div class="payment-method-selector">
                 <div class="selector-circle"></div>
               </div>
             </div>
           </div>
+
+          
         </div>
         
         <div class="order-summary">
@@ -259,7 +257,7 @@
         </div>
         
         <div class="confirmation-actions">
-          <button id="return-home-button" class="button-primary">Return to Home</button>
+          <button id="return-home-button" class="button-primary">Enjoy my plan</button>
         </div>
       </div>
     </div>
@@ -269,7 +267,7 @@
     <div class="not-found-container">
       <h1>404</h1>
       <p>Oops! Page not found</p>
-      <a href="/" class="return-link">Return to Home</a>
+      <a href="/" class="return-link">Enjoy my plan</a>
     </div>
   </template>
 

@@ -9,7 +9,7 @@ const paymentMethods = {
   payhere: {
     name: 'PayHere',
     description: 'Fast and secure payment processing.',
-    logo: 'https://www.payhere.lk/downloads/images/payhere_logo_dark.png'
+    logo: 'https://payherestorage.blob.core.windows.net/payhere-resources/www/images/PayHere-Logo.png'
   }
 };
 
