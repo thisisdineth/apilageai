@@ -3,46 +3,56 @@
 const plans = [
   {
     id: 'basic',
-    name: 'Basic Plan',
-    price: 9.99,
-    billingPeriod: 'month',
-    description: 'Perfect for individuals just getting started.',
+    name: 'අපිලගේ Budget',
+    price: 300,
+    billingPeriod: 'Pay and go',
+    description: 'one time payment (need to repurchese when credit over).',
     features: [
-      { id: 'basic-1', text: 'Core features' },
-      { id: 'basic-2', text: 'Up to 5 projects' },
-      { id: 'basic-3', text: 'Basic support' },
-      { id: 'basic-4', text: 'Limited analytics' }
+      { id: 'basic-1', text: 'Chat With Apilage-Basic (apil-B Version1)' },
+      { id: 'basic-2', text: 'Good For Day-Today tasks' },
+      { id: 'basic-3', text: '100 Messages for 3 hours' },
+      { id: 'basic-4', text: '5 Image genarating For a week' },
+      { id: 'basic-5', text: '5 Image genarating For a week' },
+      { id: 'basic-6', text: '5 PDF / Image analyse for a week' }
     ],
     popular: false
   },
   {
     id: 'pro',
-    name: 'Pro Plan',
-    price: 19.99,
-    billingPeriod: 'month',
-    description: 'Ideal for professionals and growing teams.',
+    name: 'Student / Learner',
+    price: 500,
+    billingPeriod: 'Pay and go',
+    description: 'Ideal for students and learners (need to repurchese when credit over)',
     features: [
-      { id: 'pro-1', text: 'All Basic features' },
-      { id: 'pro-2', text: 'Up to 20 projects' },
-      { id: 'pro-3', text: 'Priority support' },
-      { id: 'pro-4', text: 'Advanced analytics' },
-      { id: 'pro-5', text: 'Team collaboration' }
+      { id: 'pro-1', text: 'Chat with Apilage Teacher (Apil-lR V1)' },
+      { id: 'pro-2', text: 'Good for Acedemic and School works' },
+      { id: 'pro-3', text: 'Unlimited Messages' },
+      { id: 'pro-4', text: '3 Images for a day' },
+      { id: 'pro-5', text: 'Unlimited PDF and Image Input' },
+      { id: 'pro-6', text: 'Accuracy check (90%)' },
+      { id: 'pro-7', text: 'Advance Subject Explaining with Exam Predicts (🇱🇰 Syllabus)' },
+      { id: 'pro-8', text: 'one video explaining (UPCOMING)' },
+      { id: 'pro-9', text: 'APILAGE world acess (UPCOMING)' },
+      
     ],
     popular: true
   },
   {
     id: 'enterprise',
-    name: 'Enterprise Plan',
-    price: 49.99,
-    billingPeriod: 'month',
+    name: 'අපිලගේ pro',
+    price: 2000,
+    billingPeriod: 'Pay and go',
     description: 'Complete solution for large organizations.',
     features: [
-      { id: 'enterprise-1', text: 'All Pro features' },
-      { id: 'enterprise-2', text: 'Unlimited projects' },
-      { id: 'enterprise-3', text: 'Dedicated support' },
-      { id: 'enterprise-4', text: 'Custom analytics' },
-      { id: 'enterprise-5', text: 'Advanced security' },
-      { id: 'enterprise-6', text: 'API access' }
+      { id: 'enterprise-1', text: 'Chat with Apilage Pro (Apil-pro V1)' },
+      { id: 'enterprise-2', text: 'Good for all type of tasks' },
+      { id: 'enterprise-3', text: 'Unlimited Messages' },
+      { id: 'enterprise-4', text: 'Unlimited PDF and Image Input' },
+      { id: 'enterprise-5', text: 'Accuracy check (95%)' },
+      { id: 'enterprise-6', text: 'Advance Subject Explaining with Exam Predicts (🇱🇰 Syllabus)' },
+      { id: 'enterprise-7', text: 'Advance Explaining in A/L and O/L (🇱🇰 Syllabus)'},
+      { id: 'enterprise-8', text: 'Early acess to all new features'},
+      { id: 'enterprise-8', text: '24/7 Support'},
     ],
     popular: false
   }
@@ -104,7 +114,7 @@ function createPlanCard(plan) {
   planCard.innerHTML += `
     <h3 class="plan-name">${plan.name}</h3>
     <div class="plan-price">
-      <span class="plan-price-amount">$${plan.price}</span>
+      <span class="plan-price-amount">Rs.${plan.price}</span>
       <span class="plan-price-period">/${plan.billingPeriod}</span>
     </div>
     <p class="plan-description">${plan.description}</p>
