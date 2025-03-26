@@ -102,13 +102,17 @@ body {
 /* Navigation */
 .main-nav {
   display: flex;
+  background-color: red;
+  padding: 10px;
+  color: white;
+  border-radius: 50px;
   align-items: center;
   gap: 30px;
 }
 
 .nav-link {
   text-decoration: none;
-  color: #000;
+  color: #ffffff;
   font-size: 16px;
   position: relative;
   padding: 5px 0;
@@ -208,7 +212,6 @@ body {
 .logo-circle {
   width: 70px;
   height: 70px;
-  background-color: rgb(255, 255, 255);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -267,7 +270,7 @@ body {
 }
 
 .mobile-nav-link {
-  color: #000;
+  color: #ffffff;
   text-decoration: none;
   font-size: 18px;
   margin: 15px 0;
@@ -276,6 +279,10 @@ body {
 
 .mobile-nav-link.active {
   font-weight: 700;
+  margin-top: 90px;
+  background-color: red;
+  padding: 10px;
+  border-radius: 15px;
 }
 
 .mobile-login-button {
