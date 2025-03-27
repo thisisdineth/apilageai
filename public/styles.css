@@ -643,9 +643,10 @@ form .btn {
     height: 300px;
   }
   
-  ul{
-    display: none;
-  }
+.listofintro{
+  display: none;
+}
+
   .floating-element {
     width: 200px;
     height: 50px;
