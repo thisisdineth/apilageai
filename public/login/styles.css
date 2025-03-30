@@ -1,4 +1,3 @@
-
 /* Base styles and variables */
 :root {
   --background: #ffffff;
@@ -71,6 +70,221 @@ a:hover {
   height: 10rem;
   background: linear-gradient(to bottom, rgba(234, 56, 76, 0.08), transparent);
   z-index: 0;
+}
+
+/* Profile upload styles */
+.profile-upload {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.profile-image-container {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: var(--secondary);
+  overflow: hidden;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-upload-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--primary);
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 9999;
+  transition: background-color 0.2s;
+}
+
+.profile-upload-icon:hover {
+  background: var(--primary-hover);
+  z-index: 9999;
+}
+
+/* Toast notification */
+.toast {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  max-width: 400px;
+  width: 90%;
+  background: var(--foreground);
+  color: var(--background);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  z-index: 100;
+  transform: translateY(1rem);
+  transition: all 0.3s ease;
+}
+
+.toast.hidden {
+  transform: translateY(200%);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.toast-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.toast-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.toast-description {
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+/* Success message styles */
+.success-container {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.success-icon {
+  width: 4rem;
+  height: 4rem;
+  background-color: rgba(234, 56, 76, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  color: var(--primary);
+  font-size: 1.5rem;
+}
+
+.success-container h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.success-container p {
+  color: var(--muted-foreground);
+  margin-bottom: 1rem;
+}
+
+.resend-text {
+  font-size: 0.875rem;
+  margin-top: 1rem;
+}
+
+.text-button {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+}
+
+.text-button:hover {
+  text-decoration: underline;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Password strength indicator */
+.password-strength {
+  margin-top: 0.5rem;
+}
+
+.strength-bar {
+  height: 4px;
+  background-color: var(--secondary);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.strength-progress {
+  height: 100%;
+  width: 0;
+  background-color: var(--strength-weak);
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.strength-text {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+.auth-submit-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-submit-button:hover {
+  background: var(--primary-hover);
+}
+
+.auth-submit-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(234, 56, 76, 0.3);
+}
+
+.auth-submit-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.back-link {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.auth-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(234, 56, 76, 0.3);
+}
+
+.auth-input::placeholder {
+  color: var(--muted-foreground);
+  opacity: 0.7;
+}
+
+.error-message {
+  font-size: 0.75rem;
+  color: var(--destructive);
+  margin-top: 0.25rem;
 }
 
 .auth-layout::after {
@@ -369,8 +583,15 @@ a:hover {
 
 /* Animations */
 @keyframes pulse {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.2; }
+
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 0.2;
+  }
 }
 
 .animate-fade-in {
@@ -391,7 +612,9 @@ a:hover {
 }
 
 @keyframes fadeIn {
-  to { opacity: 1; }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideUp {
