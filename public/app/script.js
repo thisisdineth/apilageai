@@ -83,3 +83,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+function toggleDropdown() {
+  var dropdown = document.getElementById("mathSymbols");
+  dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+}
+
+function insertSymbol(symbol) {
+  var inputField = document.getElementById("message-input");
+  inputField.value += symbol;  // Append symbol to the chat input
+}
+
+// Close dropdown if clicking outside
+window.onclick = function(event) {
+  if (!event.target.closest(".dropdown")) {
+      document.getElementById("mathSymbols").style.display = "none";
+  }
+}

@@ -109,7 +109,7 @@
             <div class="col">
               <div class="chat-card">
                 <div class="icon-container bg-blue-50 text-blue-500">
-                  <i data-lucide="calculator" size="24"></i>
+                  <i class="fa-solid fa-calculator" style="font-size: 24px;"></i>
                 </div>
                 <p class="card-title">Teach me about the Quadratic Formula</p>
               </div>
@@ -118,7 +118,7 @@
             <div class="col">
               <div class="chat-card">
                 <div class="icon-container bg-red-50 text-red-500">
-                  <i data-lucide="square" size="24"></i>
+                  <i class="fa-solid fa-chart-line" style="font-size: 24px;"></i>
                 </div>
                 <p class="card-title">Graph the Derivative of f(x) = x^2</p>
               </div>
@@ -127,7 +127,7 @@
             <div class="col">
               <div class="chat-card">
                 <div class="icon-container bg-green-50 text-green-500">
-                  <i data-lucide="leaf" size="24"></i>
+                  <i class="fa-solid fa-seedling" style="font-size: 24px;"></i>
                 </div>
                 <p class="card-title">Explain the structure of a plant cell</p>
               </div>
@@ -150,19 +150,44 @@
               autocomplete="off"
             />
             <div class="chat-input-buttons">
+              <!-- Plus Icon Button -->
+             <!-- Plus Icon Button -->
+    <div class="dropdown">
+      <button type="button" class="btn-icon" onclick="toggleDropdown()">
+          <i class="fa-solid fa-plus"></i>
+      </button>
+      <div class="dropdown-content" id="mathSymbols">
+          <button onclick="insertSymbol('Θ')">Θ</button>
+          <button onclick="insertSymbol('π')">π</button>
+          <button onclick="insertSymbol('√')">√</button>
+          <button onclick="insertSymbol('ƒ')">ƒ</button>
+          <button onclick="insertSymbol('∑')">∑</button>
+          <button onclick="insertSymbol('∞')">∞</button>
+          <button onclick="insertSymbol('Δ')">Δ</button>
+          <button onclick="insertSymbol('∫')">∫</button>
+          <button onclick="insertSymbol('≠')">≠</button>
+      </div>
+  </div>
+
+            
+              <!-- Camera Icon Button -->
               <button type="button" class="btn-icon text-muted">
-                <i class="fa fa-camera"></i>
+                <i class="fa-solid fa-camera"></i>
               </button>
+            
+              <!-- Book Icon Button -->
               <button type="button" class="btn-icon text-muted">
-                <i class="fa fa-book"></i>
+                <i class="fa-solid fa-book"></i>
               </button>
-              <button 
-                type="submit" 
-                id="send-button" 
-                class="btn-icon text-muted"
-                disabled
-              >
-                <i data-lucide="send-horizontal" size="20"></i>
+            
+              <!-- Web (Global) Icon Button -->
+              <button type="button" class="btn-icon text-muted">
+                <i class="fa-solid fa-globe"></i>
+              </button>
+            
+              <!-- Send Button -->
+              <button type="submit" id="send-button" class="btn-icon text-muted" disabled>
+                <i class="fa-solid fa-paper-plane"></i>
               </button>
             </div>
           </form>
