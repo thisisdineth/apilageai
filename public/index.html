@@ -514,73 +514,9 @@
         </p>
       </div>
 
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-4">
-          <div class="card blog-card h-100">
-            <div class="blog-image-container">
-              <div class="blog-image-overlay"></div>
-              <img
-                src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                class="card-img-top" alt="Blog image">
-              <span class="blog-category">Development</span>
-            </div>
-            <div class="card-body">
-              <div class="blog-meta d-flex text-muted mb-3">
-                <span class="me-3"><i class="far fa-calendar me-1"></i> May 12, 2023</span>
-                <span><i class="far fa-clock me-1"></i> 5 min read</span>
-              </div>
-              <h3 class="card-title h5">Bringing Advanced AI to Sri Lanka: Our Journey</h3>
-              <p class="card-text text-muted">Learn about the development process and challenges we overcame to create
-                an AI model specifically for Sri Lankan contexts.</p>
-              <a href="#" class="text-primary fw-medium">Read More <i class="fas fa-arrow-right ms-1"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="card blog-card h-100">
-            <div class="blog-image-container">
-              <div class="blog-image-overlay"></div>
-              <img
-                src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                class="card-img-top" alt="Blog image">
-              <span class="blog-category">Business</span>
-            </div>
-            <div class="card-body">
-              <div class="blog-meta d-flex text-muted mb-3">
-                <span class="me-3"><i class="far fa-calendar me-1"></i> June 3, 2023</span>
-                <span><i class="far fa-clock me-1"></i> 8 min read</span>
-              </div>
-              <h3 class="card-title h5">How ApilageAI is Transforming Local Businesses</h3>
-              <p class="card-text text-muted">Discover how companies across Sri Lanka are leveraging our AI model to
-                streamline operations and improve customer experiences.</p>
-              <a href="#" class="text-primary fw-medium">Read More <i class="fas fa-arrow-right ms-1"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="card blog-card h-100">
-            <div class="blog-image-container">
-              <div class="blog-image-overlay"></div>
-              <img
-                src="https://images.unsplash.com/photo-1642427749670-f20e2e76ed8c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                class="card-img-top" alt="Blog image">
-              <span class="blog-category">Research</span>
-            </div>
-            <div class="card-body">
-              <div class="blog-meta d-flex text-muted mb-3">
-                <span class="me-3"><i class="far fa-calendar me-1"></i> July 21, 2023</span>
-                <span><i class="far fa-clock me-1"></i> 6 min read</span>
-              </div>
-              <h3 class="card-title h5">The Future of Multilingual AI for Sri Lanka</h3>
-              <p class="card-text text-muted">Explore our vision for the next generation of AI technologies that will
-                better serve Sri Lanka's diverse linguistic landscape.</p>
-              <a href="#" class="text-primary fw-medium">Read More <i class="fas fa-arrow-right ms-1"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <section class="blog-section">
+        <div id="blog-posts"></div>
+    </section>
 
       <div class="text-center mt-5">
         <a href="#" class="btn btn-outline-primary">View All Articles</a>
@@ -666,6 +602,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Custom JS -->
   <script src="script.js"></script>
+  <script src="blog.js"></script>
   <script>
 window.addEventListener("load", function () {
     let preloader = document.getElementById("preloader");
