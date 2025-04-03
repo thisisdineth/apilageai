@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+
 <body>
   <div class="app-container">
     <!-- Sidebar -->
@@ -23,7 +24,9 @@
         <div class="d-flex justify-content-between align-items-center mb-4 p-4">
           <h2 class="fs-6 fw-medium text-dark mb-0">Hi, USER</h2>
           <div class="d-flex gap-3">
-            <button class="sidebar-icon-btn">
+            <button id="toggleSidebar" class="sidebar-icon-btn">
+              <i class="fa-solid fa-arrow-left" id="sidebarToggleIcon" style="font-size: 24px;"></i>
+            </button>
               <i class="fa-solid fa-arrow-left" style="font-size: 24px;"></i>
           </div>
         </div>
@@ -32,16 +35,16 @@
           <div class="sidebar-item mb-1">
             <i class="fa-solid fa-user" style="font-size: 24px;"></i>
             <span>My Account</span>
-            
+
           </div>
-          
+
           <div class="sidebar-item mb-1">
             <i class="fa-solid fa-share" style="font-size: 24px;"></i>
             <span>Share Chat</span>
           </div>
         </div>
       </div>
-      
+
       <div class="sidebar-sections flex-grow-1 overflow-auto">
         <div class="sidebar-section">
           <div class="sidebar-header-toggle px-4 py-1 cursor-pointer" data-toggle="journals">
@@ -63,20 +66,20 @@
             </div>
           </div>
         </div>
-      <div class="sidebar-footer mt-auto p-4">
-        <div class="sidebar-item">
-          <i class="fa-solid fa-coins"></i>
-          <span>Buy Credit</span>
+        <div class="sidebar-footer mt-auto p-4">
+          <div class="sidebar-item">
+            <i class="fa-solid fa-coins"></i>
+            <span>Buy Credit</span>
+          </div>
+          <div class="sidebar-item">
+            <i class="fa-solid fa-cogs" style="font-size: 16px;"></i>
+            <span>Settings</span>
+          </div>
+          <div class="sidebar-item">
+            <i class="fa-solid fa-bug" style="font-size: 16px;"></i>
+            <span>Report Bug</span>
+          </div>
         </div>
-        <div class="sidebar-item">
-          <i class="fa-solid fa-cogs" style="font-size: 16px;"></i>
-          <span>Settings</span>
-        </div>
-        <div class="sidebar-item">
-          <i class="fa-solid fa-bug" style="font-size: 16px;"></i>
-          <span>Report Bug</span>
-        </div>
-      </div>
     </aside>
 
     <!-- Main Content -->
@@ -87,14 +90,14 @@
             <img src="../img/user.png" alt="Avatar" class="img-fluid" />
           </div>
         </div>
-        
+
         <div class="d-flex flex-column align-items-center justify-content-center pt-5 pb-4 fade-in slide-up">
           <div class="logo">
-           <img src="../img/top.png" alt="logo" width="100px">
+            <img src="../img/top.png" alt="logo" width="100px">
           </div>
           <h1 class="greeting-text fw-medium text-dark">Welcome, USER</h1>
         </div>
-        
+
         <div class="chat-cards-container">
           <div class="row row-cols-1 row-cols-md-3 g-4 max-w-3xl mx-auto mt-4">
             <div class="col">
@@ -105,7 +108,7 @@
                 <p class="card-title">Teach me about the Quadratic Formula</p>
               </div>
             </div>
-            
+
             <div class="col">
               <div class="chat-card">
                 <div class="icon-container bg-red-50 text-red-500">
@@ -114,7 +117,7 @@
                 <p class="card-title">Graph the Derivative of f(x) = x^2</p>
               </div>
             </div>
-            
+
             <div class="col">
               <div class="chat-card">
                 <div class="icon-container bg-green-50 text-green-500">
@@ -125,57 +128,51 @@
             </div>
           </div>
         </div>
-        
+
         <div style="height: 128px;"></div> <!-- Spacer -->
       </div>
-      
+
       <!-- Chat Input -->
       <div class="chat-input-container">
         <div class="max-w-3xl mx-auto px-4">
           <form id="chat-form" class="position-relative">
-            <input
-              type="text"
-              id="message-input"
-              placeholder="අපිලගෙන් ahanna..."
-              class="chat-input"
-              autocomplete="off"
-            />
+            <input type="text" id="message-input" placeholder="අපිලගෙන් ahanna..." class="chat-input"
+              autocomplete="off" />
             <div class="chat-input-buttons">
               <!-- Plus Icon Button -->
-             <!-- Plus Icon Button -->
-    <div class="dropdown">
-      <button type="button" class="btn-icon" onclick="toggleDropdown()">
-          <i class="fa-solid fa-plus"></i>
-      </button>
-      <div class="dropdown-content" id="mathSymbols">
-          <button onclick="insertSymbol('Θ')">Θ</button>
-          <button onclick="insertSymbol('π')">π</button>
-          <button onclick="insertSymbol('√')">√</button>
-          <button onclick="insertSymbol('ƒ')">ƒ</button>
-          <button onclick="insertSymbol('∑')">∑</button>
-          <button onclick="insertSymbol('∞')">∞</button>
-          <button onclick="insertSymbol('Δ')">Δ</button>
-          <button onclick="insertSymbol('∫')">∫</button>
-          <button onclick="insertSymbol('≠')">≠</button>
-      </div>
-  </div>
+              <div class="dropdown">
+                <button type="button" class="btn-icon" onclick="toggleDropdown()">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="dropdown-content" id="mathSymbols">
+                  <button onclick="insertSymbol('Θ')">Θ</button>
+                  <button onclick="insertSymbol('π')">π</button>
+                  <button onclick="insertSymbol('√')">√</button>
+                  <button onclick="insertSymbol('ƒ')">ƒ</button>
+                  <button onclick="insertSymbol('∑')">∑</button>
+                  <button onclick="insertSymbol('∞')">∞</button>
+                  <button onclick="insertSymbol('Δ')">Δ</button>
+                  <button onclick="insertSymbol('∫')">∫</button>
+                  <button onclick="insertSymbol('≠')">≠</button>
+                </div>
+              </div>
 
-            
+
               <!-- Camera Icon Button -->
               <button type="button" class="btn-icon text-muted">
                 <i class="fa-solid fa-camera"></i>
               </button>
-            
+
               <!-- Book Icon Button -->
               <button type="button" class="btn-icon text-muted">
                 <i class="fa-solid fa-book"></i>
               </button>
-            
+
               <!-- Web (Global) Icon Button -->
               <button type="button" class="btn-icon text-muted">
                 <i class="fa-solid fa-globe"></i>
               </button>
-            
+
               <!-- Send Button -->
               <button type="submit" id="send-button" class="btn-icon text-muted" disabled>
                 <i class="fa-solid fa-paper-plane"></i>
@@ -184,10 +181,10 @@
           </form>
           <div class="radio-group">
 
-            
+
             <div class="radio-group" id="radioMenu">
               <label>
-                <input type="radio" name="options" value="option1"> Not Specified 
+                <input type="radio" name="options" value="option1"> Not Specified
               </label>
               <label>
                 <input type="radio" name="options" value="option2"> Maths
@@ -200,11 +197,11 @@
               </label>
             </div>
 
-          <p class="textdown">
-            Apilage AI may make mistakes. Check important info and please report any bugs.
-          </p>
+            <p class="textdown">
+              Apilage AI may make mistakes. Check important info and please report any bugs.
+            </p>
+          </div>
         </div>
-      </div>
     </main>
   </div>
 
@@ -213,4 +210,5 @@
   <!-- Custom JavaScript -->
   <script src="script.js"></script>
 </body>
+
 </html>
