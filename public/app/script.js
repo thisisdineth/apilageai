@@ -18,25 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
 
-  // Handle sidebar section toggles
-  const sectionToggles = document.querySelectorAll('.sidebar-header-toggle');
-  
-  sectionToggles.forEach(toggle => {
-    toggle.addEventListener('click', function() {
-      const sectionId = this.getAttribute('data-toggle');
-      const content = document.getElementById(`${sectionId}-content`);
-      const chevron = this.querySelector('i[data-lucide="chevron-down"]');
-      
-      if (content.style.display === 'none') {
-        content.style.display = 'block';
-        chevron.classList.remove('rotate-minus-90');
-      } else {
-        content.style.display = 'none';
-        chevron.classList.add('rotate-minus-90');
-      }
-    });
-  });
-  
   // Handle chat form submission
   const chatForm = document.getElementById('chat-form');
   const messageInput = document.getElementById('message-input');
@@ -100,3 +81,16 @@ window.onclick = function(event) {
       document.getElementById("mathSymbols").style.display = "none";
   }
 }
+// Function to toggle the drop-up menu visibility
+function toggleDropUp() {
+  document.getElementById("extraOptions").classList.toggle("show");
+}
+
+// Close the dropdown if clicked outside
+document.addEventListener("click", function (event) {
+  const dropdown = document.querySelector(".dropdown.drop-up");
+  const dropdownContent = document.getElementById("extraOptions");
+  if (!dropdown.contains(event.target)) {
+    dropdownContent.classList.remove("show");
+  }
+});

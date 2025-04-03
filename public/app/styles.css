@@ -36,10 +36,20 @@ body {
 .sidebar {
   background-color: var(--sidebar-bg);
   min-width: 250px;
+  width: 250px;
   height: 100%;
   border-right: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
+  transition: width 0.3s ease-in-out, min-width 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.sidebar.hidden {
+  min-width: 0;
+  width: 0;
+  padding: 0;
+  border-right: none;
 }
 
 .sidebar-icon-btn {
@@ -55,6 +65,10 @@ body {
   color: #333;
 }
 
+.sidebar-header-toggle {
+  text-align: center; /* Centers text inside */
+}
+
 .sidebar-item {
   display: flex;
   align-items: center;
@@ -63,9 +77,15 @@ body {
   padding: 8px 16px;
   border-radius: 6px;
   margin-bottom: 4px;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, padding 0.3s ease-in-out, opacity 0.3s ease-in-out;
   cursor: pointer;
   font-size: 14px;
+  white-space: nowrap;
+}
+
+.sidebar.hidden .sidebar-item {
+  padding: 0;
+  opacity: 0;
 }
 
 .sidebar-item:hover {
@@ -81,7 +101,23 @@ body {
   padding-bottom: 8px;
   padding-top: 16px;
 }
+.sidebar-header {
+  display: flex;
+  justify-content: flex-end; /* Aligns the button to the left */
+  padding: 10px; /* Adds some spacing */
+}
 
+.sidebar-icon-btn {
+  background: none;
+  border: none;
+  color: white; /* Changes the icon color to white */
+  font-size: 1.5rem; /* Increases the size slightly */
+  cursor: pointer;
+}
+
+.sidebar-icon-btn i {
+  font-size: 1.8rem; /* Adjust icon size */
+}
 .sidebar-header-toggle {
   display: flex;
   justify-content: space-between;
@@ -97,6 +133,26 @@ body {
   width: 100%;
   padding: 16px;
   background-color: #fd3030;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.sidebar.hidden .sidebar-footer {
+  opacity: 0;
+  pointer-events: none;
+}
+.content {
+  flex-grow: 1;
+  padding: 20px;
+  width: calc(100% - 250px);
+  transition: width 0.3s ease-in-out;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.sidebar.hidden ~ .content {
+  width: 100%;
 }
 
 .transition-transform {
@@ -110,7 +166,60 @@ body {
 .cursor-pointer {
   cursor: pointer;
 }
+/* Style for the drop-up menu */
+.dropdown.drop-up {
+  position: relative;
+}
 
+.dropdown.drop-up .dropdown-content {
+  display: none;
+  position: absolute;
+  bottom: 100%; /* Position the menu above the button */
+  left: 0;
+  z-index: 1;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  padding: 5px 0;
+}
+
+.dropdown.drop-up .dropdown-content button {
+  background-color: #fff;
+  border: none;
+  padding: 8px 16px;
+  text-align: left;
+  width: 100%;
+  color: #333;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.dropdown.drop-up .dropdown-content button:hover {
+  background-color: #f0f0f0;
+}
+
+/* Show the dropdown content when the button is clicked */
+.dropdown.drop-up .show {
+  display: block;
+}
+
+/* Icon Button Styling */
+.btn-icon {
+  background: none;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.btn-icon i {
+  font-size: 20px;
+  color: #333;
+}
+
+.btn-icon:hover i {
+  color: #007bff;
+}
 /* Main Content Styles */
 .main-content {
   flex: 1;
@@ -409,25 +518,35 @@ body {
   100% { transform: translateY(0); opacity: 1; }
 }
 
+/* Hide sidebar by default on small screens */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    position: absolute;
+    z-index: 1000;
+    width: 250px;
+  }
+  
+  .content {
+    width: 100%;
+  }
+}
+
+/* When sidebar is expanded */
+.sidebar.expanded {
+  transform: translateX(0);
+}
+
+/* Adjust content when sidebar is expanded */
+@media screen and (max-width: 768px) {
+  .content.sidebar-open {
+    width: calc(100% - 250px);
+  }
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .sidebar {
-    min-width: 0;
-    width: 70px;
-  }
-  
-  .sidebar-item span, 
-  .sidebar-header-toggle span,
-  .sidebar-header h2 {
-    display: none;
-  }
-  
-  .sidebar-item, 
-  .sidebar-header-toggle {
-    justify-content: center;
-    padding: 12px 0;
-  }
-  
+
   .chat-input {
     padding-right: 100px;
   }
