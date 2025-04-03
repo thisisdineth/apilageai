@@ -28,8 +28,8 @@ function initializePaymentPage() {
   const summaryTotal = document.getElementById('summary-total');
   
   if (summaryPlan) summaryPlan.textContent = selectedPlan.name;
-  if (summaryPrice) summaryPrice.textContent = `$${selectedPlan.price}/${selectedPlan.billingPeriod}`;
-  if (summaryTotal) summaryTotal.textContent = `$${selectedPlan.price}`;
+  if (summaryPrice) summaryPrice.textContent = `Rs. ${selectedPlan.price}/${selectedPlan.billingPeriod}`;
+  if (summaryTotal) summaryTotal.textContent = `Rs. ${selectedPlan.price}`;
   
   // Set up payment methods
   const paymentMethodElements = document.querySelectorAll('.payment-method');
