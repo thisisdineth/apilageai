@@ -4,279 +4,200 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pricing Apilage AI</title>
-  <meta name="description" content="Choose your payment plan and subscribe to our services">
-  <link rel="stylesheet" href="./css/styles.css">
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Apilage - Pricing Plans</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
 </head>
 <body>
-  <div id="app">
-    <!-- Header will be consistent across all pages -->
-    <header class="header">
-      <div class="header-container">
-        <div class="logo">
-          <div class="logo-icon">
-            <img src="../img/aipro.png" alt="Logo">
-        </div>
-          <span class="logo-text">APILAGE AI</span>
-        </div>
-        <div id="step-indicator" class="step-indicator">
-          <!-- Steps will be dynamically generated -->
-        </div>
-        <div class="help-container">
-          <button class="help-button">Help</button>
+  <header id="navbar" class="navbar">
+    <div class="container">
+      <div class="navbar-content">
+        <div class="logo">Apilage AI</div>
+        <nav class="desktop-menu">
+          <button class="nav-link">View Usage</button>
+          <button class="nav-link">Learn More</button>
+          <div class="profile-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          </div>
+        </nav>
+        <button class="mobile-menu-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu-overlay" id="mobileMenu">
+    <div class="mobile-menu-container">
+      <button class="close-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+      </button>
+      <div class="mobile-menu-items">
+        <button class="nav-link">View Usage</button>
+        <button class="nav-link">Learn More</button>
+        <div class="profile-item">
+          <div class="profile-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          </div>
+          <span>Profile</span>
         </div>
       </div>
-    </header>
-
-    <!-- Main content area - will be dynamically updated -->
-    <main id="main-content" class="main-content">
-      <!-- Content will be loaded dynamically by JS -->
-    </main>
-
-    <!-- Footer will be consistent across all pages -->
-    <footer class="footer">
-      <div class="footer-container">
-        <div class="copyright">
-          © 2023 PayPlan. All rights reserved.
-        </div>
-        <div class="footer-links">
-          <a href="#" class="footer-link">Terms of Service</a>
-          <a href="#" class="footer-link">Privacy Policy</a>
-          <a href="#" class="footer-link">Contact</a>
-        </div>
-      </div>
-    </footer>
+    </div>
   </div>
 
-  <!-- Templates for different pages -->
-  <template id="plans-template">
-    <div class="page-container">
-      <div class="page-header">
-        <h1>Choose Your Plan</h1>
-        <p>Select the perfect plan that suits your needs. Select plan and scroll down to click continue</p>
-      </div>
-      
-      <div class="plans-container">
-        <!-- Plans will be dynamically generated -->
-      </div>
-      
-      <div class="action-buttons">
-        <button id="continue-button" class="button-primary" disabled>Continue</button>
-      </div>
-    </div>
-  </template>
+  <main>
+    <div class="container">
+      <div class="pricing-container">
+        <h1 class="title">Choose Your Apilage AI Plan</h1>
+        <p class="subtitle">Select the perfect plan for your needs and get started today</p>
 
-  <template id="user-details-template">
-    <div class="page-container">
-      <div class="page-header">
-        <h1>Your Details</h1>
-        <p>Please provide your information to continue with your purchase. (Your Data is secured)</p>
-      </div>
-      
-      <div class="form-container">
-        <form id="user-form">
-          <div class="form-grid">
-            <div class="form-group">
-              <label for="fullName" class="input-label">Full Name</label>
-              <input type="text" id="fullName" name="fullName" class="input-field" placeholder="A B Perera" required>
-              <p class="error-message" id="fullName-error"></p>
+        <!-- Price Slider Section -->
+        <div id="pricingSection" class="pricing-section">
+          <div class="card">
+            <h2 class="card-title">Choose Your Plan</h2>
+            
+            <div class="price-display">
+              <span id="priceDisplay" class="price">LKR 200</span>
             </div>
             
-            <div class="form-group">
-              <label for="email" class="input-label">Email</label>
-              <input type="email" id="email" name="email" class="input-field" placeholder="perera@gmail.com" required>
-              <p class="error-message" id="email-error"></p>
-            </div>
-            
-            <div class="form-group">
-              <label for="phone" class="input-label">Phone Number</label>
-              <input type="tel" id="phone" name="phone" class="input-field" placeholder="077 123 4567" required>
-              <p class="error-message" id="phone-error"></p>
-            </div>
-            
-            <div class="form-group">
-              <label for="address" class="input-label">Address</label>
-              <input type="text" id="address" name="address" class="input-field" placeholder="123 Main St" required>
-              <p class="error-message" id="address-error"></p>
-            </div>
-            
-            <div class="form-group">
-              <label for="city" class="input-label">City</label>
-              <input type="text" id="city" name="city" class="input-field" placeholder="Colombo" required>
-              <p class="error-message" id="city-error"></p>
-            </div>
-            
-            <div class="form-group">
-              <label for="state" class="input-label">provinse</label>
-              <input type="text" id="state" name="state" class="input-field" placeholder="Western" required>
-              <p class="error-message" id="state-error"></p>
-            </div>
-            
-            <div class="form-group">
-              <label for="zipCode" class="input-label">Postel Code (search on intrenet if you dont know)</label>
-              <input type="text" id="zipCode" name="zipCode" class="input-field" placeholder="10001" required>
-              <p class="error-message" id="zipCode-error"></p>
-            </div>
-            
-            <div class="form-group">
-              <label for="country" class="input-label">Country</label>
-              <select id="country" name="country" class="input-field">
-                <option value="Sri Lanka">Sri Lanka</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-          </div>
-          
-          <div class="form-actions">
-            <button type="button" id="back-button" class="button-secondary">Back</button>
-            <button type="submit" class="button-primary">Continue to Payment</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </template>
-
-  <template id="payment-template">
-    <div class="page-container">
-      <div class="page-header">
-        <h1>Payment Method</h1>
-        <p>Choose your preferred payment method to complete your purchase.</p>
-      </div>
-      
-      <div class="payment-container">
-        <div class="payment-methods">
-          <h2 class="section-title">Select Payment Method</h2>
-          
-         <!-- <div class="payment-method" data-type="paypal">
-            <div class="payment-method-content">
-              <div class="payment-method-logo">
-                <img src="https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/C2/logos-buttons/optimize/44_Grey_PayPal_Pill_Button.png" alt="PayPal">
+            <div class="slider-container">
+              <div class="slider-labels">
+                <span>200 LKR</span>
+                <span>10000 LKR</span>
               </div>
-              <div class="payment-method-info">
-                <h3 class="payment-method-name">PayPal</h3>
-                <p class="payment-method-description">Pay securely using your PayPal account.</p>
-              </div>
-              <div class="payment-method-selector">
-                <div class="selector-circle"></div>
-              </div>
+              <input type="range" id="priceSlider" min="200" max="10000" step="100" value="200" class="slider">
             </div>
-          </div>-->
-          
-          <div class="payment-method" data-type="payhere">
-            <div class="payment-method-content">
-              <div class="payment-method-logo">
-                <img src="../img/payhere.png" alt="PayHere">
-              </div>
-              <div class="payment-method-info">
-                <h3 class="payment-method-name">PayHere</h3>
-                <p class="payment-method-description">Sri lankan trusted payment method 🇱🇰</p>
-              </div>
-              <div class="payment-method-selector">
-                <div class="selector-circle"></div>
-              </div>
+            
+            <!-- Next Button - Moved above the table and centered -->
+            <div class="button-container">
+              <button id="nextButton" class="button">
+                <span>Next</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+              </button>
             </div>
-          </div>
-
-          
-        </div>
-        
-        <div class="order-summary">
-          <h2 class="section-title">Order Summary</h2>
-          
-          <div class="summary-details">
-            <div class="summary-row">
-              <span class="summary-label">Plan</span>
-              <span id="summary-plan" class="summary-value"></span>
+            
+            <!-- Price Table -->
+            <div class="table-container">
+              <table class="price-table">
+                <thead>
+                  <tr>
+                    <th>Feature</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>API Calls</td>
+                    <td>Unlimited API calls per month</td>
+                  </tr>
+                  <tr>
+                    <td>Data Storage</td>
+                    <td>10GB secure cloud storage</td>
+                  </tr>
+                  <tr>
+                    <td>Custom Models</td>
+                    <td>Create up to 5 custom AI models</td>
+                  </tr>
+                  <tr>
+                    <td>Integrations</td>
+                    <td>Connect with 20+ platforms</td>
+                  </tr>
+                  <tr>
+                    <td>Support</td>
+                    <td>24/7 priority support</td>
+                  </tr>
+                  <tr>
+                    <td>Analytics</td>
+                    <td>Advanced usage analytics</td>
+                  </tr>
+                  <tr>
+                    <td>Team Access</td>
+                    <td>Up to 10 team members</td>
+                  </tr>
+                  <tr>
+                    <td>SLA</td>
+                    <td>99.9% uptime guarantee</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <div class="summary-row">
-              <span class="summary-label">Billing</span>
-              <span class="summary-value">Monthly</span>
-            </div>
-            <div class="summary-row">
-              <span class="summary-label">Price</span>
-              <span id="summary-price" class="summary-value"></span>
-            </div>
-          </div>
-          
-          <div class="summary-total">
-            <span class="total-label">Total</span>
-            <span id="summary-total" class="total-value"></span>
           </div>
         </div>
-        
-        <div class="payment-actions">
-          <button id="payment-back-button" class="button-secondary">Back</button>
-          <button id="complete-payment-button" class="button-primary" disabled>Complete Payment</button>
+
+        <!-- Payment Gateway Section -->
+        <div id="paymentSection" class="payment-section hidden">
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Payment Summary</h2>
+              <p class="card-subtitle">Complete your payment to continue</p>
+            </div>
+            
+            <div class="card-content">
+              <div class="info-block">
+                <h3 class="info-title">Customer Information</h3>
+                <p class="info-name">John Doe</p>
+                <p class="info-email">john.doe@example.com</p>
+              </div>
+              
+              <div class="info-block">
+                <h3 class="info-title">Plan Amount</h3>
+                <p id="paymentAmount" class="info-price">LKR 200</p>
+              </div>
+              
+              <div class="payment-methods">
+                <h3 class="info-title">Select Payment Method</h3>
+                <div class="payment-options">
+                  <label class="payment-option">
+                    <input type="radio" name="paymentMethod" value="paypal">
+                    <span class="checkmark"></span>
+                    <span class="payment-label">PayPal</span>
+                  </label>
+                  
+                  <label class="payment-option">
+                    <input type="radio" name="paymentMethod" value="helapay">
+                    <span class="checkmark"></span>
+                    <span class="payment-label">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg>
+                      Helapay
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            
+            <div class="card-footer">
+              <button id="backButton" class="button button-outline">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
+                Back
+              </button>
+              
+              <button id="payButton" class="button" disabled>
+                Pay Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Success Section -->
+        <div id="successSection" class="success-section hidden">
+          <div class="card">
+            <div class="success-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            </div>
+            
+            <h2 class="card-title">Payment Successful!</h2>
+            <p class="card-subtitle">Your plan has been successfully activated.</p>
+            
+            <button id="enjoyPlanButton" class="button">
+              Enjoy My Plan
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </template>
+  </main>
 
-  <template id="confirmation-template">
-    <div class="page-container">
-      <div class="confirmation-content">
-        <div class="success-icon">
-          <i class="fas fa-check"></i>
-        </div>
-        
-        <div class="confirmation-header">
-          <h1>Payment Successful!</h1>
-          <p>Thank you for your purchase. Your order has been confirmed.</p>
-        </div>
-        
-        <div class="order-details">
-          <h2>Order Details</h2>
-          
-          <div class="order-info">
-            <div class="info-row">
-              <span class="info-label">Order Number:</span>
-              <span id="order-number" class="info-value"></span>
-            </div>
-            <div class="info-row">
-              <span class="info-label">Plan:</span>
-              <span id="order-plan" class="info-value"></span>
-            </div>
-            <div class="info-row">
-              <span class="info-label">Payment Method:</span>
-              <span id="order-payment-method" class="info-value"></span>
-            </div>
-          </div>
-          
-          <div class="customer-info">
-            <h3>Customer Information</h3>
-            <p><span class="info-label">Name:</span> <span id="customer-name"></span></p>
-            <p><span class="info-label">Email:</span> <span id="customer-email"></span></p>
-            <p><span class="info-label">Address:</span> <span id="customer-address"></span></p>
-          </div>
-        </div>
-        
-        <div class="confirmation-message">
-          <p>A confirmation email has been sent to <span id="confirmation-email"></span> with your receipt and account details.</p>
-        </div>
-        
-        <div class="confirmation-actions">
-          <button id="return-home-button" class="button-primary">Enjoy my plan</button>
-        </div>
-      </div>
-    </div>
-  </template>
-
-  <template id="not-found-template">
-    <div class="not-found-container">
-      <h1>404</h1>
-      <p>Oops! Page not found</p>
-      <a href="/" class="return-link">Enjoy my plan</a>
-    </div>
-  </template>
-
-  <!-- Scripts -->
-  <script src="./js/app.js"></script>
-  <script src="./js/plans.js"></script>
-  <script src="./js/user-details.js"></script>
-  <script src="./js/payment.js"></script>
-  <script src="./js/confirmation.js"></script>
-  <script src="./js/navigation.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
