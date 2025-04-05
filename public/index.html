@@ -362,141 +362,84 @@
   </section>
 
   <!-- Pricing Section -->
-  <section id="pricing" class="py-5 bg-light">
-    <div class="container py-5">
-      <div class="text-center mb-5">
-        <div class="badge text-bg-light rounded-pill px-3 py-2 mb-3">Pricing Plans</div>
-        <h2 class="display-5 fw-bold">Choose the Right Plan for Your Needs</h2>
-        <p class="lead text-muted mx-auto" style="max-width: 700px;">
-          Flexible pricing options designed to scale with your requirements, from individual
-          projects to enterprise-level deployments.
-        </p>
-
-        <div class="mt-4 d-flex justify-content-center">
-          <div class="btn-group" role="group" aria-label="Pricing period">
-            <button type="button" class="btn btn-outline-secondary active" id="annual-btn">All plannes are Pay As You Go</button>
-          </div>
+  <section id="pricing" class="pricing-section bg-light">
+    <!-- Price Slider Section -->
+    <div class="text-center mb-5">
+      <div class="badge text-bg-light rounded-pill px-3 py-2 mb-3">Choose your limits</div>
+      <h2 class="display-5 fw-bold">Just pay when you need it</h2>
+      <p class="lead text-muted mx-auto" style="max-width: 700px;">
+        Only pay when you need to use it — no monthly subscriptions required.
+      </p>
+    </div>
+    <div id="pricingSection" class="pricing-section">
+      <div class="card">
+        <h2 class="card-title">Choose Your Plan</h2>
+        
+        <div class="price-display">
+          <span id="priceDisplay" class="price">LKR 200</span>
         </div>
-      </div>
-
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-4">
-          <div class="card pricing-card h-100">
-            <div class="card-body p-4">
-              <h3 class="card-title">අපිලට Free</h3>
-              <p class="text-muted small">Now you are using it</p>
-
-              <div class="pricing-value my-4">
-                <div class="pricing-currency">
-                  <span class="fs-2 fw-bold">Rs. 0</span>
-                  <span class="text-muted">lifetime</span>
-                </div>
-                <p class="text-primary small">Limited Features</p>
-              </div>
-
-              <div class="d-grid mb-4">
-                <a href="./login/" class="btn btn-outline-primary">Start Chat</a>
-              </div>
-
-              <p class="fw-medium small">What's included:</p>
-              <ul class="list-unstyled pricing-features">
-                <li><i class="fas fa-check text-primary me-2"></i> Chat With Apilage-Basic (apil-B Version1)</li>
-                <li><i class="fas fa-check text-primary me-2"></i> Good For Day-Today tasks</li>
-                <li><i class="fas fa-check text-primary me-2"></i> 40-50 Messages for 3 hours</li>
-                <li><i class="fas fa-check text-primary me-2"></i> 2 Image genarating For a week</li>
-                <li><i class="fas fa-check text-primary me-2"></i> Good for MCQ typed subject based questions</li>
-                <li><i class="fas fa-check text-primary me-2"></i> 1 PDF / Image analyse for a week</li>
-              </ul>
-
-              <p class="fw-medium small mt-3">Not included:</p>
-              <ul class="list-unstyled pricing-features">
-                <li><i class="fas fa-times text-muted me-2"></i> <span class="text-muted">Accuracy Check</span></li>
-                <li><i class="fas fa-times text-muted me-2"></i> <span class="text-muted">Deep Thinking</span>
-                </li>
-              </ul>
-            </div>
+        
+        <div class="slider-container">
+          <div class="slider-labels">
+            <span>200 LKR</span>
+            <span>10000 LKR</span>
           </div>
+          <input type="range" id="priceSlider" min="200" max="10000" step="100" value="200" class="slider">
         </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="card pricing-card pricing-popular h-100">
-            <div class="popular-badge">POPULAR</div>
-            <div class="card-body p-4">
-              <h3 class="card-title">Learner / Student</h3>
-              <p class="text-muted small">Ideal for Students</p>
-
-              <div class="pricing-value my-4">
-                <div class="pricing-currency">
-                  <span class="fs-2 fw-bold">Rs. 500</span>
-                  <span class="text-muted">one time payment (need to repurchese when credit over)</span>
-                </div>
-                <p class="text-primary small">Valid for 30 days</p>
-              </div>
-
-              <div class="d-grid mb-4">
-                <a href="#contact" class="btn btn-primary">Get Started</a>
-              </div>
-
-              <p class="fw-medium small">What's included:</p>
-              <ul class="list-unstyled pricing-features">
-                <li><i class="fas fa-check text-primary me-2"></i> Chat with Apilage Teacher (Apil-lR V1)</li>
-                <li><i class="fas fa-check text-primary me-2"></i> Good for Acedemic and School works</li>
-                <li><i class="fas fa-check text-primary me-2"></i> Unlimited Messages</li>
-                <li><i class="fas fa-check text-primary me-2"></i> 3 Images for a day</li>
-                <li><i class="fas fa-check text-primary me-2"></i> Unlimited PDF and Image Input</li>
-                <li><i class="fas fa-check text-primary me-2"></i> Accuracy check (90%)</li>
-                <li><i class="fas fa-check text-primary me-2"></i> Advance Subject Explaining with Exam Predicts (🇱🇰 Syllabus)</li>
-              </ul>
-
-              <p class="fw-medium small mt-3">Not included:</p>
-              <ul class="list-unstyled pricing-features">
-                <li><i class="fas fa-times text-muted me-2"></i> <span class="text-muted">Unlimited Image genarating
-                    </span></li>
-              </ul>
-            </div>
-          </div>
+        
+        <!-- Next Button - Moved above the table and centered -->
+        <div class="button-container">
+          <button id="nextButton" class="button">
+            <span>Next</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </button>
         </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="card pricing-card h-100">
-            <div class="card-body p-4">
-              <h3 class="card-title">අපිලගේ PRO</h3>
-              <p class="text-muted small">For Deep learners and acedemic pupils</p>
-
-              <div class="pricing-value my-4">
-                <div class="pricing-currency">
-                  <span class="fs-2 fw-bold">Rs. 2 000</span>
-                  <span class="text-muted">Pay As you go</span>
-                </div>
-                <p class="text-primary small">Use till your credit limit over</p>
-              </div>
-
-              <div class="d-grid mb-4">
-                <a href="#contact" class="btn btn-outline-primary">Get Started</a>
-              </div>
-
-              <p class="fw-medium small">What's included:</p>
-              <ul class="list-unstyled pricing-features">
-                <li><i class="fas fa-check text-primary me-2"></i> Chat with Apilage Pro (Apil-pro V1)</li>
-                <li><i class="fas fa-check text-primary me-2"></i> Good for all type of tasks</li>
-                <li><i class="fas fa-check text-primary me-2"></i> Unlimited Messages</li>
-                <li><i class="fas fa-check text-primary me-2"></i> Unlimited Images</li>
-                <li><i class="fas fa-check text-primary me-2"></i> Unlimited PDF and Image Input</li>
-                <li><i class="fas fa-check text-primary me-2"></i> Accuracy check (95%)</li>
-                <li><i class="fas fa-check text-primary me-2"></i> Advance Subject Explaining with Exam Predicts (🇱🇰 Syllabus)</li>
-                <li><i class="fas fa-check text-primary me-2"></i> Advance Explaining in A/L and O/L (🇱🇰 Syllabus)</li>
-                <li><i class="fas fa-check text-primary me-2"></i> Early acess to new features</li>
-                <li><i class="fas fa-check text-primary me-2"></i> 24/7 Support</li>
-                <b>Thanks You are supporting ApilageAi.lk we love you so much</b>
-              </ul>
-            </div>
-          </div>
+        
+        <!-- Price Table -->
+        <div class="table-container">
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>API Calls</td>
+                <td>Unlimited API calls per month</td>
+              </tr>
+              <tr>
+                <td>Data Storage</td>
+                <td>10GB secure cloud storage</td>
+              </tr>
+              <tr>
+                <td>Custom Models</td>
+                <td>Create up to 5 custom AI models</td>
+              </tr>
+              <tr>
+                <td>Integrations</td>
+                <td>Connect with 20+ platforms</td>
+              </tr>
+              <tr>
+                <td>Support</td>
+                <td>24/7 priority support</td>
+              </tr>
+              <tr>
+                <td>Analytics</td>
+                <td>Advanced usage analytics</td>
+              </tr>
+              <tr>
+                <td>Team Access</td>
+                <td>Up to 10 team members</td>
+              </tr>
+              <tr>
+                <td>SLA</td>
+                <td>99.9% uptime guarantee</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-      </div>
-
-      <div class="text-center mt-5 text-muted">
-        <p>Wanna join with Apilage manegemnt team? <a href="./developer/" class="text-primary fw-medium">Invest / Donate</a> in apilageai.lk
-          </p>
       </div>
     </div>
   </section>
@@ -602,6 +545,7 @@
   <!-- Custom JS -->
   <script src="script.js"></script>
   <script src="blog.js"></script>
+  <script src="./pricing/script.js"></script>
   <script>
 window.addEventListener("load", function () {
     let preloader = document.getElementById("preloader");

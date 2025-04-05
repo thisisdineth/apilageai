@@ -578,42 +578,137 @@ form .btn {
       width: 90%;
   }
 }
+
 /* Pricing Section */
-.pricing-card {
-  transition: transform 0.3s ease;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
+/* Base styles */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff;
+  color: #000;
 }
 
-.pricing-card:hover {
-  transform: translateY(-5px);
+#pricing {
+  padding: 60px 20px;
+  background-color: #fff;
 }
 
-.pricing-popular {
-  border-color: var(--primary);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  position: relative;
+.card {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 2px solid #e60023;
+  border-radius: 16px;
+  padding: 40px 30px;
+  box-shadow: 0 10px 25px rgba(230, 0, 35, 0.15);
 }
 
-.popular-badge {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background-color: var(--primary);
-  color: white;
-  font-size: 0.75rem;
+.card-title {
+  text-align: center;
+  color: #e60023;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+/* Price display */
+.price-display {
+  text-align: center;
+  font-size: 2rem;
   font-weight: bold;
-  padding: 0.25rem 0.75rem;
-  border-bottom-left-radius: 0.5rem;
+  color: #e60023;
+  margin-bottom: 20px;
 }
 
-.pricing-features li {
-  margin-bottom: 0.5rem;
+/* Slider */
+.slider-container {
+  margin: 20px 0;
+}
+
+.slider-labels {
   display: flex;
-  align-items: flex-start;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  color: #e60023;
 }
 
+.slider {
+  width: 100%;
+  accent-color: #e60023;
+}
+
+/* Button */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.button {
+  background-color: #e60023;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #c4001c;
+}
+
+/* Table styles */
+.table-container {
+  margin-top: 30px;
+  overflow-x: auto;
+}
+
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.price-table th,
+.price-table td {
+  padding: 14px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.price-table th {
+  background-color: #e60023;
+  color: #fff;
+}
+
+.price-table td {
+  background-color: #fff;
+  color: #333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card {
+    padding: 25px 20px;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+  }
+
+  .price-display {
+    font-size: 1.5rem;
+  }
+
+  .button {
+    width: 100%;
+    justify-content: center;
+  }
+}
 /* Animations */
 @keyframes float {
   0%, 100% {
