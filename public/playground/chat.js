@@ -49,7 +49,7 @@ const addMessage = (content, sender, isHTML = false) => {
 };
 const fetchResponse = async (message) => {
     try {
-        const response = await fetch("http://localhost:3000/public/backend/chat.php?subject=com_maths", {
+        const response = await fetch("https://apilageai.lk/api/chat/get", {
 
             method: "POST",
             headers: { "Content-Type": "application/json" },
