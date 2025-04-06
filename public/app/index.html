@@ -128,57 +128,57 @@
       </div>
 
       <!-- Chat Input Area -->
+<!-- Chat Input Area -->
 <div class="chat-wrapper">
   <div class="chat-input-container">
-    <div class="chat-input-buttons buttons">
-      <!-- Math Symbols Dropdown -->
-      <div class="dropdown">
-        <button type="button" class="btn-icon" onclick="toggleDropdown()">
-          <i class="fas fa-calculator"></i>
-        </button>
-        <div class="dropdown-content" id="mathSymbols">
-          <button type="button" onclick="insertSymbol('Θ')">Θ</button>
-          <button type="button" onclick="insertSymbol('π')">π</button>
-          <button type="button" onclick="insertSymbol('√')">√</button>
-          <button type="button" onclick="insertSymbol('ƒ')">ƒ</button>
-          <button type="button" onclick="insertSymbol('∑')">∑</button>
-          <button type="button" onclick="insertSymbol('∞')">∞</button>
-          <button type="button" onclick="insertSymbol('Δ')">Δ</button>
-          <button type="button" onclick="insertSymbol('∫')">∫</button>
-          <button type="button" onclick="insertSymbol('≠')">≠</button>
-        </div>
-      </div>
-
-      <!-- Drop-Up Options -->
-      <div class="dropdown drop-up">
-        <button type="button" class="btn-icon" onclick="toggleDropUp()">
-          📎
-        </button>
-        <div class="dropdown-content" id="extraOptions">
-          <button type="button" class="btn-icon text-muted">
-            <i class="fa-solid fa-book"></i> Document Explain
-          </button>
-          <button type="button" class="btn-icon text-muted">
-            <i class="fa-solid fa-camera"></i> Image Explain
-          </button>
-        </div>
-      </div>
-
-      <!-- Web Icon -->
-      <button type="button" class="btn-icon text-muted">
-        <i class="fa-solid fa-globe"></i>
-      </button>
-
-      <!-- Send Button -->
-      <button type="submit" id="send-button" class="btn-icon text-muted" disabled>
-        <i class="fa-solid fa-paper-plane"></i>
-      </button>
-    </div>
     <div class="max-w-3xl mx-auto px-4">
       <form id="chat-form" class="position-relative">
         <textarea id="message-input" placeholder="අපිලගෙන් ahanna..." class="chat-input" autocomplete="off"></textarea>
-      </form>
+        <div class="chat-input-buttons">
+          <!-- Math Symbols Dropdown -->
+          <div class="dropdown">
+            <button type="button" class="btn-icon" onclick="toggleDropdown()">
+              <i class="fas fa-calculator"></i>
+            </button>
+            <div class="dropdown-content" id="mathSymbols">
+              <button type="button" onclick="insertSymbol('Θ')">Θ</button>
+              <button type="button" onclick="insertSymbol('π')">π</button>
+              <button type="button" onclick="insertSymbol('√')">√</button>
+              <button type="button" onclick="insertSymbol('ƒ')">ƒ</button>
+              <button type="button" onclick="insertSymbol('∑')">∑</button>
+              <button type="button" onclick="insertSymbol('∞')">∞</button>
+              <button type="button" onclick="insertSymbol('Δ')">Δ</button>
+              <button type="button" onclick="insertSymbol('∫')">∫</button>
+              <button type="button" onclick="insertSymbol('≠')">≠</button>
+            </div>
+          </div>
 
+          <!-- Drop-Up Options -->
+          <div class="dropdown drop-up">
+            <button type="button" class="btn-icon" onclick="toggleDropUp()">
+              📎
+            </button>
+            <div class="dropdown-content" id="extraOptions">
+              <button type="button" class="btn-icon text-muted">
+                <i class="fa-solid fa-book"></i> Document Explain
+              </button>
+              <button type="button" class="btn-icon text-muted">
+                <i class="fa-solid fa-camera"></i> Image Explain
+              </button>
+            </div>
+          </div>
+
+          <!-- Web Icon -->
+          <button type="button" class="btn-icon text-muted">
+            <i class="fa-solid fa-globe"></i>
+          </button>
+
+          <!-- Send Button -->
+          <button type="submit" id="send-button" class="btn-icon text-muted" disabled>
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
