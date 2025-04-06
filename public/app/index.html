@@ -77,7 +77,6 @@
     <!-- sidebar end -->
 
     <!-- Main Content -->
-
     <main class="main-content">
       <div class="content-area p-4">
         <div class="position-absolute top-4 end-4">
@@ -93,34 +92,10 @@
           <h1 class="greeting-text fw-medium text-dark">Welcome, USER</h1>
         </div>
 
-        <div class="chat-cards-container">
-          <div class="row row-cols-1 row-cols-md-3 g-4 max-w-3xl mx-auto mt-4">
-            <div class="col">
-              <div class="chat-card">
-                <div class="icon-container bg-blue-50 text-blue-500">
-                  <i class="fa-solid fa-calculator" style="font-size: 24px;"></i>
-                </div>
-                <p class="card-title">Teach me about the Quadratic Formula</p>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="chat-card">
-                <div class="icon-container bg-red-50 text-red-500">
-                  <i class="fa-solid fa-chart-line" style="font-size: 24px;"></i>
-                </div>
-                <p class="card-title">Graph the Derivative of f(x) = x^2</p>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="chat-card">
-                <div class="icon-container bg-green-50 text-green-500">
-                  <i class="fa-solid fa-seedling" style="font-size: 24px;"></i>
-                </div>
-                <p class="card-title">Explain the structure of a plant cell</p>
-              </div>
-            </div>
+        <!-- Chat Container -->
+        <div class="chat-container" id="chat-container">
+          <div class="chat-content" id="chat-content">
+            <!-- Chat messages will be added here dynamically -->
           </div>
         </div>
 
@@ -128,67 +103,70 @@
       </div>
 
       <!-- Chat Input Area -->
-<!-- Chat Input Area -->
-<div class="chat-wrapper">
-  <div class="chat-input-container">
-    <div class="max-w-3xl mx-auto px-4">
-      <form id="chat-form" class="position-relative">
-        <textarea id="message-input" placeholder="අපිලගෙන් ahanna..." class="chat-input" autocomplete="off"></textarea>
-      </form>
-    </div>
+      <div class="chat-wrapper">
+        <div class="chat-input-container">
+          <div class="max-w-3xl mx-auto px-4">
+            <form id="chat-form" class="position-relative">
+              <textarea id="message-input" placeholder="අපිලගෙන් ahanna..." class="chat-input" autocomplete="off"></textarea>
+            </form>
+          </div>
 
-    <div class="chat-input-buttons buttons">
-      <!-- Math Symbols Dropdown -->
-      <div class="dropdown">
-        <button type="button" class="btn-icon" onclick="toggleDropdown()">
-          <i class="fas fa-calculator"></i>
-        </button>
-        <div class="dropdown-content" id="mathSymbols">
-          <button type="button" onclick="insertSymbol('Θ')">Θ</button>
-          <button type="button" onclick="insertSymbol('π')">π</button>
-          <button type="button" onclick="insertSymbol('√')">√</button>
-          <button type="button" onclick="insertSymbol('ƒ')">ƒ</button>
-          <button type="button" onclick="insertSymbol('∑')">∑</button>
-          <button type="button" onclick="insertSymbol('∞')">∞</button>
-          <button type="button" onclick="insertSymbol('Δ')">Δ</button>
-          <button type="button" onclick="insertSymbol('∫')">∫</button>
-          <button type="button" onclick="insertSymbol('≠')">≠</button>
+          <div class="chat-input-buttons buttons">
+            <!-- Math Symbols Dropdown -->
+            <div class="dropdown">
+              <button type="button" class="btn-icon" onclick="toggleDropdown()">
+                <i class="fas fa-calculator"></i>
+              </button>
+              <div class="dropdown-content" id="mathSymbols">
+                <button type="button" onclick="insertSymbol('Θ')">Θ</button>
+                <button type="button" onclick="insertSymbol('π')">π</button>
+                <button type="button" onclick="insertSymbol('√')">√</button>
+                <button type="button" onclick="insertSymbol('ƒ')">ƒ</button>
+                <button type="button" onclick="insertSymbol('∑')">∑</button>
+                <button type="button" onclick="insertSymbol('∞')">∞</button>
+                <button type="button" onclick="insertSymbol('Δ')">Δ</button>
+                <button type="button" onclick="insertSymbol('∫')">∫</button>
+                <button type="button" onclick="insertSymbol('≠')">≠</button>
+              </div>
+            </div>
+
+            <!-- Drop-Up Options -->
+            <div class="dropdown drop-up">
+              <button type="button" class="btn-icon" onclick="toggleDropUp()">
+                📎
+              </button>
+              <div class="dropdown-content" id="extraOptions">
+                <button type="button" class="btn-icon text-muted">
+                  <i class="fa-solid fa-book"></i> Document Explain
+                </button>
+                <button type="button" class="btn-icon text-muted">
+                  <i class="fa-solid fa-camera"></i> Image Explain
+                </button>
+              </div>
+            </div>
+
+            <!-- Web Icon -->
+            <button type="button" class="btn-icon text-muted">
+              <i class="fa-solid fa-globe"></i>
+            </button>
+
+            <!-- Send Button -->
+            <button type="submit" id="send-button" class="btn-icon text-muted" disabled>
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </div>
         </div>
       </div>
-
-      <!-- Drop-Up Options -->
-      <div class="dropdown drop-up">
-        <button type="button" class="btn-icon" onclick="toggleDropUp()">
-          📎
-        </button>
-        <div class="dropdown-content" id="extraOptions">
-          <button type="button" class="btn-icon text-muted">
-            <i class="fa-solid fa-book"></i> Document Explain
-          </button>
-          <button type="button" class="btn-icon text-muted">
-            <i class="fa-solid fa-camera"></i> Image Explain
-          </button>
-        </div>
-      </div>
-
-      <!-- Web Icon -->
-      <button type="button" class="btn-icon text-muted">
-        <i class="fa-solid fa-globe"></i>
-      </button>
-
-      <!-- Send Button -->
-      <button type="submit" id="send-button" class="btn-icon text-muted" disabled>
-        <i class="fa-solid fa-paper-plane"></i>
-      </button>
-    </div>
+    </main>
   </div>
-</div>
+
   <!-- Bootstrap JS Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Custom JavaScript -->
   <script src="script.js"></script>
 
   <script>
+    // Sidebar toggle functionality
     document.getElementById("toggleSidebar").addEventListener("click", function () {
       const sidebar = document.getElementById("sidebar");
       const content = document.getElementById("main-content");
@@ -204,6 +182,7 @@
       }
     });
   </script>
+
 </body>
 
 </html>

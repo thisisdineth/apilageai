@@ -123,3 +123,39 @@ function sendMessage() {
     chatInput.value = '';  // Clear the input field after sending
   }
 }
+
+// Chat bubble handling
+
+const chatContent = document.getElementById("chat-content");
+const messageInput = document.getElementById("message-input");
+
+function addChatBubble(message, isUser = true) {
+  const bubble = document.createElement('div');
+  bubble.classList.add('chat-bubble');
+  
+  if (isUser) {
+    bubble.classList.add('user-bubble');
+  } else {
+    bubble.classList.add('bot-bubble');
+  }
+
+  bubble.textContent = message;
+  chatContent.appendChild(bubble);
+  chatContent.scrollTop = chatContent.scrollHeight; // Scroll to the bottom
+}
+
+// Handle form submission (sending the message)
+document.getElementById("chat-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const userMessage = messageInput.value.trim();
+  if (userMessage) {
+    addChatBubble(userMessage, true); // Add user message
+    messageInput.value = ''; // Clear input field
+
+    // Simulate bot response after a short delay
+    setTimeout(() => {
+      addChatBubble('This is a bot response.', false); // Add bot message
+    }, 1000);
+  }
+});

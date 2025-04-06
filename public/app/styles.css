@@ -324,6 +324,46 @@ body {
   color: #4b5563;
 }
 
+
+
+
+/*chat bubble*/
+    /* Chat bubbles styling */
+    .chat-container {
+      max-height: 400px;
+      overflow-y: auto;
+      margin-top: 20px;
+      padding: 10px;
+    }
+
+    .chat-bubble {
+      max-width: 70%;
+      margin: 10px;
+      padding: 10px 15px;
+      border-radius: 15px;
+      font-size: 14px;
+      line-height: 1.4;
+      position: relative;
+    }
+
+    .user-bubble {
+      align-self: flex-end;
+      background-color: #a5d8ff;
+      color: #fff;
+    }
+
+    .bot-bubble {
+      align-self: flex-start;
+      background-color: #e1e1e1;
+      color: #333;
+    }
+
+
+
+
+
+
+
 /* MAIN CHAT WRAPPER */
 .chat-wrapper {
   display: flex;
