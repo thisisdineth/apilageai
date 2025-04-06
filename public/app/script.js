@@ -94,3 +94,13 @@ document.addEventListener("click", function (event) {
     dropdownContent.classList.remove("show");
   }
 });
+
+
+const chatInput = document.getElementById('message-input');
+const chatForm = document.getElementById('chat-form');  // Assuming you have a form for submitting
+
+// Automatically adjust the height of the input field as the user types
+chatInput.addEventListener('input', () => {
+  chatInput.style.height = 'auto';
+  chatInput.style.height = chatInput.scrollHeight + 'px';
+});

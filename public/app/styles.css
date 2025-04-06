@@ -346,8 +346,8 @@ body {
   position: relative;
 }
 
-/* CHAT TEXT FIELD */
 .chat-input {
+  resize: none; /* Prevent manual resizing by user */
   border: none;
   outline: none;
   font-size: 1rem;
@@ -355,6 +355,8 @@ body {
   background: transparent;
   color: #444;
   width: 100%;
+  overflow: hidden; /* Hide scrollbar initially */
+  line-height: 1.5;
 }
 
 /* BUTTONS CONTAINER */
@@ -485,46 +487,6 @@ body {
 }
 
 
-/* MOBILE RESPONSIVE */
-@media screen and (max-width: 600px) {
-  .chat-wrapper {
-    margin-top: -40px;
-  }
-
-  .chat-input-container {
-    padding: 0px;
-  }
-
-  .chat-input-buttons {
-    bottom: 1rem;
-    right: 1rem;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-  }
-
-  .btn,
-  .btn-icon {
-    padding: 0.3rem 0.6rem;
-    font-size: 0.8rem;
-  }
-
-  .icon-btn {
-    width: 36px;
-    height: 36px;
-    font-size: 1rem;
-  }
-
-  .dropdown-content {
-    right: 0;
-    bottom: 130%;
-  }
-
-  .radio-group {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-}
-
 /* Hamburger menu styling for mobile */
 .hamburger {
   display: none;
@@ -539,22 +501,6 @@ body {
   margin: 4px 0;
 }
 
-/* Mobile styles */
-@media (max-width: 600px) {
-  .radio-group {
-    display: none;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .radio-group.open {
-    display: flex;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-}
 
   .textdown {
     font-size: 12px;
