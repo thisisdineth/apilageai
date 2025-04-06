@@ -327,9 +327,11 @@ body {
 /* MAIN CHAT WRAPPER */
 .chat-wrapper {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -100px;
   width: 100%;
-  pointer-events: auto;
+  pointer-events: none;
 }
 
 /* CHAT INPUT CONTAINER */
@@ -340,13 +342,14 @@ body {
   border-radius: 2rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   border: 1px solid #eee;
-  padding: 1.25rem 1.5rem;
+  padding: 1.5rem 2rem 4.5rem;
   position: fixed;
+  pointer-events: auto;
+  z-index: 10;
   bottom: 20px;
-  z-index: 100;
 }
 
-/* TEXTAREA */
+/* CHAT TEXTAREA */
 .chat-input {
   resize: none;
   border: none;
@@ -355,14 +358,14 @@ body {
   background: transparent;
   color: #444;
   width: 100%;
-  min-height: 50px;
-  max-height: 150px;
-  overflow-y: auto;
-  padding-right: 3.5rem; /* Prevent overlap with buttons */
+  height: 100%;
+  z-index: 10;
+  pointer-events: auto;
+  overflow: hidden;
   line-height: 1.5;
 }
 
-.chat-input::placeholder {
+::placeholder {
   color: #aaa;
   font-style: italic;
   font-size: 14px;
@@ -371,41 +374,44 @@ body {
 /* BUTTONS CONTAINER */
 .chat-input-buttons {
   position: absolute;
-  right: 1.5rem;
-  bottom: 1rem;
+  bottom: 1rem; /* Adjusted slightly down */
+  right: 2rem;
   display: flex;
-  gap: 0.5rem;
+  gap: 0.6rem;
+  z-index: 11;
   align-items: center;
-  background-color: transparent;
-  z-index: 101;
 }
 
-/* BUTTONS */
-.btn,
+/* ICON BUTTON STYLING */
 .btn-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.3rem;
-  padding: 0.4rem 0.7rem;
+  width: 38px;
+  height: 38px;
   border: none;
-  border-radius: 1.5rem;
+  border-radius: 50%;
   background-color: #f6f6f6;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
+  color: #555;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 10;
 }
 
-.btn:hover,
-.btn-icon:hover {
-  background-color: #eaeaea;
+.btn-icon:hover,
+.btn-icon.active {
+  background-color: #e0e0e0;
+  color: #007bff;
+  transform: scale(1.1);
 }
 
 .btn-icon i {
-  font-size: 1rem;
+  pointer-events: none;
 }
 
-/* DROPDOWNS */
+/* DROPDOWN STYLES */
 .dropdown {
   position: relative;
 }
@@ -445,7 +451,6 @@ body {
   display: block;
 }
 
-/* DROP-UP */
 .drop-up .dropdown-content {
   bottom: 120%;
 }
