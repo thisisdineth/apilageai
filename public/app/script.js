@@ -94,3 +94,32 @@ document.addEventListener("click", function (event) {
     dropdownContent.classList.remove("show");
   }
 });
+
+const chatInput = document.getElementById('message-input');
+const chatForm = document.getElementById('chat-form');
+
+// Automatically adjust the height of the input field as the user types
+chatInput.addEventListener('input', () => {
+  chatInput.style.height = 'auto';
+  chatInput.style.height = chatInput.scrollHeight + 'px';
+});
+
+// Handle Enter key behavior
+chatInput.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter' && !event.shiftKey) {
+    // Prevent the default behavior of "Enter" (which is a new line in a text area)
+    event.preventDefault();
+    sendMessage();  // Call your function to send the message
+  }
+  // If Shift + Enter is pressed, allow the default behavior (inserting a new line)
+});
+
+// Function to send the message (you can adjust this to your needs)
+function sendMessage() {
+  const message = chatInput.value;
+  if (message.trim() !== '') {
+    // Add your send logic here, e.g., sending the message to the server or displaying it
+    console.log('Message sent:', message);  // Placeholder for actual sending action
+    chatInput.value = '';  // Clear the input field after sending
+  }
+}
