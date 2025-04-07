@@ -9,10 +9,10 @@ document.getElementById("toggleSidebar").addEventListener("click", function () {
 
   if (sidebar.classList.contains("hidden")) {
     icon.classList.replace("fa-arrow-left", "fa-bars");
-    sidebarBack.style.display = "block";  // Show sidebarback when sidebar is hidden
+    sidebarBack.style.display = "block"; 
   } else {
     icon.classList.replace("fa-bars", "fa-arrow-left");
-    sidebarBack.style.display = "none";  // Hide sidebarback when sidebar is open
+    sidebarBack.style.display = "none"; 
   }
 });
 
