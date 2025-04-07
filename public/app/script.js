@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Check screen size and set initial state
   function checkScreenSize() {
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 955) {
       // Mobile view - sidebar hidden by default
       sidebar.classList.add('hidden');
       sidebarBack.style.display = 'block';
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
     sidebarOverlay.classList.toggle('visible');
     
     // Toggle navbar visibility when sidebar is shown/hidden on mobile
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 955) {
       if (sidebar.classList.contains('hidden')) {
         navbar.style.display = 'flex';
         sidebarBack.style.display = 'block';
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Desktop sidebar toggle
   toggleSidebarBtn.addEventListener('click', function() {
     sidebar.classList.add('hidden');
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 955) {
       sidebarOverlay.classList.remove('visible');
       navbar.style.display = 'flex'; // Show navbar when closing sidebar on mobile
       sidebarBack.style.display = 'block';
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Sidebar back button
   sidebarBack.addEventListener('click', function() {
     sidebar.classList.remove('hidden');
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 955) {
       sidebarOverlay.classList.add('visible');
       navbar.style.display = 'none'; // Hide navbar when opening sidebar on mobile
     }
