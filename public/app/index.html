@@ -12,13 +12,22 @@
   <!-- Google Fonts - Inter -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
   <div class="app-container">
+    <!-- Mobile Hamburger Menu -->
+    <div class="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <!-- Sidebar Overlay (Mobile) -->
+    <div class="sidebar-overlay"></div>
 
     <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
@@ -75,25 +84,24 @@
         </div>
       </div>
     </aside>
-    <!-- sidebar end -->
 
     <!-- Main Content -->
-    <main class="main-content">
-
+    <main class="main-content" id="main-content">
       <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-light px-4" style="background-color: white; position: fixed; top: 0; width: 100%; z-index: 1030;">
+      <nav class="navbar">
         <button id="sidebarback" class="sidebar-backn">
-          <i class="fa-solid fa-bars" id="sidebarToggleIcon"></i>
+          <i class="fa-solid fa-bars"></i>
         </button>
         <a class="navbar-brand fw-bold" href="#">Apilage AI</a>
         <div class="ms-auto d-flex align-items-center">
           <div class="avatar-circle">
-            <img src="../img/user.png" alt="Avatar" class="img-fluid rounded-circle"
-              style="width: 40px; height: 40px;" />
+            <img src="../img/user.png" alt="Avatar" class="img-fluid rounded-circle" style="width: 40px; height: 40px;" />
           </div>
         </div>
       </nav>
+      
       <div style="margin-top: 60px;"></div> <!-- Adjusted for fixed navbar -->
+      
       <div class="content-area p-4">
         <div class="d-flex flex-column align-items-center justify-content-center pt-5 pb-4 fade-in slide-up">
           <div class="logo">
@@ -137,13 +145,11 @@
       </div>
 
       <!-- Chat Input Area -->
-      <!-- Chat Input Area -->
       <div class="chat-wrapper">
         <div class="chat-input-container">
           <div class="max-w-3xl mx-auto px-4">
             <form id="chat-form" class="position-relative">
-              <textarea id="message-input" placeholder="අපිලගෙන් ahanna..." class="chat-input"
-                autocomplete="off"></textarea>
+              <textarea id="message-input" placeholder="අපිලගෙන් ahanna..." class="chat-input" autocomplete="off"></textarea>
             </form>
           </div>
 
@@ -193,10 +199,11 @@
           </div>
         </div>
       </div>
-      <!-- Bootstrap JS Bundle with Popper -->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-      <!-- Custom JavaScript -->
-      <script src="script.js"></script>
-</body>
+    </main>
+  </div>
 
+  <!-- Bootstrap JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
 </html>
