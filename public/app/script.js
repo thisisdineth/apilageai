@@ -19,11 +19,11 @@ function setGreeting() {
     }
   } else {
     if (hour >= 12 && hour < 18) {
-      greeting = 'Good afternoon';
+      greeting = 'Good afternoon 🌞';
     } else if (hour >= 18) {
-      greeting = 'Good evening';
+      greeting = 'Good evening 🌥️';
     } else {
-      greeting = 'Good morning';
+      greeting = 'Good morning 🌻';
     }
   }
 
@@ -31,6 +31,24 @@ function setGreeting() {
   if (greetingElement) {
     greetingElement.textContent = `${greeting}, USER`;
   }
+}
+
+function updateCardTitles() {
+  const titles = document.querySelectorAll('.card-title');
+  const sinhalaTitles = [
+    'Qudartic Formula එක පොඩ්ඩක් පැහැදිලි කරන්න.',
+    'f(x) = x² හි ප්‍රස්ථාරය අදින්න.',
+    'ප්‍රභාසංස්ලේෂණය ගැන පැහැදිලි කරන්න'
+  ];
+  const englishTitles = [
+    'Teach me about the Quadratic Formula',
+    'Graph the Derivative of f(x) = x^2',
+    'Explain photosynthesis'
+  ];
+
+  titles.forEach((title, index) => {
+    title.textContent = currentLang === 'si' ? sinhalaTitles[index] : englishTitles[index];
+  });
 }
 
 // Toggle navdrop menu
@@ -52,6 +70,7 @@ languageOption.addEventListener('click', () => {
     currentLang = 'en';
   }
   setGreeting();
+  updateCardTitles();
   navdropMenu.style.display = 'none';
 });
 
