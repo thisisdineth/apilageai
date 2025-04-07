@@ -1,5 +1,8 @@
-
+/* ====================== */
+/* ROOT VARIABLES & RESET */
+/* ====================== */
 :root {
+  /* Color Variables */
   --sidebar-bg: #f31c1c;
   --sidebar-hover: #000000;
   --sidebar-active: #fa8db3;
@@ -12,33 +15,61 @@
   --red-500: #ef4444;
   --green-50: #f0fdf4;
   --green-500: #22c55e;
+  
+  /* Animation Durations */
+  --transition-fast: 0.2s;
+  --transition-medium: 0.3s;
+  --transition-slow: 0.4s;
 }
 
-* {
+/* Reset and Base Styles */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
+               Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   margin: 0;
   padding: 0;
   height: 100vh;
   overflow: hidden;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* ============= */
+/* LAYOUT STRUCTURE */
+/* ============= */
 .app-container {
   display: flex;
   height: 100vh;
   width: 100%;
+  position: relative;
 }
 
 .navbar {
   height: 64px;
   position: relative;
+  z-index: 1000;
 }
 
-/* Sidebar Styles */
-
+/* ============= */
+/* SIDEBAR STYLES */
+/* ============= */
 .sidebar {
   background-color: var(--sidebar-bg);
   min-width: 250px;
@@ -47,10 +78,16 @@ body {
   border-right: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
-  transition: width 0.3s ease-in-out, min-width 0.3s ease-in-out;
+  transition: width var(--transition-medium) ease-in-out, 
+              min-width var(--transition-medium) ease-in-out,
+              transform var(--transition-medium) ease-in-out;
   overflow: hidden;
-  position: relative; /* Make it part of the stacking context */
-  z-index: 999; /* Lower than the navbar */
+  position: relative;
+  z-index: 999;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .sidebar.hidden {
@@ -66,7 +103,10 @@ body {
   color: var(--sidebar-icon);
   cursor: pointer;
   padding: 0;
-  transition: color 0.2s;
+  transition: color var(--transition-fast);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .sidebar-icon-btn:hover {
@@ -74,7 +114,7 @@ body {
 }
 
 .sidebar-header-toggle {
-  text-align: center; /* Centers text inside */
+  text-align: center;
 }
 
 .sidebar-item {
@@ -85,12 +125,15 @@ body {
   padding: 8px 16px;
   border-radius: 6px;
   margin-bottom: 4px;
-  transition: background-color 0.2s, padding 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transition: background-color var(--transition-fast), 
+              padding var(--transition-medium) ease-in-out, 
+              opacity var(--transition-medium) ease-in-out;
   cursor: pointer;
   font-size: 14px;
   white-space: nowrap;
+  text-decoration: none;
 }
-/* Initially hide the sidebar back button */
+
 #sidebarback {
   display: none;
   z-index: 1020;
@@ -107,14 +150,16 @@ body {
   display: block;
 }
 
-/* Adjust the sidebar and content positioning */
 .main-content {
-  transition: margin-left 0.3s ease;
+  transition: margin-left var(--transition-medium) ease;
+  flex: 1;
+  position: relative;
 }
 
 .full-width {
   margin-left: 0 !important;
 }
+
 .sidebar.hidden .sidebar-item {
   padding: 0;
   opacity: 0;
@@ -133,23 +178,25 @@ body {
   padding-bottom: 8px;
   padding-top: 16px;
 }
+
 .sidebar-header {
   display: flex;
-  justify-content: flex-end; /* Aligns the button to the left */
-  padding: 10px; /* Adds some spacing */
+  justify-content: flex-end;
+  padding: 10px;
 }
 
 .sidebar-icon-btn {
   background: none;
   border: none;
-  color: white; /* Changes the icon color to white */
-  font-size: 1.5rem; /* Increases the size slightly */
+  color: white;
+  font-size: 1.5rem;
   cursor: pointer;
 }
 
 .sidebar-icon-btn i {
-  font-size: 1.8rem; /* Adjust icon size */
+  font-size: 1.8rem;
 }
+
 .sidebar-header-toggle {
   display: flex;
   justify-content: space-between;
@@ -165,18 +212,20 @@ body {
   width: 100%;
   padding: 16px;
   background-color: #fd3030;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity var(--transition-medium) ease-in-out;
 }
 
 .sidebar.hidden .sidebar-footer {
   opacity: 0;
   pointer-events: none;
 }
+
 .content {
   flex-grow: 1;
   padding: 20px;
   width: calc(100% - 250px);
-  transition: width 0.3s ease-in-out;
+  transition: width var(--transition-medium) ease-in-out;
+  position: relative;
 }
 
 .full-width {
@@ -188,7 +237,7 @@ body {
 }
 
 .transition-transform {
-  transition: transform 0.2s;
+  transition: transform var(--transition-fast);
 }
 
 .rotate-minus-90 {
@@ -198,7 +247,15 @@ body {
 .cursor-pointer {
   cursor: pointer;
 }
-/* Style for the drop-up menu */
+
+/* ============= */
+/* DROPDOWN MENUS */
+/* ============= */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
 .dropdown.drop-up {
   position: relative;
 }
@@ -206,7 +263,7 @@ body {
 .dropdown.drop-up .dropdown-content {
   display: none;
   position: absolute;
-  bottom: 100%; /* Position the menu above the button */
+  bottom: 100%;
   left: 0;
   z-index: 1;
   background-color: #fff;
@@ -215,7 +272,7 @@ body {
   min-width: 200px;
   padding: 5px 0;
 }
- 
+
 .dropdown.drop-up .dropdown-content button {
   background-color: #fff;
   border: none;
@@ -231,41 +288,50 @@ body {
   background-color: #f0f0f0;
 }
 
-/* Show the dropdown content when the button is clicked */
 .dropdown.drop-up .show {
   display: block;
 }
 
-/* Icon Button Styling */
 .btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: none;
   border: none;
-  padding: 10px;
+  padding: 4px;
   cursor: pointer;
+  color: #9ca3af;
+  transition: color var(--transition-fast);
 }
 
-.btn-icon i {
-  font-size: 20px;
-  color: #333;
+.btn-icon:hover:not(:disabled) {
+  color: #4b5563;
 }
 
-.btn-icon:hover i {
-  color: #007bff;
-}
-/* Main Content Styles */
-.main-content {
-  flex: 1;
-  background-color: white;
-  height: 100%;
-  position: relative;
-  overflow: auto;
-  display: flex;
-  flex-direction: column;
+.btn-icon:disabled {
+  color: #d1d5db;
+  cursor: not-allowed;
 }
 
+.btn-model {
+  background-color: #e5e7eb;
+  border: none;
+  color: #4b5563;
+  font-size: 14px;
+  padding: 4px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+/* ============= */
+/* MAIN CONTENT AREA */
+/* ============= */
 .content-area {
   flex: 1;
   position: relative;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .avatar-circle {
@@ -289,10 +355,13 @@ body {
   letter-spacing: -0.5px;
 }
 
-/* Chat Cards Styles */
+/* ============= */
+/* CHAT COMPONENTS */
+/* ============= */
 .chat-cards-container {
   max-width: 992px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .chat-card {
@@ -306,12 +375,13 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  transition: all 0.3s;
+  transition: all var(--transition-medium);
   height: 100%;
 }
 
 .chat-card:hover {
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
 }
 
 .icon-container {
@@ -356,7 +426,9 @@ body {
   color: #4b5563;
 }
 
-/* MAIN CHAT WRAPPER */
+/* ============= */
+/* CHAT INTERFACE */
+/* ============= */
 .chat-wrapper {
   display: flex;
   flex-direction: column;
@@ -366,7 +438,6 @@ body {
   pointer-events: none;
 }
 
-/* CHAT INPUT CONTAINER */
 .chat-input-container {
   width: 700px;
   max-width: 95%;
@@ -379,9 +450,10 @@ body {
   pointer-events: auto;
   z-index: 10;
   bottom: 20px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
-/* CHAT TEXTAREA */
 .chat-input {
   resize: none;
   border: none;
@@ -395,6 +467,28 @@ body {
   pointer-events: auto;
   overflow: hidden;
   line-height: 1.5;
+  font-family: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+::-webkit-input-placeholder {
+  color: #aaa;
+  font-style: italic;
+  font-size: 14px;
+}
+
+::-moz-placeholder {
+  color: #aaa;
+  font-style: italic;
+  font-size: 14px;
+}
+
+:-ms-input-placeholder {
+  color: #aaa;
+  font-style: italic;
+  font-size: 14px;
 }
 
 ::placeholder {
@@ -403,10 +497,9 @@ body {
   font-size: 14px;
 }
 
-/* BUTTONS CONTAINER */
 .chat-input-buttons {
   position: absolute;
-  bottom: 1rem; /* Adjusted slightly down */
+  bottom: 1rem;
   right: 2rem;
   display: flex;
   gap: 0.6rem;
@@ -414,7 +507,6 @@ body {
   align-items: center;
 }
 
-/* ICON BUTTON STYLING */
 .btn-icon {
   display: flex;
   align-items: center;
@@ -427,7 +519,7 @@ body {
   font-size: 1.1rem;
   color: #555;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all var(--transition-medium) ease;
   position: relative;
   z-index: 10;
 }
@@ -441,11 +533,6 @@ body {
 
 .btn-icon i {
   pointer-events: none;
-}
-
-/* DROPDOWN STYLES */
-.dropdown {
-  position: relative;
 }
 
 .dropdown-content {
@@ -473,6 +560,7 @@ body {
   font-size: 0.9rem;
   color: #333;
   border-radius: 0.5rem;
+  transition: background-color var(--transition-fast);
 }
 
 .dropdown-content button:hover {
@@ -487,54 +575,14 @@ body {
   bottom: 120%;
 }
 
-/* Hamburger menu styling for mobile */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-}
-
-.hamburger div {
-  width: 25px;
-  height: 3px;
-  background-color: #333;
-  margin: 4px 0;
-}
-
-
-  .textdown {
-    font-size: 12px;
-    color: rgb(232, 6, 6);
-    margin-top: 10px;
-    text-align: center;
-  }
-
-.btn-icon {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px;
-  color: #9ca3af;
-  transition: color 0.2s;
-}
-
-.btn-icon:hover:not(:disabled) {
-  color: #4b5563;
-}
-
-.btn-icon:disabled {
-  color: #d1d5db;
-  cursor: not-allowed;
-}
-
-.btn-model {
-  background-color: #e5e7eb;
-  border: none;
-  color: #4b5563;
-  font-size: 14px;
-  padding: 4px 12px;
-  border-radius: 6px;
-  cursor: pointer;
+/* ============= */
+/* UTILITY CLASSES */
+/* ============= */
+.textdown {
+  font-size: 12px;
+  color: rgb(232, 6, 6);
+  margin-top: 10px;
+  text-align: center;
 }
 
 .max-w-3xl {
@@ -558,16 +606,23 @@ body {
   right: 1rem;
 }
 
-/* Animation Classes */
+/* ============= */
+/* ANIMATIONS */
+/* ============= */
 .fade-in {
-  animation: fadeIn 0.3s ease-out;
+  animation: fadeIn var(--transition-medium) ease-out;
 }
 
 .slide-up {
-  animation: slideUp 0.4s ease-out;
+  animation: slideUp var(--transition-slow) ease-out;
 }
 
 @keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes fadeIn {
   0% { opacity: 0; }
   100% { opacity: 1; }
 }
@@ -577,131 +632,247 @@ body {
   100% { transform: translateY(0); opacity: 1; }
 }
 
-/* Hide sidebar by default on small screens */
-@media screen and (max-width: 768px) {
+@-webkit-keyframes slideUp {
+  0% { -webkit-transform: translateY(10px); opacity: 0; }
+  100% { -webkit-transform: translateY(0); opacity: 1; }
+}
+
+/* ============= */
+/* MOBILE MENU TOGGLES */
+/* ============= */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1001;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 4px 0;
+  transition: all var(--transition-medium) ease;
+}
+
+/* Active state for hamburger menu */
+.hamburger.active div:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.active div:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active div:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ============= */
+/* RESPONSIVE BREAKPOINTS */
+/* ============= */
+
+/* MOBILE FIRST APPROACH */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .chat-input-container {
+    width: 90%;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .sidebar {
+    transform: translateX(0);
+    position: relative;
+  }
+  
+  .content {
+    width: calc(100% - 250px);
+  }
+  
+  .hamburger {
+    display: none;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .chat-cards-container {
+    padding: 0 2rem;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .chat-input-container {
+    width: 700px;
+  }
+}
+
+/* MOBILE SPECIFIC STYLES (768px and down) */
+@media (max-width: 768px) {
+  /* Sidebar mobile behavior */
   .sidebar {
     transform: translateX(-100%);
-    position: absolute;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
     z-index: 1000;
     width: 250px;
+    height: 100vh;
+  }
+  
+  .sidebar.expanded {
+    transform: translateX(0);
   }
   
   .content {
     width: 100%;
+    padding: 15px;
   }
-}
-
-/* When sidebar is expanded */
-.sidebar.expanded {
-  transform: translateX(0);
-}
-
-/* Adjust content when sidebar is expanded */
-@media screen and (max-width: 768px) {
-  .content.sidebar-open {
-    width: calc(100% - 250px);
+  
+  /* Show hamburger menu */
+  .hamburger {
+    display: flex;
+    position: fixed;
+    top: 15px;
+    left: 15px;
   }
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-
-  .chat-input {
-    padding-right: 100px;
-  }
-}
-
-/* TABLETS (768px and below) */
-@media screen and (max-width: 768px) {
+  
+  /* Chat input adjustments */
   .chat-input-container {
     width: 100%;
-    bottom: 0px;
+    max-width: 100%;
+    border-radius: 0;
+    bottom: 0;
+    border-left: none;
+    border-right: none;
+    padding: 1rem 1.5rem 3.5rem;
   }
-
+  
+  .chat-input {
+    padding-right: 80px;
+    font-size: 0.95rem;
+  }
+  
   .chat-input-buttons {
-    right: 1.5rem;
+    right: 1rem;
     bottom: 0.8rem;
-    gap: 0.5rem;
+    gap: 0.4rem;
   }
-
+  
   .btn-icon {
     width: 34px;
     height: 34px;
     font-size: 1rem;
   }
-
+  
   .dropdown-content {
     min-width: 120px;
     font-size: 0.85rem;
   }
 }
 
-/* MOBILE PHONES (480px and below) */
-@media screen and (max-width: 480px) {
+/* Small mobile devices (480px and down) */
+@media (max-width: 480px) {
   .chat-input-container {
-    width: 100%;
-    bottom: 0px;
-border-radius: none;
+    padding: 0.8rem 1rem 3rem;
   }
-
-  .chat-input {
-    font-size: 0.95rem;
-    line-height: 1.4;
-    border-radius: none;
-  }
-
+  
   .chat-input-buttons {
-    right: 1rem;
-    bottom: 0.7rem;
-    gap: 0.4rem;
+    right: 0.8rem;
+    bottom: 0.6rem;
   }
-
+  
   .btn-icon {
-    width: 30px;
-    height: 30px;
-    font-size: 0.95rem;
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
   }
-
+  
   .dropdown-content {
-    min-width: 100px;
-    padding: 0.4rem;
-    margin-right: 12px;
+    min-width: 110px;
+    right: -10px;
   }
-
-
-
-
-
-  .dropdown-content button {
-    font-size: 0.8rem;
-    padding: 0.3rem;
-    margin-right: 12px;
+  
+  .greeting-text {
+    font-size: 20px;
   }
 }
 
-/* SMALL SCREENS (360px and below — very compact layout) */
-@media screen and (max-width: 360px) {
+/* Very small devices (360px and down) */
+@media (max-width: 360px) {
   .chat-input-container {
-    width: 100%;
-    padding: 0.8rem 1rem 3rem;
-    bottom: 8px;
+    padding: 0.6rem 0.8rem 2.5rem;
   }
-
-  .chat-input {
-    font-size: 0.9rem;
+  
+  .chat-input-buttons {
+    right: 0.6rem;
+    gap: 0.3rem;
   }
-
+  
   .btn-icon {
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
     font-size: 0.85rem;
   }
-
+  
   .dropdown-content {
-    min-width: 90px;
+    min-width: 100px;
+    font-size: 0.8rem;
   }
+}
 
-  .dropdown-content button {
-    font-size: 0.75rem;
+/* Safari specific fixes */
+@media not all and (min-resolution:.001dpcm) { 
+  @supports (-webkit-appearance:none) {
+    .sidebar {
+      -webkit-transform-style: preserve-3d;
+    }
+    
+    .chat-input-container {
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+    }
+  }
+}
+
+/* Firefox specific fixes */
+@-moz-document url-prefix() {
+  .sidebar {
+    border-right: 1px solid rgba(229, 231, 235, 0.5);
+  }
+  
+  .chat-input {
+    min-height: 50px;
+  }
+}
+
+/* Edge specific fixes */
+@supports (-ms-ime-align:auto) {
+  .sidebar {
+    -ms-overflow-style: none;
+  }
+  
+  .chat-input-container {
+    -ms-scroll-chaining: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .sidebar, 
+  .chat-input-container,
+  .hamburger {
+    display: none !important;
+  }
+  
+  .content {
+    width: 100% !important;
+    padding: 0 !important;
   }
 }
