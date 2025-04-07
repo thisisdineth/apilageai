@@ -39,8 +39,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (window.innerWidth <= 768) {
       if (sidebar.classList.contains('hidden')) {
         navbar.style.display = 'flex';
+        sidebarBack.style.display = 'block';
       } else {
         navbar.style.display = 'none';
+        sidebarBack.style.display = 'none';
       }
     }
   });
@@ -51,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
     sidebar.classList.add('hidden');
     this.classList.remove('visible');
     navbar.style.display = 'flex'; // Show navbar when closing sidebar
+    sidebarBack.style.display = 'block';
   });
 
   // Desktop sidebar toggle
@@ -59,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (window.innerWidth <= 768) {
       sidebarOverlay.classList.remove('visible');
       navbar.style.display = 'flex'; // Show navbar when closing sidebar on mobile
+      sidebarBack.style.display = 'block';
     } else {
       sidebarBack.style.display = 'block';
     }
