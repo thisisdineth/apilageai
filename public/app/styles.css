@@ -152,6 +152,49 @@
       padding: 0 1rem;
     }
 
+    .brand-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .navdrop-icon {
+      font-size: 1rem;
+      cursor: pointer;
+      color: #555;
+    }
+
+    .navdrop-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: transparent;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      display: none;
+      margin-top: 5px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    .navdrop-menu li {
+      list-style: none;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    .navdrop-menu li:hover {
+      background-color: #f1f1f1;
+    }
+
+
     .sidebar-backn {
       background: none;
       border: none;

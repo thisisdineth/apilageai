@@ -1,3 +1,67 @@
+const brandName = document.getElementById('brandName');
+const navdropIcon = document.getElementById('navdropIcon');
+const navdropMenu = document.getElementById('navdropMenu');
+const languageOption = document.getElementById('languageOption');
+
+let currentLang = 'en'; // Default language
+
+function setGreeting() {
+  const hour = new Date().getHours();
+  let greeting = '';
+
+  if (currentLang === 'si') {
+    if (hour >= 12 && hour < 18) {
+      greeting = 'සුභ දවසක් 🌞';
+    } else if (hour >= 18) {
+      greeting = 'සුභ සන්ධ්‍යාවක් 🌥️';
+    } else {
+      greeting = 'සුභ උදෑසනක් 🌻';
+    }
+  } else {
+    if (hour >= 12 && hour < 18) {
+      greeting = 'Good afternoon';
+    } else if (hour >= 18) {
+      greeting = 'Good evening';
+    } else {
+      greeting = 'Good morning';
+    }
+  }
+
+  const greetingElement = document.querySelector('.greeting-text');
+  if (greetingElement) {
+    greetingElement.textContent = `${greeting}, USER`;
+  }
+}
+
+// Toggle navdrop menu
+navdropIcon.addEventListener('click', () => {
+  navdropMenu.style.display = navdropMenu.style.display === 'block' ? 'none' : 'block';
+});
+
+// Handle language switch
+languageOption.addEventListener('click', () => {
+  const current = brandName.textContent.trim();
+
+  if (current.includes('Apilage AI')) {
+    brandName.textContent = 'අපිලගේ AI (හෙළ බස)';
+    languageOption.textContent = 'Apilage AI (Posh)';
+    currentLang = 'si';
+  } else {
+    brandName.textContent = 'Apilage AI (Posh)';
+    languageOption.textContent = 'අපිලගේ AI (හෙළ බස)';
+    currentLang = 'en';
+  }
+  setGreeting();
+  navdropMenu.style.display = 'none';
+});
+
+// Hide navdrop when clicking outside
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.brand-wrapper')) {
+    navdropMenu.style.display = 'none';
+  }
+});
+
 document.addEventListener('DOMContentLoaded', function() {
   // Initialize Lucide icons
   lucide.createIcons();
@@ -78,19 +142,6 @@ document.addEventListener('DOMContentLoaded', function() {
     this.style.display = 'none';
   });
 
-  // Get current time to set greeting
-  function setGreeting() {
-    const hour = new Date().getHours();
-    let greeting = 'Good morning';
-    
-    if (hour >= 12 && hour < 18) {
-      greeting = 'Good afternoon';
-    } else if (hour >= 18) {
-      greeting = 'Good evening';
-    }
-    
-    document.querySelector('.greeting-text').textContent = `${greeting}, USER`;
-  }
   setGreeting();
 
   // Handle chat form submission
