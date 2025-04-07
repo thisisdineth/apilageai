@@ -31,8 +31,13 @@ body {
   height: 100vh;
   width: 100%;
 }
-
+.navbar {
+  background: white;
+  height: 64px;
+  position: relative;
+}
 /* Sidebar Styles */
+
 .sidebar {
   background-color: var(--sidebar-bg);
   min-width: 250px;
@@ -43,6 +48,8 @@ body {
   flex-direction: column;
   transition: width 0.3s ease-in-out, min-width 0.3s ease-in-out;
   overflow: hidden;
+  position: relative; /* Make it part of the stacking context */
+  z-index: 999; /* Lower than the navbar */
 }
 
 .sidebar.hidden {
@@ -582,7 +589,7 @@ body {
 /* TABLETS (768px and below) */
 @media screen and (max-width: 768px) {
   .chat-input-container {
-    width: 75%;
+    width: 100%;
     bottom: 0px;
   }
 
@@ -650,7 +657,7 @@ border-radius: none;
 /* SMALL SCREENS (360px and below — very compact layout) */
 @media screen and (max-width: 360px) {
   .chat-input-container {
-    width: 98%;
+    width: 100%;
     padding: 0.8rem 1rem 3rem;
     bottom: 8px;
   }
