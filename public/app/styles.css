@@ -219,7 +219,7 @@
       display: block;
     }
 
-    /* Chat List */
+    /*======= Chat List bot and user*========/
     /* Style for the message container */
     .messages-container {
       display: flex;
@@ -274,7 +274,7 @@
       transition: all 0.3s ease-in-out;
     }
 
-    /* Chat Cards */
+    /* Chat Cards  this will be hide when converstaion starts*/
     .chat-card {
       background-color: white;
       border-radius: 12px;
