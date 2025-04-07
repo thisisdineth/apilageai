@@ -1,3 +1,34 @@
+document.getElementById("toggleSidebar").addEventListener("click", function () {
+  const sidebar = document.getElementById("sidebar");
+  const content = document.getElementById("main-content");
+  const icon = document.getElementById("sidebarToggleIcon");
+  const sidebarBack = document.getElementById("sidebarback");
+
+  sidebar.classList.toggle("hidden");
+  content.classList.toggle("full-width");
+
+  if (sidebar.classList.contains("hidden")) {
+    icon.classList.replace("fa-arrow-left", "fa-bars");
+    sidebarBack.style.display = "block";  // Show sidebarback when sidebar is hidden
+  } else {
+    icon.classList.replace("fa-bars", "fa-arrow-left");
+    sidebarBack.style.display = "none";  // Hide sidebarback when sidebar is open
+  }
+});
+
+document.getElementById("sidebarback").addEventListener("click", function () {
+  const sidebar = document.getElementById("sidebar");
+  const content = document.getElementById("main-content");
+  const icon = document.getElementById("sidebarToggleIcon");
+
+  // Only remove 'hidden' class and reset the icon when it's not hidden
+  if (sidebar.classList.contains("hidden")) {
+    sidebar.classList.remove("hidden");
+    content.classList.remove("full-width");
+    icon.classList.replace("fa-bars", "fa-arrow-left");
+    sidebarBack.style.display = "none"; // Hide sidebarback after reopening sidebar
+  }
+});
 
 document.addEventListener('DOMContentLoaded', function() {
   // Initialize Lucide icons
