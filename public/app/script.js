@@ -254,3 +254,32 @@ document.addEventListener("click", function (event) {
     dropdownContent.classList.remove("show");
   }
 });
+function toggleDropdown() {
+  const container = document.getElementById("mathKeyboardContainer");
+  container.classList.toggle("hidden");
+}
+
+function toggleMathKeyboard() {
+  const container = document.getElementById("mathKeyboardContainer");
+  container.classList.toggle("hidden");
+
+  const mathfield = document.getElementById("mathfield");
+  if (!container.classList.contains("hidden")) {
+    mathfield.focus();
+  }
+}
+
+function insertLatexIntoInput() {
+  const mathfield = document.getElementById("mathfield");
+  const latex = mathfield.getValue();
+  const messageInput = document.getElementById("message-input");
+
+  messageInput.value += ` ${latex} `;
+  messageInput.focus();
+
+  // Trigger input event so send button enables
+  messageInput.dispatchEvent(new Event("input", { bubbles: true }));
+
+  // Optionally hide the keyboard
+  document.getElementById("mathKeyboardContainer").classList.add("hidden");
+}
