@@ -151,6 +151,7 @@
       background-color: white;
       padding: 0 1rem;
     }
+    
     .avatar-circle {
       width: 40px;
       height: 40px;
@@ -164,7 +165,7 @@
       font-weight: 500;
       overflow: hidden;
     }
-    
+
     .brand-wrapper {
       position: relative;
       display: flex;
