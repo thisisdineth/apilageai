@@ -151,7 +151,7 @@
       background-color: white;
       padding: 0 1rem;
     }
-    
+
     .avatar-circle {
       width: 40px;
       height: 40px;
@@ -189,8 +189,7 @@
       position: absolute;
       top: 100%;
       left: 0;
-      background-color: transparent;
-      border: 1px solid #ccc;
+      background-color: white;
       border-radius: 4px;
       display: none;
       margin-top: 5px;
@@ -233,60 +232,70 @@
       display: block;
     }
 
+
+
     /*======= Chat List bot and user*========/
     /* Style for the message container */
+    
     .messages-container {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 30px;
       margin-top: 20px;
+      padding: 0 20px;
     }
 
     .message {
       display: flex;
       flex-direction: column;
-      max-width: 60%;
-      padding: 10px;
-      border-radius: 10px;
-      margin-bottom: 10px;
+      max-width: 100%;
+      padding: 15px 15px 30px 15px;
+      border-radius: 15px;
       position: relative;
+      transition: all 0.3s ease-in-out;
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
     }
 
     .user-message {
       align-self: flex-end;
-      background-color: #007bff;
-      color: white;
+      background-color: #fba185;
+      color: rgb(0, 0, 0);
     }
 
     .bot-message {
       align-self: flex-start;
-      background-color: #f1f1f1;
-      color: black;
+      background-color: transparent;
+      color: rgb(0, 0, 0);
     }
 
     .message-icons {
       display: flex;
       gap: 10px;
       position: absolute;
-      bottom: -25px;
-      right: 0;
+      bottom: 5px;
+      right: 10px;
     }
 
     .icon-button {
       background: none;
       border: none;
       cursor: pointer;
-      color: inherit;
+      color: #b40303;
+      transition: color 0.2s ease;
+    }
+
+    .icon-button:hover {
+      color: #f73434;
     }
 
     .icon-button i {
       font-size: 16px;
     }
 
-    /* Optional: Add transition effects */
-    .message {
-      transition: all 0.3s ease-in-out;
-    }
+    /*======= Chat List bot and user*========/
+    /* Style for the message container */
 
     /* Chat Cards  this will be hide when converstaion starts*/
     .chat-card {
