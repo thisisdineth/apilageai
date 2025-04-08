@@ -13,8 +13,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
- <link rel="stylesheet" href="styles.css">
-  
+  <link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
@@ -42,10 +42,10 @@
           <i class="fa fa-file"></i>
           <span>New Chat</span>
         </div>
-        <div class="sidebar-item">
+        <a href="../dashboard/" class="sidebar-item">
           <i class="fa-solid fa-user"></i>
           <span>My Account</span>
-        </div>
+        </a>
         <div class="sidebar-item">
           <i class="fa-solid fa-share"></i>
           <span>Share Chat</span>
@@ -70,14 +70,10 @@
       </div>
 
       <div class="sidebar-footer">
-        <div class="sidebar-item">
+        <a href="../pricing/" class="sidebar-item">
           <i class="fa-solid fa-coins"></i>
           <span>Buy Credit</span>
-        </div>
-        <div class="sidebar-item">
-          <i class="fa-solid fa-cogs"></i>
-          <span>Settings</span>
-        </div>
+        </a>
         <div class="sidebar-item">
           <i class="fa-solid fa-bug"></i>
           <span>Report Bug</span>
@@ -101,134 +97,131 @@
         </div>
         <div class="ms-auto d-flex align-items-center">
           <div class="avatar-circle">
-            <img src="../img/user.png" alt="Avatar" class="img-fluid rounded-circle" style="width: 40px; height: 40px;" />
+            <img src="../img/user.png" alt="Avatar" class="img-fluid rounded-circle"
+              style="width: 40px; height: 40px;" />
           </div>
         </div>
       </nav>
-      
-      <div style="margin-top: 60px;"></div> 
+
+      <div style="margin-top: 60px;"></div>
 
 
-<div class="messages-containermain">
+      <div class="messages-containermain">
 
-  <!-- User's message -->
+        <!-- User's message -->
 
-  <div class="messages-container">
-    <div class="message user-message">
-      <p>What you doing?</p>
-      <div class="message-icons">
-        <button class="icon-button"><i class="fa-regular fa-copy"></i></button>
-      </div>
-    </div>
-  
-    <div class="message bot-message">
-      <p>Just hanging out in the digital void, ready to chat. 😄 You working on something, killing time, or just vibing?</p>
-      <div class="message-icons">
-        <button class="icon-button"><i class="fa-regular fa-copy"></i></button>
-        <button class="icon-button"><i class="fa-regular fa-thumbs-up"></i></button>
-        <button class="icon-button"><i class="fa-regular fa-thumbs-down"></i></button>
-        <button class="icon-button">සිං</button>
-      </div>
-    </div>
-
-
-      <div class="content-area p-4">
-        <div class="d-flex flex-column align-items-center justify-content-center pt-5 pb-4 fade-in slide-up">
-          <div class="logo">
-            <img src="../img/top.png" alt="logo" width="100px">
-          </div>
-          <h1 class="greeting-text fw-medium text-dark">Welcome, USER</h1>
-        </div>
-
-        <div class="chat-cards-container">
-          <div class="row row-cols-1 row-cols-md-3 g-4 max-w-3xl mx-auto mt-4">
-            <div class="col">
-              <div class="chat-card">
-                <div class="icon-container bg-blue-50 text-blue-500">
-                  <i class="fa-solid fa-calculator" style="font-size: 24px;"></i>
-                </div>
-                <p class="card-title">Teach me about the Quadratic Formula</p>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="chat-card">
-                <div class="icon-container bg-red-50 text-red-500">
-                  <i class="fa-solid fa-chart-line" style="font-size: 24px;"></i>
-                </div>
-                <p class="card-title">Graph the Derivative of f(x) = x^2</p>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="chat-card">
-                <div class="icon-container bg-green-50 text-green-500">
-                  <i class="fa-solid fa-seedling" style="font-size: 24px;"></i>
-                </div>
-                <p class="card-title">Explain the structure of a plant cell</p>
-              </div>
+        <div class="messages-container">
+          <div class="message user-message">
+            <p>What you doing?</p>
+            <div class="message-icons">
+              <button class="icon-button"><i class="fa-regular fa-copy"></i></button>
             </div>
           </div>
-        </div>
 
-        <div style="height: 128px;"></div> <!-- Spacer -->
-      </div>
-
-      <!-- Chat Input Area -->
-      <div class="chat-wrapper">
-        <div class="chat-input-container">
-          <div class="max-w-3xl mx-auto px-4">
-            <form id="chat-form" class="position-relative">
-              <textarea id="message-input" placeholder="අපිලගෙන් ahanna..." class="chat-input" autocomplete="off"></textarea>
-            </form>
+          <div class="message bot-message">
+            <p>Just hanging out in the digital void, ready to chat. 😄 You working on something, killing time, or just
+              vibing?</p>
+            <div class="message-icons">
+              <button class="icon-button"><i class="fa-regular fa-copy"></i></button>
+              <button class="icon-button"><i class="fa-regular fa-thumbs-up"></i></button>
+              <button class="icon-button"><i class="fa-regular fa-thumbs-down"></i></button>
+              <button class="icon-button">සිං</button>
+            </div>
           </div>
 
-          <div class="chat-input-buttons buttons">
-            <!-- Math Symbols Dropdown -->
-            <div class="dropdown">
-              <button type="button" class="btn-icon" onclick="toggleDropdown()">
-                <i class="fas fa-calculator"></i>
-              </button>
-              <div class="dropdown-content" id="mathSymbols">
-                <button type="button" onclick="insertSymbol('Θ')">Θ</button>
-                <button type="button" onclick="insertSymbol('π')">π</button>
-                <button type="button" onclick="insertSymbol('√')">√</button>
-                <button type="button" onclick="insertSymbol('ƒ')">ƒ</button>
-                <button type="button" onclick="insertSymbol('∑')">∑</button>
-                <button type="button" onclick="insertSymbol('∞')">∞</button>
-                <button type="button" onclick="insertSymbol('Δ')">Δ</button>
-                <button type="button" onclick="insertSymbol('∫')">∫</button>
-                <button type="button" onclick="insertSymbol('≠')">≠</button>
+
+          <div class="content-area p-4">
+            <div class="d-flex flex-column align-items-center justify-content-center pt-5 pb-4 fade-in slide-up">
+              <div class="logo">
+                <img src="../img/top.png" alt="logo" width="100px">
+              </div>
+              <h1 class="greeting-text fw-medium text-dark">Welcome, USER</h1>
+            </div>
+
+            <div class="chat-cards-container">
+              <div class="row row-cols-1 row-cols-md-3 g-4 max-w-3xl mx-auto mt-4">
+                <div class="col">
+                  <div class="chat-card">
+                    <div class="icon-container bg-blue-50 text-blue-500">
+                      <i class="fa-solid fa-calculator" style="font-size: 24px;"></i>
+                    </div>
+                    <p class="card-title">Teach me about the Quadratic Formula</p>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="chat-card">
+                    <div class="icon-container bg-red-50 text-red-500">
+                      <i class="fa-solid fa-chart-line" style="font-size: 24px;"></i>
+                    </div>
+                    <p class="card-title">Graph the Derivative of f(x) = x^2</p>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="chat-card">
+                    <div class="icon-container bg-green-50 text-green-500">
+                      <i class="fa-solid fa-seedling" style="font-size: 24px;"></i>
+                    </div>
+                    <p class="card-title">Explain the structure of a plant cell</p>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <!-- Drop-Up Options -->
-            <div class="dropdown drop-up">
-              <button type="button" class="btn-icon" onclick="toggleDropUp()">
-                📎
-              </button>
-              <div class="dropdown-content" id="extraOptions">
-                <button type="button" class="btn-icon text-muted">
-                  <i class="fa-solid fa-book"></i> Document Explain
+            <div style="height: 128px;"></div> <!-- Spacer -->
+          </div>
+
+          <!-- Chat Input Area -->
+          <div class="chat-wrapper">
+            <div class="chat-input-container">
+              <div class="max-w-3xl mx-auto px-4">
+                <form id="chat-form" class="position-relative">
+                  <textarea id="message-input" placeholder="අපිලගෙන් ahanna..." class="chat-input"
+                    autocomplete="off"></textarea>
+                </form>
+              </div>
+
+              <div class="chat-input-buttons buttons">
+                <!-- Math Symbols Dropdown -->
+                <div class="dropdown">
+                  <button type="button" class="btn-icon" onclick="toggleDropdown()">
+                    <i class="fas fa-calculator"></i>
+                  </button>
+                  <div class="dropdown-content" id="mathSymbols">
+                    <button type="button" onclick="insertSymbol('Θ')">Θ</button>
+                    <button type="button" onclick="insertSymbol('π')">π</button>
+                    <button type="button" onclick="insertSymbol('√')">√</button>
+                    <button type="button" onclick="insertSymbol('ƒ')">ƒ</button>
+                    <button type="button" onclick="insertSymbol('∑')">∑</button>
+                    <button type="button" onclick="insertSymbol('∞')">∞</button>
+                    <button type="button" onclick="insertSymbol('Δ')">Δ</button>
+                    <button type="button" onclick="insertSymbol('∫')">∫</button>
+                    <button type="button" onclick="insertSymbol('≠')">≠</button>
+                  </div>
+                </div>
+
+                <!-- Drop-Up Options -->
+                <div class="dropdown drop-up">
+                  <button type="button" class="btn-icon" onclick="toggleDropUp()">
+                    📎
+                  </button>
+                  <div class="dropdown-content" id="extraOptions">
+                    <button type="button" class="btn-icon text-muted">
+                      <i class="fa-solid fa-book"></i> Document Explain
+                    </button>
+                    <button type="button" class="btn-icon text-muted">
+                      <i class="fa-solid fa-camera"></i> Image Explain
+                    </button>
+                  </div>
+                </div>
+                <!-- Send Button -->
+                <button type="submit" id="send-button" class="btn-icon text-muted" disabled>
+                  <i class="fa-solid fa-paper-plane"></i>
                 </button>
-                <button type="button" class="btn-icon text-muted">
-                  <i class="fa-solid fa-camera"></i> Image Explain
-                </button>
               </div>
             </div>
-
-            <!-- Web Icon -->
-            <button type="button" class="btn-icon text-muted">
-              <i class="fa-solid fa-globe"></i>
-            </button>
-
-            <!-- Send Button -->
-            <button type="submit" id="send-button" class="btn-icon text-muted" disabled>
-              <i class="fa-solid fa-paper-plane"></i>
-            </button>
           </div>
-        </div>
-      </div>
     </main>
   </div>
 
@@ -237,4 +230,5 @@
   <!-- Custom JS -->
   <script src="script.js"></script>
 </body>
+
 </html>
