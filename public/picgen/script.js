@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function() {
   // Set current year in footer
   document.getElementById('current-year').textContent = new Date().getFullYear();
@@ -45,19 +44,23 @@ document.addEventListener('DOMContentLoaded', function() {
     imageSizeValue.textContent = `${this.value}px`;
   });
   
-  // Mock image generation
+  // Image generation with backend
   const imageGeneratorForm = document.getElementById('image-generator-form');
   const promptInput = document.getElementById('prompt-input');
   const generateButton = document.getElementById('generate-button');
   const imageGallery = document.getElementById('image-gallery');
+  const enhanceQuality = document.getElementById('enhance-quality');
   
   // Store images
   let generatedImages = [];
   
-  imageGeneratorForm.addEventListener('submit', function(e) {
+  imageGeneratorForm.addEventListener('submit', async function(e) {
     e.preventDefault();
     
     const prompt = promptInput.value.trim();
+    const imageCount = imageCountSlider.value;
+    const imageSize = `${imageSizeSlider.value}x${imageSizeSlider.value}`;
+    const quality = enhanceQuality.checked ? 'hd' : 'standard';
     
     if (!prompt) {
       showToast('Please enter a prompt first', 'error');
@@ -75,10 +78,43 @@ document.addEventListener('DOMContentLoaded', function() {
       Generating...
     `;
     
-    // Mock API call delay
-    setTimeout(() => {
-      generateImage(prompt);
+    try {
+      // Call backend API
+      const response = await fetch('/api/generate-image', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          prompt,
+          n: parseInt(imageCount),
+          size: imageSize,
+          quality
+        })
+      });
       
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || 'Failed to generate images');
+      }
+      
+      const data = await response.json();
+      
+      // Process the response
+      const newImages = data.images.map((image, index) => ({
+        id: `${Date.now()}-${index}`,
+        url: image.url,
+        prompt: prompt
+      }));
+      
+      generatedImages.unshift(...newImages);
+      updateGallery();
+      showToast('Images generated successfully', 'success');
+      
+    } catch (error) {
+      console.error('Generation error:', error);
+      showToast(error.message || 'Failed to generate images', 'error');
+    } finally {
       // Reset button
       generateButton.disabled = false;
       generateButton.classList.remove('generating');
@@ -86,35 +122,8 @@ document.addEventListener('DOMContentLoaded', function() {
         <i class="fa-solid fa-sparkles icon-sm"></i>
         Generate
       `;
-      
-    }, 2000);
+    }
   });
-  
-  function generateImage(prompt) {
-    const placeholderUrls = [
-      'https://source.unsplash.com/random/1000x1000/?ai',
-      'https://source.unsplash.com/random/1000x1000/?digital',
-      'https://source.unsplash.com/random/1000x1000/?future',
-      'https://source.unsplash.com/random/1000x1000/?tech',
-      'https://source.unsplash.com/random/1000x1000/?robot'
-    ];
-    
-    const imageUrl = placeholderUrls[Math.floor(Math.random() * placeholderUrls.length)];
-    
-    const newImage = {
-      id: Date.now().toString(),
-      url: imageUrl,
-      prompt: prompt
-    };
-    
-    generatedImages.unshift(newImage);
-    
-    // Update UI
-    updateGallery();
-    
-    // Show success toast
-    showToast('Image generated successfully', 'success');
-  }
   
   function updateGallery() {
     // Clear gallery
@@ -169,30 +178,38 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  function downloadImage(id) {
+  async function downloadImage(id) {
     const image = generatedImages.find(img => img.id === id);
     
     if (!image) return;
     
-    // Create a link to download the image
-    fetch(image.url)
-      .then(response => response.blob())
-      .then(blob => {
-        const blobUrl = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = blobUrl;
-        link.download = `apilage-${image.prompt.substring(0, 20).replace(/\s+/g, '-')}-${Date.now()}.png`;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+    try {
+      // Fetch the image through our backend to avoid CORS issues
+      const response = await fetch(`/api/download-image?url=${encodeURIComponent(image.url)}`);
+      
+      if (!response.ok) {
+        throw new Error('Failed to download image');
+      }
+      
+      const blob = await response.blob();
+      const blobUrl = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = blobUrl;
+      link.download = `apilage-${image.prompt.substring(0, 20).replace(/\s+/g, '-')}-${Date.now()}.png`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      // Clean up
+      setTimeout(() => {
         URL.revokeObjectURL(blobUrl);
-        
-        showToast('Image downloaded successfully', 'success');
-      })
-      .catch(error => {
-        console.error('Download error:', error);
-        showToast('Failed to download image', 'error');
-      });
+      }, 100);
+      
+      showToast('Image downloaded successfully', 'success');
+    } catch (error) {
+      console.error('Download error:', error);
+      showToast('Failed to download image', 'error');
+    }
   }
   
   function deleteImage(id) {
