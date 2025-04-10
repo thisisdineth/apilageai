@@ -77,9 +77,9 @@
 
                 const imgCardMarkup = Array.from({ length: userImgQuantity }, () =>
                     `<div class="img-card loading">
-                        <img src="./img/genrating.gif" alt="image">
+                        <img src="image-loader.svg" alt="image">
                         <a href="#" class="download-btn">
-                            <img src="./img/imgic.png" alt="download icon">
+                            <img src="download.svg" alt="download icon">
                         </a>
                     </div>`
                 ).join("");
@@ -90,12 +90,3 @@
 
             generateForm.addEventListener("submit", handleFormSubmission);
         });
-
-// Toggle sidebar visibility when the button is clicked
-const toggleBtn = document.getElementById('toggleSidebar');
-const sidebar = document.getElementById('sidebar');
-
-toggleBtn.addEventListener('click', function() {
-    sidebar.classList.toggle('active');
-});
-

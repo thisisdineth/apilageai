@@ -1,178 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>apilageai.lk - AI Image Playground</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apilage AI | Image Playground </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <div class="app-container">
-    <!-- Header -->
-    <header class="header">
-      <div class="container">
-        <div class="logo">
-          <i class="fa-solid fa-sparkles logo-icon"></i>
-          <h1 class="logo-text">apilageai.lk</h1>
+    <div class="navbar">
+        <i class="fas fa-bars toggle-btn" id="toggleSidebar" style="padding: 15px;"></i>
+        <div class="app-name">Apilage AI</div>
+        <div class="profile">
+          <img src="https://via.placeholder.com/40" alt="Profile" />
         </div>
-
-        <div class="tabs">
-          <div class="tabs-list">
-            <button class="tab-trigger active" data-tab="playground">Playground</button>
-            <button class="tab-trigger" data-tab="gallery">My Gallery</button>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="main-content">
-      <!-- Sidebar -->
-      <div id="sidebar" class="sidebar">
-        <div class="sidebar-content">
-          <div class="sidebar-header">
-            <div class="logo">
-              <i class="fa-solid fa-sparkles logo-icon"></i>
-              <h2>apilage.ai</h2>
-            </div>
-          </div>
-
-          <div class="sidebar-card">
-            <div class="card-header">
-              <div class="card-title">
-                <i class="fa-solid fa-gear icon-sm"></i>
-                Generation Settings
-              </div>
-            </div>
-            <div class="card-content">
-              <div class="setting-item">
-                <div class="setting-label">
-                  <span>Number of Images</span>
-                  <span id="image-count-value">1</span>
+    </div>
+    
+    <div class="container">
+            <aside class="sidebar" id="sidebar">
+                <div class="sidebar-content">
+                    <ul class="sidebar-menu">
+                        <li class="active"><i class="fas fa-user"></i> Profile</li>
+                        <li><i class="fas fa-message"></i> Chat Playground</li>
+                    </ul>
+                    <ul class="sidebar-footer">
+                        <li><i class="fas fa-cog"></i> Settings</li>
+                        <li><i class="fas fa-question-circle"></i> Help</li>
+                        <li><i class="fas fa-sign-out-alt"></i> Logout</li>
+                    </ul>
                 </div>
-                <input type="range" id="image-count" min="1" max="4" value="1" class="slider">
-              </div>
-
-              <div class="setting-item">
-                <div class="setting-label">
-                  <span>Image Size</span>
-                  <span id="image-size-value">512px</span>
+            </aside>
+        <main class="content">
+            <section class="image-generator">
+                <div class="content">
+                    <h1>අපිලගේ Image Builder</h1>
+                    <p>Transform your idea to an image just for "රුපියල් 3 කට" <br> (Powerd by Ape-view)</p>
+                    <form class="generate-form">
+                        <input type="text" class="prompt-input" placeholder="Create a realistic image of boy..." required>
+                        <div class="controls">
+                            <select class="img-quantity">
+                                <option value="1">1 image</option>
+                                <option value="2">2 images</option>
+                                <option value="3">3 images</option>
+                                <option value="4" selected>4 images</option>
+                            </select>
+                            <button type="submit" class="generate-btn">Generate <i class="fas fa-magic"></i></button>
+                        </div>
+                    </form>
                 </div>
-                <input type="range" id="image-size" min="256" max="1024" step="256" value="512" class="slider">
-              </div>
+            </section>
 
-              <div class="setting-item">
-                <div class="setting-label">
-                  <span>Enhance Quality</span>
+            <section class="image-gallery">
+                <!-- Images will be inserted here by JavaScript -->
+            </section>
+            <footer>
+                    <div class="copyright">
+                        &copy; 2025 Apilage AI. All rights reserved.
+                    </div>
                 </div>
-                <label class="switch">
-                  <input type="checkbox" id="enhance-quality">
-                  <span class="switch-slider"></span>
-                </label>
-              </div>
-            </div>
-          </div>
+            </footer>
+        </main>
+    </div>
 
-          <div class="sidebar-card">
-            <div class="card-header">
-              <div class="card-title">
-                <i class="fa-solid fa-wand-magic-sparkles icon-sm"></i>
-                Style Presets
-              </div>
-            </div>
-            <div class="card-content">
-              <button class="preset-button">
-                <i class="fa-solid fa-image icon-sm"></i>
-                Photorealistic
-              </button>
-              <button class="preset-button">
-                <i class="fa-solid fa-image icon-sm"></i>
-                Anime
-              </button>
-              <button class="preset-button">
-                <i class="fa-solid fa-image icon-sm"></i>
-                Digital Art
-              </button>
-              <button class="preset-button">
-                <i class="fa-solid fa-image icon-sm"></i>
-                3D Render
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- Toggle Sidebar Button -->
-      <button id="sidebar-toggle" class="sidebar-toggle">
-        <i class="fa-solid fa-chevron-right" id="sidebar-toggle-icon"></i>
-      </button>
 
-      <!-- Content Area -->
-      <div id="content-area" class="content-area">
-        <div class="container">
-          <h2 class="section-title">AI Image Playground</h2>
-
-          <!-- Image Generator Form -->
-          <form id="image-generator-form" class="image-generator-form">
-            <div class="input-group">
-              <input type="text" id="prompt-input" class="prompt-input"
-                placeholder="Describe the image you want to generate...">
-
-              <button type="submit" class="generate-button" id="generate-button">
-                <i class="fa-solid fa-sparkles icon-sm"></i>
-                Generate
-              </button>
-            </div>
-          </form>
-
-          <!-- Generated Images Section -->
-          <div class="image-gallery-section">
-            <h3 class="section-subtitle">Generated Images</h3>
-            <div id="image-gallery" class="image-gallery">
-              <!-- Images will be added here by JavaScript -->
-              <div class="empty-gallery">
-                <p class="empty-text">No images generated yet</p>
-                <p class="empty-subtext">Enter a prompt and click generate to create images</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-logo">
-            <i class="fa-solid fa-sparkles logo-icon"></i>
-            <span class="footer-brand">apilage.ai</span>
-          </div>
-
-          <div class="footer-links">
-            <a href="#" class="footer-link">Terms & Privacy</a>
-            <a href="#" class="footer-link">Documentation</a>
-            <a href="#" class="footer-link">API</a>
-            <a href="#" class="footer-link">Contact</a>
-          </div>
-
-          <div class="footer-copyright">
-            © <span id="current-year"></span> apilage.ai. All rights reserved.
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <!-- Toast Notifications -->
-    <div id="toast-container" class="toast-container"></div>
-  </div>
-
-  <!-- JavaScript -->
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
-
 </html>
