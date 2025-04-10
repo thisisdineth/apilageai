@@ -4,7 +4,7 @@
             const imageGallery = document.querySelector(".image-gallery");
 
             // Replace this with a valid OpenAI API key
-            const OPENAI_API_KEY = "012345678910111213141516171819"; 
+            const OPENAI_API_KEY = "https://github.com/thisisdineth/apilageai/security/secret-scanning/unblock-secret/2vWm66uI4PhHEjyiMnCanvO5YDE"; 
             let isImageGenerating = false;
 
             if (!generateForm || !imageGallery) {
