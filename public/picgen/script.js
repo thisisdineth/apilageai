@@ -4,7 +4,7 @@
             const imageGallery = document.querySelector(".image-gallery");
 
             // Replace this with a valid OpenAI API key
-            const OPENAI_API_KEY = "API KEY"; 
+            const OPENAI_API_KEY = "012345678910111213141516171819"; 
             let isImageGenerating = false;
 
             if (!generateForm || !imageGallery) {
