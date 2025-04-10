@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
   let isImageGenerating = false;
   
   // Replace with your actual OpenAI API key
-  const OPENAI_API_KEY = "PASE THE REAL API KEY"; 
+  const OPENAI_API_KEY = "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"; 
 
   // Initialize
   init();

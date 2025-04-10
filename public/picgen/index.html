@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>apilage.ai - AI Image Playground</title>
+  <title>apilageai.lk - AI Image Playground</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <div class="app-container">
     <!-- Header -->
@@ -16,7 +19,7 @@
           <i class="fa-solid fa-sparkles logo-icon"></i>
           <h1 class="logo-text">apilageai.lk</h1>
         </div>
-        
+
         <div class="tabs">
           <div class="tabs-list">
             <button class="tab-trigger active" data-tab="playground">Playground</button>
@@ -112,16 +115,13 @@
       <div id="content-area" class="content-area">
         <div class="container">
           <h2 class="section-title">AI Image Playground</h2>
-          
+
           <!-- Image Generator Form -->
           <form id="image-generator-form" class="image-generator-form">
             <div class="input-group">
-              <input 
-                type="text" 
-                id="prompt-input" 
-                class="prompt-input" 
-                placeholder="Describe the image you want to generate..."
-              >
+              <input type="text" id="prompt-input" class="prompt-input"
+                placeholder="Describe the image you want to generate...">
+
               <button type="submit" class="generate-button" id="generate-button">
                 <i class="fa-solid fa-sparkles icon-sm"></i>
                 Generate
@@ -152,14 +152,14 @@
             <i class="fa-solid fa-sparkles logo-icon"></i>
             <span class="footer-brand">apilage.ai</span>
           </div>
-          
+
           <div class="footer-links">
             <a href="#" class="footer-link">Terms & Privacy</a>
             <a href="#" class="footer-link">Documentation</a>
             <a href="#" class="footer-link">API</a>
             <a href="#" class="footer-link">Contact</a>
           </div>
-          
+
           <div class="footer-copyright">
             © <span id="current-year"></span> apilage.ai. All rights reserved.
           </div>
@@ -174,4 +174,5 @@
   <!-- JavaScript -->
   <script src="script.js"></script>
 </body>
+
 </html>
