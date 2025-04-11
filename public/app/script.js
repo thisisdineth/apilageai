@@ -322,7 +322,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     text = text.replace(/_(.*?)_/g, '<em>$1</em>'); // Italic
                     text = text.replace(/https?:\/\/[^\s]+/g, (url) => {
                         const displayUrl = url.replace(/^https?:\/\//, '');
-                        const domain = new URL(url).hostname;
+                        const domain = new URL(url).hostname; //urltofavicon
                         return `<a href="${url}" target="_blank" style="color: white; display: inline-flex; align-items: center; gap: 5px;">
                                     <img src="https://www.google.com/s2/favicons?sz=16&domain=${domain}" alt="${domain}" />
                                     ${displayUrl}
