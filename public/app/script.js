@@ -333,7 +333,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     });
                     // Replace custom code block format ---{ code }---
                     text = text.replace(/---\{([\s\S]*?)\}---/g, (match, codeContent) => {
-                        const formattedCode = codeContent.trim().replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                        // Remove formatting markers from outside the block only
                         return `
                             <div class="code-block">
                                 <div class="code-header">
@@ -341,7 +341,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                         <i class="fa-solid fa-copy"></i> Copy code
                                     </button>
                                 </div>
-                                <pre><code>${formattedCode}</code></pre>
+                                <pre><code>${codeContent}</code></pre>
                             </div>
                         `;
                     });
