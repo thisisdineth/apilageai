@@ -346,6 +346,27 @@ document.addEventListener('DOMContentLoaded', function () {
                         `;
                     });
                     text = text.replace(/\n/g, "<br />");
+                    // Convert full HTML table structure if table-related tags are detected
+                    if (/<table[\s\S]*?>[\s\S]*?<\/table>/.test(text) ||
+                        (text.includes('<tr>') && (text.includes('<td>') || text.includes('<th>')))) {
+                        // Clean up any <br> between table tags
+                        text = text.replace(/<br\s*\/?>\s*(?=<\/?(table|thead|tbody|tr|td|th))/gi, '');
+                        text = text.replace(/(<\/?(table|thead|tbody|tr|td|th)[^>]*>)<br\s*\/?>/gi, '$1');
+                        // Wrap if not already inside <table>
+                        if (!text.includes('<table')) {
+                            text = `<table class="chat-table">${text}</table>`;
+                        }
+                    }
+                    
+                    // Convert unordered lists
+                    if (text.includes('<ul>') && text.includes('<li>')) {
+                        text = text.replace(/(?:<br\s*\/?>)*<ul>/g, '<ul>').replace(/<\/ul>(?:<br\s*\/?>)*/g, '</ul>');
+                    }
+                    
+                    // Convert ordered lists
+                    if (text.includes('<ol>') && text.includes('<li>')) {
+                        text = text.replace(/(?:<br\s*\/?>)*<ol>/g, '<ol>').replace(/<\/ol>(?:<br\s*\/?>)*/g, '</ol>');
+                    }
 
                     const chatBubble = document.createElement("div");
 
