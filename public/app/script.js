@@ -331,6 +331,20 @@ document.addEventListener('DOMContentLoaded', function () {
                     text = text.replace(/```(.*?)\n([\s\S]*?)```/g, (_, lang, code) => {
                         return `<pre><code class="language-${lang.trim()}">${code.trim()}</code></pre>`;
                     });
+                    // Replace custom code block format ---{ code }---
+                    text = text.replace(/---\{([\s\S]*?)\}---/g, (match, codeContent) => {
+                        const formattedCode = codeContent.trim().replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                        return `
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <button class="copy-code-button" onclick="copyToClipboard(this)">
+                                        <i class="fa-solid fa-copy"></i> Copy code
+                                    </button>
+                                </div>
+                                <pre><code>${formattedCode}</code></pre>
+                            </div>
+                        `;
+                    });
                     text = text.replace(/\n/g, "<br />");
 
                     const chatBubble = document.createElement("div");
@@ -453,4 +467,13 @@ window.onclick = function (event) {
     if (!event.target.matches('.btn-icon') && !event.target.closest(".dropdown")) {
         document.getElementById("mathSymbols").style.display = "none";
     }
+}
+
+function copyToClipboard(button) {
+    const code = button.closest('.code-block').querySelector('code').innerText;
+    navigator.clipboard.writeText(code);
+    button.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+    setTimeout(() => {
+        button.innerHTML = '<i class="fa-solid fa-copy"></i> Copy code';
+    }, 2000);
 }
