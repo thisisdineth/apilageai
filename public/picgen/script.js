@@ -4,7 +4,7 @@
             const imageGallery = document.querySelector(".image-gallery");
 
             // Replace this with a valid OpenAI API key
-            const OPENAI_API_KEY = "https://github.com/thisisdineth/apilageai/security/secret-scanning/unblock-secret/2vWm66uI4PhHEjyiMnCanvO5YDE"; 
+            const OPENAI_API_KEY = "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"; 
             let isImageGenerating = false;
 
             if (!generateForm || !imageGallery) {

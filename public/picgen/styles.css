@@ -354,7 +354,7 @@ footer {
 }
 
 .image-gallery .img-card {
-    width: 70%;
+    width: calc(25% - 20px);
     aspect-ratio: 1 / 1;
     border-radius: 10px;
     overflow: hidden;
@@ -363,7 +363,6 @@ footer {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
-
 .image-gallery .img-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
