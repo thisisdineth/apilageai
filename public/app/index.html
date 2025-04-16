@@ -44,7 +44,7 @@
       </div>
     </aside>
 
-<!-- Right sidebar for DESMOS graph -->
+<!-- Desmos Graphing Sidebar -->
 <aside class="right-sidebar" id="rightSidebar">
   <div class="right-sidebar-header">
     <h4>Graph Calculator</h4>
@@ -52,22 +52,30 @@
       <i class="fas fa-times"></i>
     </button>
   </div>
-  <div class="desmos-container" id="desmos-graph"></div>
-  
-  <!-- New function input section -->
+
+  <!-- Desmos Graph Display -->
+  <div class="desmos-container" id="desmos-graph" style="height: 600px;"></div>
+
+
+
+
+  <!-- Input box -->
   <div class="graph-input-container">
     <input type="text" class="graph-input" id="graphFunctionInput" 
-           placeholder="Enter function (e.g., y=x^2, sin(x), x^2+y^2=1">
+           placeholder="Enter LaTeX expression (e.g., y = \\sin(x))">
     <button class="graph-submit" id="graphFunctionSubmit">Graph</button>
   </div>
-  
+
+  <!-- Expression List -->
   <div class="graph-functions" id="graphFunctionsList">
-    <!-- Added functions will appear here -->
+    <!-- Rendered expressions show here -->
   </div>
-  
+
+  <!-- Controls -->
   <div class="graph-controls mt-3">
-<button class="btn btn-sm btn-primary" id="graph-example1">Quadratic</button>
+    <button class="btn btn-sm btn-primary" id="graph-example1">Quadratic</button>
     <button class="btn btn-sm btn-primary" id="graph-example2">Trigonometry</button>
+    <button class="btn btn-sm btn-warning" id="resetGraph">Reset Graph</button>
     <button class="btn btn-sm btn-danger" id="clearAllGraphs">Clear All</button>
   </div>
 </aside>
@@ -80,6 +88,7 @@
           <ul id="navdropMenu" class="navdrop-menu">
             <li id="languageOption">අපිලගේ AI (සිංහල)</li>
           </ul>
+
         </div>
         <div class="ms-auto d-flex align-items-center">
           <div class="avatar-circle"> <img
