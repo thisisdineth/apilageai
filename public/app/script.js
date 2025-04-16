@@ -51,6 +51,19 @@ function updateCardTitles() {
     });
 }
 
+function toggleWebSearchActive(btn) {
+    const isActive = btn.getAttribute("data-active") === "true";
+    if (isActive) {
+      btn.style.backgroundColor = "#f8f9fa";
+      btn.style.color = "#333";
+      btn.setAttribute("data-active", "false");
+    } else {
+      btn.style.backgroundColor = "#ffeb3b";
+      btn.style.color = "#000";
+      btn.setAttribute("data-active", "true");
+    }
+  }
+  
 // Toggle navdrop menu
 navdropIcon.addEventListener('click', () => {
     navdropMenu.style.display = navdropMenu.style.display === 'block' ? 'none' : 'block';
@@ -266,6 +279,7 @@ document.addEventListener('DOMContentLoaded', function () {
     messageInput.addEventListener('input', function () {
         this.style.height = 'auto';
         this.style.height = (this.scrollHeight) + 'px';
+        
     });
 
     // Handle Enter key for submission

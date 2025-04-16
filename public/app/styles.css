@@ -26,6 +26,7 @@ body {
   overflow: hidden;
 }
 
+
 .app-container {
   display: flex;
   height: 100vh;
@@ -466,6 +467,52 @@ body {
   height: 100%;
   overflow: hidden;
   line-height: 1.5;
+}
+/* apilage button */
+
+
+.web-search-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px;
+  border-radius: 10px;
+  background-color: #f8f9fa;
+  color: #333;
+  font-weight: 500;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  animation: redPulse 1s ease-in-out infinite;
+  animation-delay: 2s;
+  animation-play-state: paused;
+}
+
+.web-search-btn:hover {
+  animation-play-state: running;
+}
+
+.web-search-btn i {
+  font-size: 16px;
+}
+
+.web-search-btn:focus {
+  outline: none;
+}
+
+/* Red pulse effect */
+@keyframes redPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+  }
 }
 
 .chat-input-buttons {
