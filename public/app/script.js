@@ -512,3 +512,99 @@ function copyToClipboard(button) {
         button.innerHTML = '<i class="fa-solid fa-copy"></i> Copy code';
     }, 2000);
 }
+document.addEventListener('DOMContentLoaded', function() {
+    const rightSidebar = document.getElementById('rightSidebar');
+    const toggleGraphBtn = document.getElementById('toggleGraphBtn');
+    const closeRightSidebar = document.getElementById('closeRightSidebar');
+    const appContainer = document.querySelector('.app-container');
+    const graphFunctionInput = document.getElementById('graphFunctionInput');
+    const graphFunctionSubmit = document.getElementById('graphFunctionSubmit');
+    const graphFunctionsList = document.getElementById('graphFunctionsList');
+    const clearAllGraphs = document.getElementById('clearAllGraphs');
+    
+    // Initialize DESMOS calculator
+    const calculator = Desmos.GraphingCalculator(document.getElementById('desmos-graph'), {
+      keypad: false,
+      expressions: false
+    });
+    
+    // Store added functions
+    let functionCounter = 0;
+    const addedFunctions = {};
+    
+    // Add function to graph
+    function addFunctionToGraph(expression) {
+      if (!expression.trim()) return;
+      
+      const functionId = 'func' + (++functionCounter);
+      calculator.setExpression({
+        id: functionId,
+        latex: expression,
+        color: Desmos.Colors.BLUE
+      });
+      
+      // Store the function
+      addedFunctions[functionId] = expression;
+      
+      // Add to functions list
+      const functionItem = document.createElement('div');
+      functionItem.className = 'graph-function-item';
+      functionItem.innerHTML = `
+        <span>${expression}</span>
+        <button class="graph-function-remove" data-id="${functionId}">
+          <i class="fas fa-times"></i>
+        </button>
+      `;
+      graphFunctionsList.appendChild(functionItem);
+      
+      // Add remove event
+      functionItem.querySelector('.graph-function-remove').addEventListener('click', function() {
+        calculator.removeExpression({id: functionId});
+        delete addedFunctions[functionId];
+        functionItem.remove();
+      });
+    }
+    
+    // Handle function submission
+    graphFunctionSubmit.addEventListener('click', function() {
+      addFunctionToGraph(graphFunctionInput.value);
+      graphFunctionInput.value = '';
+    });
+    
+    // Handle Enter key
+    graphFunctionInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        addFunctionToGraph(graphFunctionInput.value);
+        graphFunctionInput.value = '';
+      }
+    });
+    
+    // Clear all graphs
+    clearAllGraphs.addEventListener('click', function() {
+      calculator.setBlank();
+      graphFunctionsList.innerHTML = '';
+      functionCounter = 0;
+      addedFunctions = {};
+    });
+    
+    // Example graphs
+    document.getElementById('graph-example1').addEventListener('click', function() {
+      addFunctionToGraph('y = x^2');
+    });
+    
+    document.getElementById('graph-example2').addEventListener('click', function() {
+      addFunctionToGraph('y = sin(x)');
+    });
+    
+    // Toggle sidebar
+    toggleGraphBtn.addEventListener('click', function() {
+      rightSidebar.classList.toggle('active');
+      appContainer.classList.toggle('right-sidebar-active');
+    });
+    
+    // Close sidebar
+    closeRightSidebar.addEventListener('click', function() {
+      rightSidebar.classList.remove('active');
+      appContainer.classList.remove('right-sidebar-active');
+    });
+  });
