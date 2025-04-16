@@ -382,6 +382,14 @@ document.addEventListener('DOMContentLoaded', function () {
                         text = text.replace(/(?:<br\s*\/?>)*<ol>/g, '<ol>').replace(/<\/ol>(?:<br\s*\/?>)*/g, '</ol>');
                     }
 
+                    text = text.replace(
+                        /grp-->([\s\S]*?)<--grp/gs,
+                        (match, functionContent) => {
+                            const cleanFunction = functionContent.trim();
+                            return `<span class="graph-function" style="color: #4285f4; font-weight: bold;" data-function="${cleanFunction.replace(/"/g, '&quot;')}">${cleanFunction}</span>`;
+                        }
+                    );
+
                     const chatBubble = document.createElement("div");
 
                     // Assign class based on user/bot
@@ -625,3 +633,60 @@ document.addEventListener('DOMContentLoaded', function () {
     // Attach insertToInput globally for math toolbar buttons
     window.insertToInput = insertToInput;
   });
+
+  // Add this after the DOMContentLoaded event listener
+document.addEventListener('click', function(e) {
+    // Check if clicked element is a graph function
+    if (e.target.classList.contains('graph-function')) {
+        const functionText = e.target.getAttribute('data-function');
+        
+        // Open the right sidebar if not already open
+        const rightSidebar = document.getElementById('rightSidebar');
+        const appContainer = document.querySelector('.app-container');
+        if (rightSidebar && !rightSidebar.classList.contains('active')) {
+            rightSidebar.classList.add('active');
+            if (appContainer) appContainer.classList.add('right-sidebar-active');
+        }
+        
+        // Add the function to the graph
+        if (window.calculator) {
+            const functionId = 'func' + (Date.now()); // Unique ID
+            window.calculator.setExpression({
+                id: functionId,
+                latex: functionText,
+                color: Desmos.Colors.BLUE,
+            });
+            
+            // Add to functions list if available
+            const graphFunctionsList = document.getElementById('graphFunctionsList');
+            if (graphFunctionsList) {
+                const functionItem = document.createElement('div');
+                functionItem.className = 'graph-function-item';
+                functionItem.innerHTML = `
+                    <span>${functionText}</span>
+                    <button class="graph-function-remove" data-id="${functionId}">
+                        <i class="fas fa-times"></i>
+                    </button>
+                `;
+                graphFunctionsList.appendChild(functionItem);
+                
+                functionItem.querySelector('.graph-function-remove').addEventListener('click', function() {
+                    window.calculator.removeExpression({ id: functionId });
+                    functionItem.remove();
+                });
+            }
+        }
+    }
+    
+    // Handle remove buttons for dynamically added functions
+    if (e.target.classList.contains('graph-function-remove') || e.target.closest('.graph-function-remove')) {
+        const button = e.target.classList.contains('graph-function-remove') ? 
+            e.target : e.target.closest('.graph-function-remove');
+        const functionId = button.getAttribute('data-id');
+        
+        if (window.calculator && functionId) {
+            window.calculator.removeExpression({ id: functionId });
+            button.closest('.graph-function-item').remove();
+        }
+    }
+});

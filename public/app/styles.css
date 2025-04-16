@@ -219,6 +219,24 @@ body {
   background: #d68910;
 }
 
+.graph-function {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.graph-function:hover::after {
+  content: "Click to graph this function";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
 /* === Responsive Adjustment === */
 @media (max-width: 480px) {
   .right-sidebar {
