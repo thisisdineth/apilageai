@@ -528,6 +528,7 @@ function copyToClipboard(button) {
         button.innerHTML = '<i class="fa-solid fa-copy"></i> Copy code';
     }, 2000);
 }
+
 document.addEventListener('DOMContentLoaded', function () {
     const rightSidebar = document.getElementById('rightSidebar');
     const toggleGraphBtn = document.getElementById('toggleGraphBtn');
@@ -698,3 +699,136 @@ document.addEventListener('click', function(e) {
         }
     }
 });
+
+// Type Sidebar functionality
+const typeSidebar = document.getElementById('typeSidebar');
+const toggleTypeBtn = document.getElementById('toggleTypeBtn');
+const closeTypeSidebar = document.getElementById('closeTypeSidebar');
+const typeCanvas = document.getElementById('typeCanvas');
+const colorBtns = document.querySelectorAll('.color-btn');
+const exportPdf = document.getElementById('exportPdf');
+const rightSidebar = document.getElementById('rightSidebar');
+const mainContent = document.querySelector('.main-content');
+
+let currentColor = 'black';
+let textElements = [];
+
+// Toggle type sidebar
+toggleTypeBtn.addEventListener('click', () => {
+  const isOpening = !typeSidebar.classList.contains('open');
+  
+  // Close right sidebar if opening type sidebar
+  if (isOpening && rightSidebar.classList.contains('open')) {
+    rightSidebar.classList.remove('open');
+    mainContent.classList.remove('right-sidebar-active');
+  }
+  
+  typeSidebar.classList.toggle('open');
+  mainContent.classList.toggle('type-sidebar-active', isOpening);
+});
+
+closeTypeSidebar.addEventListener('click', () => {
+  typeSidebar.classList.remove('open');
+  mainContent.classList.remove('type-sidebar-active');
+});
+
+// Modify existing right sidebar toggle to close type sidebar
+toggleGraphBtn?.addEventListener('click', function() {
+  const isOpening = !rightSidebar.classList.contains('open');
+  
+  // Close type sidebar if opening right sidebar
+  if (isOpening && typeSidebar.classList.contains('open')) {
+    typeSidebar.classList.remove('open');
+    mainContent.classList.remove('type-sidebar-active');
+  }
+  
+  rightSidebar.classList.toggle('open');
+  mainContent.classList.toggle('right-sidebar-active', isOpening);
+});
+
+// Update close right sidebar to handle classes
+closeRightSidebar?.addEventListener('click', function() {
+  rightSidebar.classList.remove('open');
+  mainContent.classList.remove('right-sidebar-active');
+});
+
+
+// Create text element on canvas click
+typeCanvas.addEventListener('click', (e) => {
+  if (e.target === typeCanvas) {
+    createTextElement(e.clientX - typeCanvas.getBoundingClientRect().left, e.clientY - typeCanvas.getBoundingClientRect().top);
+  }
+});
+
+// Color selection
+colorBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    colorBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentColor = btn.dataset.color;
+  });
+});
+
+// Set black as default active color
+document.querySelector('.color-btn[data-color="black"]').classList.add('active');
+
+// Create text element function
+function createTextElement(x, y) {
+  const textElement = document.createElement('textarea');
+  textElement.className = 'text-element';
+  textElement.style.left = `${x}px`;
+  textElement.style.top = `${y}px`;
+  textElement.style.color = currentColor;
+  
+  textElement.addEventListener('input', () => {
+    textElement.style.height = 'auto';
+    textElement.style.height = `${textElement.scrollHeight}px`;
+  });
+  
+  textElement.addEventListener('dblclick', (e) => {
+    e.stopPropagation();
+    textElement.remove();
+  });
+  
+  typeCanvas.appendChild(textElement);
+  textElement.focus();
+  textElements.push(textElement);
+}
+
+// Export to PDF
+exportPdf.addEventListener('click', () => {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  
+  // Create a canvas from the typeCanvas
+  html2canvas(typeCanvas).then(canvas => {
+    const imgData = canvas.toDataURL('image/png');
+    doc.addImage(imgData, 'PNG', 10, 10, 180, 0);
+    doc.save('notebook.pdf');
+  });
+});
+
+// Helper function to convert HTML to canvas (needed for PDF export)
+function html2canvas(element) {
+  return new Promise((resolve) => {
+    const canvas = document.createElement('canvas');
+    canvas.width = element.offsetWidth;
+    canvas.height = element.offsetHeight;
+    const ctx = canvas.getContext('2d');
+    
+    // Draw white background
+    ctx.fillStyle = 'white';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    // Draw all text elements
+    const texts = element.querySelectorAll('.text-element');
+    texts.forEach(text => {
+      ctx.fillStyle = text.style.color;
+      ctx.font = '16px Arial';
+      ctx.fillText(text.value, parseInt(text.style.left), parseInt(text.style.top) + 16);
+    });
+    
+    resolve(canvas);
+  });
+}
+

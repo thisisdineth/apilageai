@@ -1,0 +1,108 @@
+/* Type Sidebar Styles */
+    .type-sidebar {
+      position: fixed;
+      top: 0;
+      right: -400px;
+      width: 400px;
+      height: 100vh;
+      background: white;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+      transition: right 0.3s ease;
+      z-index: 1000;
+      overflow-y: auto;
+    }
+    
+    .type-sidebar.open {
+      right: 0;
+    }
+    
+    .type-sidebar-header {
+      padding: 15px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .type-sidebar-close {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    
+    .type-canvas {
+      width: calc(100% - 30px);
+      height: 500px;
+      border: 1px dashed #ccc;
+      margin: 15px;
+      position: relative;
+      cursor: text;
+      overflow: hidden;
+    }
+    
+    .type-toolbar {
+      padding: 10px 15px;
+      display: flex;
+      gap: 10px;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .color-btn {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      cursor: pointer;
+    }
+    
+    .color-btn.active {
+      border-color: #000;
+    }
+    
+    .export-btn {
+      margin-left: auto;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2rem;
+      color: #666;
+    }
+    
+    .text-element {
+      position: absolute;
+      min-width: 20px;
+      min-height: 20px;
+      outline: none;
+      padding: 5px;
+      resize: none;
+      overflow: hidden;
+      border: 1px solid transparent;
+    }
+    
+    .text-element:focus {
+      border: 1px dashed #999;
+    }
+    
+    .toggle-type-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2rem;
+      color: #666;
+      margin-right: 10px;
+    }
+
+    .type-sidebar.open ~ .main-content {
+        margin-right: 400px; /* Same width as your sidebar */
+      }
+      
+      /* If you have other sidebars that might affect the layout */
+      .right-sidebar.open ~ .main-content {
+        margin-right: 400px; /* Adjust if different width */
+      }
+      
+      /* Make sure to handle cases where both sidebars might be open */
+      .type-sidebar.open ~ .right-sidebar.open ~ .main-content {
+        margin-right: 800px; /* Sum of both sidebars' widths */
+      }

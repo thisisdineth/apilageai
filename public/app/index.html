@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="typesidebar.css">
 </head>
 
 <body>
@@ -33,7 +34,22 @@
       <div class="sidebar-sections">
         <div class="sidebar-section">
           <div class="sidebar-header-toggle"> </div>
-          <div class="p-16px"> </div>
+
+  <div class="p-16px">
+    <div class="sidebar-item d-flex justify-content-between align-items-center">
+      <span>Item Name</span>
+      <div class="dropdown">
+        <button class="btn btn-link p-0 m-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fas fa-ellipsis-v"></i>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+          <li><a class="dropdown-item" href="#">Rename</a></li>
+          <li><a class="dropdown-item text-danger" href="#">Delete</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
         </div>
       </div>
       <div class="sidebar-footer p-16px"> <a class="sidebar-item" href="https://apilageai.lk/auth/signout"> <i
@@ -80,6 +96,27 @@
   </div>
 </aside>
     
+<!-- Type Sidebar -->
+<aside class="type-sidebar" id="typeSidebar">
+  <div class="type-sidebar-header">
+    <h4>Type Notebook</h4>
+    <button class="type-sidebar-close" id="closeTypeSidebar">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  
+  <div class="type-toolbar">
+    <button class="color-btn" style="background: black;" data-color="black"></button>
+    <button class="color-btn" style="background: red;" data-color="red"></button>
+    <button class="color-btn" style="background: blue;" data-color="blue"></button>
+    <button class="color-btn" style="background: green;" data-color="green"></button>
+    <button class="export-btn" id="exportPdf">
+      <i class="fas fa-file-pdf"></i>
+    </button>
+  </div>
+  
+  <div class="type-canvas" id="typeCanvas"></div>
+</aside>
 
     <main class="main-content">
       <nav class="navbar"> <button id="sidebarback" class="sidebar-backn"> <i class="fa-solid fa-bars"></i> </button>
@@ -150,6 +187,9 @@
     <span>🇱🇰 අපිලා</span>
   </button>
 </div>
+<button class="toggle-type-btn" id="toggleTypeBtn">
+  <i class="fas fa-edit"></i>
+</button>
 <button class="toggle-graph-btn" id="toggleGraphBtn">
   <i class="fas fa-chart-line"></i>
 </button>
@@ -177,6 +217,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://apilageai.lk/assets/scripts/libs/dialog-js/main.min.js?V=01.03.04.2025"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <!-- Add DESMOS calculator script -->
     <script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
   <script src="script.js"></script>
