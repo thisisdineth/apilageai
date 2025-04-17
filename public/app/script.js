@@ -10,20 +10,28 @@ function setGreeting() {
     let greeting = '';
 
     if (currentLang === 'si') {
-        if (hour >= 12 && hour < 18) {
-            greeting = 'සුභ දවසක් 🌞';
-        } else if (hour >= 18) {
-            greeting = 'සුභ සන්ධ්‍යාවක් 🌥️';
-        } else {
+        if (hour >= 3 && hour < 12) {
             greeting = 'සුභ උදෑසනක් 🌻';
+        } else if (hour >= 12 && hour < 16) {
+            greeting = 'සුභ දවසක් 🌞';
+        } else if (hour >= 16 && hour < 20) {
+            greeting = 'සුභ සන්ධ්‍යාවක් 🌥️';
+        } else if (hour >= 20 && hour < 24) {
+            greeting = 'ලස්සන රාත්‍රියක් 🌙';
+        } else {
+            greeting = 'sunrice එකට Ready ද? 🌅'; // 12am to 3am
         }
     } else {
-        if (hour >= 12 && hour < 18) {
-            greeting = 'Good afternoon 🌞';
-        } else if (hour >= 18) {
-            greeting = 'Good evening 🌥️';
-        } else {
+        if (hour >= 3 && hour < 12) {
             greeting = 'Good morning 🌻';
+        } else if (hour >= 12 && hour < 16) {
+            greeting = 'Good afternoon 🌞';
+        } else if (hour >= 16 && hour < 20) {
+            greeting = 'Good evening 🌥️';
+        } else if (hour >= 20 && hour < 24) {
+            greeting = 'Happy late night 🌙';
+        } else {
+            greeting = 'Ready to sunrise? 🌅'; // 12am to 3am
         }
     }
 
