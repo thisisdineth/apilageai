@@ -19,7 +19,7 @@ function setGreeting() {
         } else if (hour >= 20 && hour < 24) {
             greeting = 'ලස්සන රාත්‍රියක් 🌙';
         } else {
-            greeting = 'sunrice එකට Ready ද? 🌅'; // 12am to 3am
+            greeting = 'අලුත් දවසක් 🌅'; // 12am to 3am
         }
     } else {
         if (hour >= 3 && hour < 12) {
@@ -31,7 +31,7 @@ function setGreeting() {
         } else if (hour >= 20 && hour < 24) {
             greeting = 'Happy late night 🌙';
         } else {
-            greeting = 'Ready to sunrise? 🌅'; // 12am to 3am
+            greeting = 'A new day 🌅'; // 12am to 3am
         }
     }
 
