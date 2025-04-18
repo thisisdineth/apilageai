@@ -1,3 +1,66 @@
+const messages = [
+  "අපිලගේ AI වලට අලුත් ඔයාට අපි ගානේ රුපියල් 50 ක Free Credit එකක්!",
+  "ලංකාවේ පළවෙනි 🇱🇰 සිංහල multi task AI agent එක්ක කතා කරන්න!",
+  "AI වල Premium අත්දෑකීම අදම විදින්න.",
+];
+
+let index = 0;
+const promoText = document.getElementById("promoText");
+
+setInterval(() => {
+  index = (index + 1) % messages.length;
+  promoText.innerText = messages[index];
+  promoText.classList.remove("fade-in");
+  void promoText.offsetWidth; // reflow hack to restart animation
+  promoText.classList.add("fadeText");
+}, 5000);
+
+function closeBanner() {
+  document.getElementById("promoBanner").style.display = "none";
+}
+
+function loginNow() {
+  window.location.href = "./app/"; // Update with your actual login URL
+}
+const banner = document.getElementById("offerBanner");
+const countdownEl = document.getElementById("countdown");
+
+let hours = 6;
+let minutes = 30;
+let seconds = 0;
+
+function updateCountdownDisplay(h, m, s) {
+  countdownEl.textContent = `Time left: ${String(h).padStart(2, '0')}h ${String(m).padStart(2, '0')}m ${String(s).padStart(2, '0')}s`;
+}
+
+function startCountdown() {
+  let totalSeconds = (hours * 3600) + (minutes * 60) + seconds;
+
+  const timer = setInterval(() => {
+    const h = Math.floor(totalSeconds / 3600);
+    const m = Math.floor((totalSeconds % 3600) / 60);
+    const s = totalSeconds % 60;
+
+    updateCountdownDisplay(h, m, s);
+
+    if (totalSeconds <= 0) {
+      clearInterval(timer);
+      // Reset the timer
+      setTimeout(startCountdown, 1000); // Restart after 1s
+    } else {
+      totalSeconds--;
+    }
+  }, 1000);
+}
+
+function closeBanner() {
+  banner.style.display = "none";
+}
+
+// Init countdown
+updateCountdownDisplay(hours, minutes, seconds);
+startCountdown();
+
 
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
