@@ -94,6 +94,7 @@ body {
   .promo-banner {
     flex-direction: column;
     gap: 10px;
+    font-size: 15px;
     text-align: center;
   }
 
@@ -102,8 +103,6 @@ body {
     right: 10px;
   }
 }
-
-
 
 .offer-banner {
   background: linear-gradient(135deg, #ff6600, #ff3300);
@@ -149,6 +148,9 @@ body {
     align-items: flex-start;
     gap: 10px;
   }
+  .offer-text {
+    font-size: 15px;
+  }
   .close-btn {
     top: 10px;
     right: 16px;
@@ -156,7 +158,6 @@ body {
 }
 /* promo style end */
 
-/* Common Styles */
 .glass-effect {
   background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
