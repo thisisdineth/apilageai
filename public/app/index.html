@@ -33,7 +33,20 @@
       <div class="sidebar-sections">
         <div class="sidebar-section">
           <div class="sidebar-header-toggle"> </div>
-          <div class="p-16px"> </div>
+          <div class="p-16px">
+            <div class="sidebar-item d-flex justify-content-between align-items-center">
+              <span>Item Name</span>
+              <div class="dropdown">
+                <button class="btn btn-link p-0 m-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fas fa-ellipsis-v"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                  <li><a class="dropdown-item" href="#">Rename</a></li>
+                  <li><a class="dropdown-item text-danger" href="#">Delete</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="sidebar-footer p-16px"> <a class="sidebar-item" href="https://apilageai.lk/auth/signout"> <i
