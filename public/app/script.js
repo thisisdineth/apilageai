@@ -741,7 +741,9 @@ document.addEventListener('click', function(e) {
 // Array of placeholder texts of input box
 const placeholders = [
     "හායි Apilage Ai කොහොමද?",
+    "Click SHIFT+ENTER to line break..",
     "අපිලගෙන් ahanna...",
+    "Type @ to get suggestions..",
     "මට Exam tips කියන්න",
     "ප්‍රස්ථාරය අදින්න y=3x^2+5",
   ];
