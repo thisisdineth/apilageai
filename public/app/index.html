@@ -62,8 +62,8 @@
   <!-- Input box -->
   <div class="graph-input-container">
     <input type="text" class="graph-input" id="graphFunctionInput" 
-           placeholder="Enter LaTeX expression (e.g., y = \\sin(x))">
-    <button class="graph-submit" id="graphFunctionSubmit">Graph</button>
+           placeholder="Enter custom expression">
+    <button class="graph-submit" id="graphFunctionSubmit"><i class="fas fa-chart-line"></i></button>
   </div>
 
   <!-- Expression List -->
@@ -73,10 +73,10 @@
 
   <!-- Controls -->
   <div class="graph-controls mt-3">
-    <button class="btn btn-sm btn-primary" id="graph-example1">Quadratic</button>
-    <button class="btn btn-sm btn-primary" id="graph-example2">Trigonometry</button>
-    <button class="btn btn-sm btn-warning" id="resetGraph">Reset Graph</button>
-    <button class="btn btn-sm btn-danger" id="clearAllGraphs">Clear All</button>
+    <button class="btn btn-sm btn-primary" id="graph-example1">y = x^2</button>
+    <button class="btn btn-sm btn-primary" id="graph-example2">y=sin(x)</button>
+    <button class="btn btn-sm btn-warning" id="resetGraph"><i class="fas fa-rotate-right"></i> Size</button>
+    <button class="btn btn-sm btn-danger" id="clearAllGraphs"><i class="fas fa-trash"></i> All</button>
   </div>
 </aside>
     
@@ -140,16 +140,6 @@
 <!-- sinhala super -->
 
 
-<div class="web-search-wrapper">
-  <button 
-    type="button" 
-    id="webSearchBtn"
-    onclick="toggleWebSearchActive(this)" 
-    class="web-search-btn"
-  >
-    <span>🇱🇰 අපිලා</span>
-  </button>
-</div>
 <button class="toggle-graph-btn" id="toggleGraphBtn">
   <i class="fas fa-chart-line"></i>
 </button>

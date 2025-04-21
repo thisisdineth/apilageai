@@ -58,19 +58,6 @@ function updateCardTitles() {
         title.textContent = currentLang === 'si' ? sinhalaTitles[index] : englishTitles[index];
     });
 }
-
-function toggleWebSearchActive(btn) {
-    const isActive = btn.getAttribute("data-active") === "true";
-    if (isActive) {
-      btn.style.backgroundColor = "#f8f9fa";
-      btn.style.color = "#333";
-      btn.setAttribute("data-active", "false");
-    } else {
-      btn.style.backgroundColor = "#ffeb3b";
-      btn.style.color = "#000";
-      btn.setAttribute("data-active", "true");
-    }
-  }
   
 // Toggle navdrop menu
 navdropIcon.addEventListener('click', () => {
