@@ -185,10 +185,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const suggestionsDropdown = document.getElementById('suggestions-dropdown');
   
     const suggestions = [
-      "Create a video",
-      "Search the web",
-      "Draw the graph",
-      "Give me the code"
+      "Look at the image",
+      "Search the web (Sri Lankan based)",
+      "Draw the graph of",
+      "Answer In සිංහල"
     ];
   
     messageInput.addEventListener('input', function () {
@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const before = value.substring(0, atIndex);
       const after = value.substring(cursorPos);
   
-      const insertedText = text;
+      const insertedText =  text + " ;";
  
       messageInput.value = before + insertedText + after;
   
@@ -737,3 +737,20 @@ document.addEventListener('click', function(e) {
         }
     }
 });
+
+// Array of placeholder texts of input box
+const placeholders = [
+    "හායි Apilage Ai කොහොමද?",
+    "අපිලගෙන් ahanna...",
+    "මට Exam tips කියන්න",
+    "ප්‍රස්ථාරය අදින්න y=3x^2+5",
+  ];
+
+  // Function to change the placeholder randomly
+  function changePlaceholder() {
+    const randomIndex = Math.floor(Math.random() * placeholders.length);
+    document.getElementById('message-input').placeholder = placeholders[randomIndex];
+  }
+
+  // Change the placeholder every 5 seconds
+  setInterval(changePlaceholder, 3000);
