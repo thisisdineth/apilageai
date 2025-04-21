@@ -182,26 +182,78 @@ document.addEventListener('DOMContentLoaded', function () {
     const chatForm = document.getElementById('chat-form');
     const messageInput = document.getElementById('message-input');
     const sendButton = document.getElementById('send-button');
-
-    // Enable/disable send button based on input
+    const suggestionsDropdown = document.getElementById('suggestions-dropdown');
+  
+    const suggestions = [
+      "Create a video",
+      "Search the web",
+      "Draw the graph",
+      "Give me the code"
+    ];
+  
     messageInput.addEventListener('input', function () {
-        if (this.value.trim()) {
-            sendButton.disabled = false;
-            sendButton.classList.remove('text-muted');
-            sendButton.classList.add('text-primary');
-        } else {
-            sendButton.disabled = true;
-            sendButton.classList.add('text-muted');
-            sendButton.classList.remove('text-primary');
-        }
+      const cursorPos = this.selectionStart;
+      const textBeforeCursor = this.value.slice(0, cursorPos);
+      const lastAtIndex = textBeforeCursor.lastIndexOf('@');
+  
+      if (lastAtIndex !== -1 && (cursorPos === lastAtIndex + 1 || textBeforeCursor.endsWith('@'))) {
+        showSuggestions();
+      } else {
+        suggestionsDropdown.style.display = "none";
+      }
+  
+      // Toggle send button
+      sendButton.disabled = !this.value.trim();
+      sendButton.classList.toggle('text-muted', !this.value.trim());
+      sendButton.classList.toggle('text-primary', !!this.value.trim());
     });
-
+  
+    function showSuggestions() {
+        suggestionsDropdown.innerHTML = '';
+        suggestions.forEach(item => {
+          const div = document.createElement('div');
+          div.textContent = item;
+          div.classList.add('ghost-style'); // Apply ghost-style here
+          div.onclick = () => insertSuggestion(item);
+          suggestionsDropdown.appendChild(div);
+        });
+      
+        const inputRect = messageInput.getBoundingClientRect();
+        const formRect = chatForm.getBoundingClientRect();
+        
+        // Position dropdown above textarea
+        suggestionsDropdown.style.display = "block";
+        suggestionsDropdown.style.left = `${inputRect.left - formRect.left}px`;
+        suggestionsDropdown.style.top = `${inputRect.top - formRect.top - suggestionsDropdown.offsetHeight - 10}px`;
+      }
+  
+    function insertSuggestion(text) {
+      const cursorPos = messageInput.selectionStart;
+      const value = messageInput.value;
+      const atIndex = value.lastIndexOf('@', cursorPos);
+  
+      const before = value.substring(0, atIndex);
+      const after = value.substring(cursorPos);
+  
+      const insertedText = text;
+ 
+      messageInput.value = before + insertedText + after;
+  
+      // Place cursor after the inserted suggestion
+      const newPos = (before + insertedText).length;
+      messageInput.focus();
+      messageInput.setSelectionRange(newPos, newPos);
+  
+      suggestionsDropdown.style.display = "none";
+    }
+  
     messageInput.addEventListener("keydown", function (e) {
-        if (e.key === "Enter" && !e.shiftKey) {
-            e.preventDefault();
-            sendMessage();
-        }
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage(); 
+      }
     });
+//new feature added to above 
 
     function sendMessage() {
         const message = messageInput.value.trim();
