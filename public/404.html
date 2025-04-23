@@ -1,66 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 Not Found</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #fff;
-            text-align: center;
-        }
-        .container {
-            background: #ff4d4d;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            color: white;
-        }
-        h1 {
-            font-size: 60px;
-            color: white;
-        }
-        p {
-            font-size: 18px;
-            color: #fff;
-            margin: 10px 0;
-        }
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: white;
-            color: #ff4d4d;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-        .btn:hover {
-            background-color: #e60000;
-            color: white;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>404 - Page Not Found</title>
+  <style>
+    :root {
+      --red: #ea384c;
+      --white: #ffffff;
+      --gray: #f9f9f9;
+      --dark: #222;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--gray);
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      max-width: 480px;
+      width: 90%;
+      position: relative;
+    }
+
+    .icon {
+      margin-bottom: 1rem;
+      animation: pulse 2s infinite;
+    }
+
+    .icon svg {
+      width: 72px;
+      height: 72px;
+      stroke: var(--red);
+      fill: rgba(234, 56, 76, 0.1);
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: var(--red);
+      margin: 0 0 1rem 0;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #444;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      background-color: var(--red);
+      color: var(--white);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #d1303f;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .container {
+        padding: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>404</h1>
-        <p>Oops! The page you're looking for doesn't exist.</p>
-        <a href="/" class="btn">Go Home</a>
+  <div class="container">
+    <div class="icon">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+        <polygon points="12 2 2 22 22 22 12 2" fill="#ea384c22"></polygon>
+        <line x1="12" y1="8" x2="12" y2="14" stroke="currentColor"/>
+        <circle cx="12" cy="17" r="1" fill="currentColor"/>
+      </svg>
     </div>
-    <script>
-        document.querySelector('.btn').addEventListener('click', function() {
-            window.location.href = "/";
-        });
-    </script>
+    <h1>404</h1>
+    <p>Oops! The page you're looking for doesn't exist.</p>
+    <button class="btn" onclick="goBack()">Go Back</button>
+  </div>
+
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
 </body>
 </html>
