@@ -23,6 +23,210 @@ body {
   color: var(--text);
   overflow-x: hidden;
 }
+
+/* livesup.css */
+#chat-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 800px;
+  max-height: 700px;
+  background-color: #fff;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  display: none;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  z-index: 1000;
+}
+
+#chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #1b0252, #020200);
+  color: white;
+  padding: 10px 15px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#chat-header button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#chat-body {
+  padding: 10px;
+  flex: 3;
+  
+  overflow-y: auto;
+}
+
+#chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: #020200;
+}
+
+.message {
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.message.suggestion {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: #ddd;
+  color: #020200;
+}
+
+.message.suggestion:hover {
+  background-color: #ddd;
+}
+
+#chat-form {
+  display: flex;
+  flex-direction: column; /* Stack input and button vertically */
+  gap: 5px; /* Small gap between input and button */
+  margin-top: 10px;
+  width: 100%; /* Ensure it fits the width of the chat body */
+}
+
+#chat-form input {
+  width: 100%; /* Full width */
+  padding: 10px;
+  border:none;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box; /* Prevent padding from affecting total width */
+}
+
+#chat-form button {
+  width: 100%; /* Full width matching the input */
+  padding: 10px;
+  background-color: #1726b5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  box-sizing: border-box; /* Prevent padding from affecting total width */
+}
+
+#chat-form button:hover {
+  background-color: #45a049;
+}
+
+/* For smaller screens */
+@media (max-width: 600px) {
+  #chat-form {
+      gap: 5px; /* Reduce gap for smaller screens */
+  }
+
+  #chat-form input,
+  #chat-form button {
+      font-size: 12px;
+  }
+}
+
+#open-chat {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 400px;
+  border-radius: 15px;
+  height: px;
+  background-color: #082f665a;
+  color: white;
+  border: none;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  transition: transform 0.3s ease;
+}
+
+#open-chat:hover {
+  transform: scale(1.1);
+}
+
+
+/* Mobile-specific styles */
+@media (max-width: 600px) {
+  #chat-widget {
+      width: 100%; /* Full width for mobile */
+      height: 100%; /* Full height for mobile */
+      max-height: none; /* Allow it to occupy the full height */
+      bottom: 0;
+      right: 0;
+      border-radius: 0; /* Remove rounded corners for better fit */
+      font-size: 14px; /* Adjust font size */
+  }
+
+  #chat-header {
+      padding: 8px 10px; /* Reduce padding */
+      font-size: 14px; /* Adjust font size */
+  }
+
+  #chat-body {
+      padding: 8px; /* Reduce padding */
+  }
+
+  #chat-messages {
+      gap: 8px; /* Reduce gap between messages */
+  }
+
+  .message {
+      padding: 8px; /* Smaller padding for messages */
+      font-size: 12px; /* Smaller font size */
+  }
+
+  #chat-form {
+      flex-direction: column; /* Maintain stacked layout */
+      gap: 5px; /* Smaller gap */
+      padding: 8px; /* Add padding inside form */
+  }
+
+  #chat-form input {
+      padding: 8px; /* Smaller padding */
+      font-size: 12px; /* Adjust font size */
+  }
+
+  #chat-form button {
+      padding: 8px; /* Smaller padding */
+      font-size: 12px; /* Adjust font size */
+  }
+
+  #open-chat {
+      position: fixed;
+      bottom: 20px;
+     padding: 5px;
+      width: 200px;
+      border-radius: 15px;
+  }
+
+  #open-chat:hover {
+      transform: none; /* Disable scaling on hover for mobile */
+  }
+}
+
 /* promo style start */
 
 .promo-banner {
