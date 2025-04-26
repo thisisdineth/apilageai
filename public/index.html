@@ -82,10 +82,9 @@
           </p>
 
           <div class="search-container glass-effect mb-5">
-            <form class="d-flex w-100">
-
-              <input type="text" class="form-control border-0 bg-transparent" placeholder="Ask me anything...">
-              <button class="btn btn-sm btn-link ms-auto">
+            <form class="d-flex w-100" action="app.php" method="get">
+              <input type="text" name="q" class="form-control border-0 bg-transparent" placeholder="Ask me anything...">
+              <button class="btn btn-sm btn-link ms-auto" type="submit">
                 <i class="fas fa-arrow-right"></i>
               </button>
             </form>
