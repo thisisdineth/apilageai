@@ -24,6 +24,37 @@ body {
   overflow-x: hidden;
 }
 
+.status-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+.status-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+.status-link:hover {
+  color: #0077cc;
+}
+.status-light {
+  width: 15px;
+  height: 15px;
+  background-color: green;
+  border-radius: 50%;
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0.3; }
+}
 /* livesup.css */
 #chat-widget {
   position: fixed;
