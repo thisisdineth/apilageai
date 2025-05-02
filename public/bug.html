@@ -1,0 +1,295 @@
+<li><a href="#" id="reportBugLink"><i class="fa fa-bug"></i> Report Bug</a></li>
+
+<!-- Lightbox HTML -->
+<div id="bugReportModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Report a Bug</h2>
+    <form id="bugReportForm">
+      <div class="form-group">
+        <label for="email">Email (optional):</label>
+        <input type="email" id="email" name="email">
+        <small class="error-message" id="emailError"></small>
+      </div>
+      <div class="form-group">
+        <label for="problem">Describe the problem (minimum 4 words):</label>
+        <textarea id="problem" name="problem" required></textarea>
+        <small class="error-message" id="problemError"></small>
+      </div>
+      <div class="form-group">
+        <label for="screenshot">Upload Screenshot (optional, max 10MB):</label>
+        <input type="file" id="screenshot" name="screenshot" accept="image/*">
+        <small class="error-message" id="screenshotError"></small>
+        <div id="imagePreview" style="margin-top: 10px; display: none;">
+          <img id="previewImage" src="#" alt="Preview" style="max-width: 100%; max-height: 200px;">
+        </div>
+      </div>
+      <button type="submit" id="sendReport">Send Report</button>
+    </form>
+    <div id="successMessage" style="display: none;">
+      <p>Thank you! We'll review it soon as we can.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Add these to your CSS -->
+<style>
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 5px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: black;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input, 
+.form-group textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.error-message {
+  color: red;
+  display: none;
+}
+
+#sendReport {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#sendReport:hover {
+  background-color: #45a049;
+}
+
+#sendReport:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+</style>
+
+<!-- Firebase and JavaScript -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+<script>
+  // Initialize Firebase (replace with your config)
+const firebaseConfig = {
+  apiKey: "AIzaSyD1LRguv9N_gRI2kZFjdqNA5fvN8AqXyx4",
+  authDomain: "mc2007-48ecf.firebaseapp.com",
+  databaseURL: "https://mc2007-48ecf-default-rtdb.firebaseio.com",
+  projectId: "mc2007-48ecf",
+  storageBucket: "mc2007-48ecf.appspot.com",
+  messagingSenderId: "636819382403",
+  appId: "1:636819382403:web:e5465f37c94df79409bbb6",
+  measurementId: "G-CZ57NENM1Z"
+};
+  
+  firebase.initializeApp(firebaseConfig);
+  const database = firebase.database();
+  const storage = firebase.storage();
+
+  // Get DOM elements
+  const modal = document.getElementById("bugReportModal");
+  const btn = document.getElementById("reportBugLink");
+  const span = document.getElementsByClassName("close")[0];
+  const form = document.getElementById("bugReportForm");
+  const successMessage = document.getElementById("successMessage");
+  const emailInput = document.getElementById("email");
+  const problemInput = document.getElementById("problem");
+  const screenshotInput = document.getElementById("screenshot");
+  const emailError = document.getElementById("emailError");
+  const problemError = document.getElementById("problemError");
+  const screenshotError = document.getElementById("screenshotError");
+  const imagePreview = document.getElementById("imagePreview");
+  const previewImage = document.getElementById("previewImage");
+  const sendReportBtn = document.getElementById("sendReport");
+
+  // Open modal when Report Bug is clicked
+  btn.onclick = function(e) {
+    e.preventDefault();
+    modal.style.display = "block";
+    form.style.display = "block";
+    successMessage.style.display = "none";
+    form.reset();
+    imagePreview.style.display = "none";
+    clearErrors();
+  }
+
+  // Close modal when X is clicked
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // Close modal when clicking outside
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  // Show image preview when file is selected
+  screenshotInput.addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (file) {
+      if (file.size > 10 * 1024 * 1024) { // 10MB limit
+        showError(screenshotError, "File size must be less than 10MB");
+        screenshotInput.value = '';
+        imagePreview.style.display = "none";
+        return;
+      }
+      
+      if (!file.type.match('image.*')) {
+        showError(screenshotError, "Please select an image file");
+        screenshotInput.value = '';
+        imagePreview.style.display = "none";
+        return;
+      }
+      
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        previewImage.src = e.target.result;
+        imagePreview.style.display = "block";
+        screenshotError.style.display = "none";
+      }
+      reader.readAsDataURL(file);
+    } else {
+      imagePreview.style.display = "none";
+    }
+  });
+
+  // Validate email format
+  function validateEmail(email) {
+    if (email === "") return true; // Optional field
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  }
+
+  // Validate problem description has at least 4 words
+  function validateProblem(problem) {
+    const words = problem.trim().split(/\s+/);
+    return words.length >= 4;
+  }
+
+  // Show error message
+  function showError(element, message) {
+    element.textContent = message;
+    element.style.display = "block";
+  }
+
+  // Clear all error messages
+  function clearErrors() {
+    emailError.style.display = "none";
+    problemError.style.display = "none";
+    screenshotError.style.display = "none";
+  }
+
+  // Handle form submission
+  form.addEventListener("submit", async function(e) {
+    e.preventDefault();
+    clearErrors();
+    
+    const email = emailInput.value;
+    const problem = problemInput.value;
+    const screenshotFile = screenshotInput.files[0];
+    let isValid = true;
+    
+    // Validate email
+    if (email && !validateEmail(email)) {
+      showError(emailError, "Please enter a valid email address");
+      isValid = false;
+    }
+    
+    // Validate problem
+    if (!problem) {
+      showError(problemError, "Please describe the problem");
+      isValid = false;
+    } else if (!validateProblem(problem)) {
+      showError(problemError, "Description must be at least 4 words");
+      isValid = false;
+    }
+    
+    if (!isValid) return;
+    
+    // Disable submit button to prevent multiple submissions
+    sendReportBtn.disabled = true;
+    sendReportBtn.textContent = "Sending...";
+    
+    try {
+      const timestamp = new Date().toISOString();
+      const reportData = {
+        email: email || "Anonymous",
+        problem: problem,
+        timestamp: timestamp,
+        screenshotUrl: ""
+      };
+      
+      // Upload screenshot if provided
+      if (screenshotFile) {
+        const storageRef = storage.ref(`bugReports/${timestamp}_${screenshotFile.name}`);
+        const snapshot = await storageRef.put(screenshotFile);
+        const downloadURL = await snapshot.ref.getDownloadURL();
+        reportData.screenshotUrl = downloadURL;
+      }
+      
+      // Save report to database
+      await database.ref('bugReports').push(reportData);
+      
+      // Show success message
+      form.style.display = "none";
+      successMessage.style.display = "block";
+      
+      // Close modal after 3 seconds
+      setTimeout(() => {
+        modal.style.display = "none";
+        sendReportBtn.disabled = false;
+        sendReportBtn.textContent = "Send Report";
+      }, 3000);
+    } catch (error) {
+      console.error("Error saving bug report: ", error);
+      alert("There was an error submitting your report. Please try again.");
+      sendReportBtn.disabled = false;
+      sendReportBtn.textContent = "Send Report";
+    }
+  });
+</script>
