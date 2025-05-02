@@ -756,3 +756,21 @@ const placeholders = [
 
   // Change the placeholder every 5 seconds
   setInterval(changePlaceholder, 3000);
+  // Add this to your JavaScript file
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    // Check for saved user preference or use system preference
+    const currentTheme = localStorage.getItem('theme') || 
+                         (prefersDarkScheme.matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    
+    themeToggle.addEventListener('click', function() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  });
