@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donate Us</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    nav {
+      background-color: #0066cc;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav h1 {
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      background-color: #004c99;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #003366;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .donation-image {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 2rem;
+      border-radius: 10px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    #payhere-form {
+      margin: 2rem auto;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 4rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h1>Donate Us</h1>
+    <a href="index.html">Go Back to Home</a>
+  </nav>
+
+  <div class="container">
+    <img src="https://images.unsplash.com/photo-1583337130417-3346a1c151f3?fit=crop&w=900&q=80" alt="Donate Image" class="donation-image" />
+    
+    <h2>Your Support Matters</h2>
+    <p>Every contribution helps us grow and continue our mission. Thank you for your generosity!</p>
+
+    <div id="payhere-form" data-pay-id="oddce7808"></div>
+    <script src="https://www.payhere.lk/payhere.pay.button.js" id="payhere-button"></script>
+  </div>
+
+  <footer>
+    &copy; 2025 All rights reserved.
+  </footer>
+</body>
+</html>
